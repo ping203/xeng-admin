@@ -36,7 +36,12 @@ function nullRequest(){
     $("#resultsearch").html("Không tìm thấy kết quả");
     $('#logaction').html("");
 }
-
+function errorThongBao(){
+    $("#spinner").hide();
+    $("#error-popup").modal("show");
+    $("#status-error").html("Hệ thống quá tải .Vui lòng thử lại !");
+    $("#status-error").css("color","red");
+}
 function commaSeparateNumber(val) {
     while (/(\d+)(\d{3})/.test(val.toString())) {
         val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');

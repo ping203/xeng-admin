@@ -649,4 +649,43 @@ Class Transaction extends MY_Controller
         }
 
     }
+
+    function logsmsnotifi(){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $start_time = null;
+        $end_time = null;
+        if ($this->input->post('toDate')) {
+            $start_time = $this->input->post('toDate');
+        }
+
+        if ($this->input->post('fromDate')) {
+            $end_time = $this->input->post('fromDate');
+        }
+
+        if ($start_time === null) {
+            $start_time = date('Y-m-d 00:00:00');
+        }
+        if ($end_time === null) {
+            $end_time = date('Y-m-d 23:59:59');
+        }
+        $this->data['start_time'] = $start_time;
+        $this->data['end_time'] = $end_time;
+        $this->data['temp'] = 'admin/transaction/logsmsnotifi';
+        $this->load->view('admin/main', $this->data);
+    }
+
+    function logsmsnotifiajax(){
+        $toDate = $this->input->post("toDate");
+        $fromDate = $this->input->post("fromDate");
+        $sdt = urlencode($this->input->post("sdt"));
+        $pages = $this->input->post("pages");
+        $tid = urlencode($this->input->post("tid"));
+        $status = urlencode($this->input->post("status"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2') . '?c=180&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) . '&p=' . $pages .'&tid='.$tid.'&n='.$sdt.'&st='.$status);
+        if (isset($datainfo)) {
+            echo $datainfo;
+        } else {
+            echo "Bạn không được hack";
+        }
+    }
 }

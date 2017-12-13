@@ -62,6 +62,10 @@
 <script src="<?php echo public_url() ?>/dist/js/adminlte.min.js"></script>
 
 <script src="<?php echo public_url() ?>/dist/js/demo.js"></script>
+<script src="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.css">
+<script src="<?php echo public_url() ?>/js/common.js"></script>
+<script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.table2excel.js"></script>
 <script>
 	 var timeOutApi = 60000;
 

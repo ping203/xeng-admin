@@ -1,88 +1,74 @@
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-    <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-    <script
-        src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
+<div class="content-wrapper">
 <?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
 <?php else: ?>
-<?php $this->load->view('admin/error')?>
-    <div class="wrapper">
-    <?php $this->load->view('admin/message', $this->data); ?>
-    <form class="list_filter form" action="<?php echo admin_url('report/money') ?>" method="post">
-        <div class="formRow">
-            <table>
-                <tr>
-                    <td>
-                        <label for="param_name" class="formLeft" id="nameuser"
-                               style="margin-left: 70px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                    <td class="item">
-                        <div class="input-group date" id="datetimepicker1">
-                            <input type="text" id="toDate" name="toDate"
-                                   value="<?php echo $start_time ?>"> <span
-                                class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                        </div>
 
-
-                    </td>
-
-                    <td>
-                        <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                               class="formLeft"> Đến ngày: </label>
-                    </td>
-                    <td class="item">
-
-                        <div class="input-group date" id="datetimepicker2">
-                            <input type="text" id="fromDate" name="fromDate"
-                                   value="<?php echo $end_time ?>"> <span
-                                class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                        </div>
-                    </td>
-                    <td style="">
-                        <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                               style="margin-left: 70px">
-                    </td>
-                    <td style="">
-                        <input type="button" id="exportexel" value="Xuất Exel" class="button blueB"
-                               style="margin-left: 20px">
-                    </td>
-
-                </tr>
-            </table>
-        </div>
-    </form>
-
-    <div class="widget">
-    <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
-    <div id="widget">
-
-
-    <div class="formRow">
+    <section class="content-header">
+    </section>
+    <section class="content">
     <div class="row">
     <div class="col-xs-12">
-    <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body">
+        <div class="form-group">
+
+            <form action="<?php echo admin_url('report/money') ?>" method="post">
+                <div class="row">
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <label for="exampleInputEmail1">Từ ngày:</label>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' value="<?php echo $start_time ?>" class="form-control"
+                                   id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <label for="exampleInputEmail1">Đến ngày:</label>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' value="<?php echo $end_time ?>" class="form-control"
+                                   id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <input type="button" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                    </div>
+
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <input type="button" id="exportexel" value="Xuất Exel" class="btn btn-success">
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="box-body  table-responsive no-padding">
+    <?php $this->load->view('admin/message', $this->data); ?>
+    <?php $this->load->view('admin/error', $this->data); ?>
+    <div class="row">
+    <div class="col-sm-12">
+    <table id="example2" class="table  table-bordered table-hover">
     <tr>
         <td colspan="2"></td>
         <td style="color: #000000;font-size: 20px;text-align: right;font-weight: 600">VND</td>
@@ -123,12 +109,12 @@
         <td class="tdmoney" id="money9"></td>
         <td class="tdmoney" id="money10"></td>
     </tr>
-	 <tr class="moneysystem">
+    <tr class="moneysystem">
         <td>Nạp qua MegaCard</td>
         <td class="tdmoney" id="money999"></td>
         <td class="tdmoney" id="money100"></td>
     </tr>
-	<tr class="moneysystem">
+    <tr class="moneysystem">
         <td>Nạp từ VTC</td>
         <td class="tdmoney" id="money77"></td>
         <td class="tdmoney" id="money88"></td>
@@ -156,24 +142,24 @@
 
     <tr class="moneysystem">
         <td>Giftcode marketing</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money15"></td>
 
     </tr>
-	<tr class="moneysystem">
+    <tr class="moneysystem">
         <td>Giftcode đại lý</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money151"></td>
 
     </tr>
     <tr class="moneysystem">
         <td>Vippoint event</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money16"></td>
     </tr>
-	<tr class="moneysystem">
+    <tr class="moneysystem">
         <td>Thưởng nhiệm vụ</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money166"></td>
     </tr>
     <tr class="moneysystem">
@@ -199,32 +185,32 @@
 
     <tr class="moneysystem">
         <td>Nữ điệp viên free</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money21"></td>
     </tr>
     <tr class="moneysystem">
         <td>Vương quốc vin free</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money22"></td>
     </tr>
     <tr class="moneysystem">
         <td>Đổi thưởng vippoint</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money23"></td>
     </tr>
     <tr class="moneysystem">
         <td>Hoàn trả phí đại lý</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money24"></td>
     </tr>
     <tr class="moneysystem">
         <td>Thưởng doanh số đại lý</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money25"></td>
     </tr>
     <tr class="moneysystem">
         <td>Trao thưởng vippoint event</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money26"></td>
     </tr>
     <tr>
@@ -234,7 +220,7 @@
     </tr>
     <tr>
         <td style="color:  #0000ff;font-size: 20px;font-weight:700">Tổng tiền vào</td>
-        <td style="color: #0000ff;font-size: 20px;font-weight:700;text-align: right" ></td>
+        <td style="color: #0000ff;font-size: 20px;font-weight:700;text-align: right"></td>
         <td style="color: #0000ff;font-size: 20px;font-weight:700;text-align: right" id="money29"></td>
     </tr>
     <tr>
@@ -268,12 +254,12 @@
     </tr>
     <tr class="moneysystem">
         <td>Tổng tiền đại lý đầu tháng</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money36">0</td>
     </tr>
     <tr class="moneysystem">
         <td>Tổng tiền đại lý cuối tháng</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money37">0</td>
     </tr>
     <tr>
@@ -318,7 +304,7 @@
     </tr>
     <tr class="moneysystem">
         <td>Đổi xu</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money46"></td>
     </tr>
     <tr class="moneysystem">
@@ -348,12 +334,12 @@
     </tr>
     <tr class="moneysystem">
         <td>Tổng tiền trong user đầu tháng</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money50"></td>
     </tr>
     <tr class="moneysystem">
         <td>Tổng tiền trong user cuối tháng</td>
-        <td class="tdmoney" ></td>
+        <td class="tdmoney"></td>
         <td class="tdmoney" id="money51"></td>
     </tr>
 
@@ -373,19 +359,24 @@
     </table>
     </div>
     </div>
+    <div id="spinner" class="spinner" style="display:none;">
+        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+             alt="Loading"/>
     </div>
-    </div>
+    <div class="text-center">
+        <ul id="pagination-demo" class="pagination-sm"></ul>
     </div>
 
     </div>
+    </div>
+    </div>
+    </div>
+    </section>
 <?php endif; ?>
+</div>
 <style>
     td {
         word-break: break-all;
-    }
-
-    thead {
-        font-size: 12px;
     }
 
     .moneysystem {
@@ -397,28 +388,9 @@
     .tdmoney {
         text-align: right;
     }
+</style>
 
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-lg"></ul>
-    </div>
-</div>
-<script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.table2excel.js"></script>
+
 <script>
 $(function () {
     $('#datetimepicker1').datetimepicker({
@@ -438,7 +410,7 @@ $(document).ready(function () {
     $.ajax({
         type: "POST",
         url: "<?php echo admin_url('report/moneysystemajax  ')?>",
-        // url: "http://192.168.0.251:8082/api_backend",
+
         data: {
             toDate: $("#toDate").val(),
             fromDate: $("#fromDate").val()
@@ -460,9 +432,9 @@ $(document).ready(function () {
                 $("#money8").html(0);
                 $("#money9").html(0);
                 $("#money10").html(0);
-				 $("#money999").html(0);
+                $("#money999").html(0);
                 $("#money100").html(0);
-				  $("#money77").html(0);
+                $("#money77").html(0);
                 $("#money88").html(0);
             } else {
                 if (res.vinInUser.RechargeByCard != null || res.vinInUser.RechargeByCard != null) {
@@ -507,17 +479,17 @@ $(document).ready(function () {
                     $("#money9").html(0);
                     $("#money10").html(0);
                 }
-				 if (res.vinInUser.RechargeByMegaCard != null || res.vinInUser.RechargeByMegaCard != null) {
-                     $("#money999").html(commaSeparateNumber(res.vinInUser.RechargeByMegaCard/1.05));
+                if (res.vinInUser.RechargeByMegaCard != null || res.vinInUser.RechargeByMegaCard != null) {
+                    $("#money999").html(commaSeparateNumber(res.vinInUser.RechargeByMegaCard / 1.05));
                     $("#money100").html(commaSeparateNumber(res.vinInUser.RechargeByMegaCard));
                     total1 += res.vinInUser.RechargeByMegaCard / 1.05;
-					
+
                 } else {
                     $("#money999").html(0);
                     $("#money100").html(0);
                 }
-			
-				 if (res.vinInUser.TopupVTCPay != null || res.vinInUser.TopupVTCPay != null) {
+
+                if (res.vinInUser.TopupVTCPay != null || res.vinInUser.TopupVTCPay != null) {
                     $("#money77").html(commaSeparateNumber(res.vinInUser.TopupVTCPay));
                     $("#money88").html(commaSeparateNumber(res.vinInUser.TopupVTCPay));
                     total1 += res.vinInUser.TopupVTCPay;
@@ -526,7 +498,7 @@ $(document).ready(function () {
                     $("#money77").html(0);
                     $("#money88").html(0);
                 }
-				
+
                 $("#money12").html(commaSeparateNumber(res.totalInUser));
                 $("#money11").html(commaSeparateNumber(total1));
 
@@ -536,7 +508,7 @@ $(document).ready(function () {
                 $("#money13").html(0);
                 $("#money14").html(0);
                 $("#money15").html(0);
-				 $("#money151").html(0);
+                $("#money151").html(0);
                 $("#money16").html(0);
                 $("#money17").html(0);
                 $("#money18").html(0);
@@ -549,7 +521,7 @@ $(document).ready(function () {
                 $("#money25").html(0);
                 $("#money26").html(0);
                 $("#money27").html(0);
-				 $("#money166").html(0);
+                $("#money166").html(0);
 
             } else {
                 if (res.vinInEvent.GiftCode != null || res.vinInEvent.GiftCode != null) {
@@ -569,7 +541,7 @@ $(document).ready(function () {
                 } else {
                     $("#money15").html(0);
                 }
-				 if (res.vinInEvent.GcAgentImport != null || res.vinInEvent.GcAgentImport != null) {
+                if (res.vinInEvent.GcAgentImport != null || res.vinInEvent.GcAgentImport != null) {
                     $("#money151").html(commaSeparateNumber(res.vinInEvent.GcAgentImport));
                 } else {
                     $("#money151").html(0);
@@ -580,7 +552,7 @@ $(document).ready(function () {
                 } else {
                     $("#money16").html(0);
                 }
-				 if (res.vinInEvent.NhiemVu != null || res.vinInEvent.NhiemVu != null) {
+                if (res.vinInEvent.NhiemVu != null || res.vinInEvent.NhiemVu != null) {
                     $("#money166").html(commaSeparateNumber(res.vinInEvent.NhiemVu));
 
                 } else {
@@ -659,17 +631,17 @@ $(document).ready(function () {
                 $("#money33").html(0);
             } else {
                 if (res.vinOutUser.CashOutByCard != null || res.vinOutUser.CashOutByCard != null) {
-                    $("#money30").html(commaSeparateNumber(Math.round(res.vinOutUser.CashOutByCard/1.15)));
+                    $("#money30").html(commaSeparateNumber(Math.round(res.vinOutUser.CashOutByCard / 1.15)));
                     $("#money31").html(commaSeparateNumber(res.vinOutUser.CashOutByCard));
-                    total2 += Math.round(res.vinOutUser.CashOutByCard/1.15);
+                    total2 += Math.round(res.vinOutUser.CashOutByCard / 1.15);
                 } else {
                     $("#money30").html(0);
                     $("#money31").html(0);
                 }
                 if (res.vinOutUser.CashOutByTopUp != null || res.vinOutUser.CashOutByTopUp != null) {
-                    $("#money32").html(commaSeparateNumber(Math.round(res.vinOutUser.CashOutByTopUp/1.17)));
+                    $("#money32").html(commaSeparateNumber(Math.round(res.vinOutUser.CashOutByTopUp / 1.17)));
                     $("#money33").html(commaSeparateNumber(res.vinOutUser.CashOutByTopUp));
-                    total2 += Math.round(Math.round(res.vinOutUser.CashOutByTopUp/1.17));
+                    total2 += Math.round(Math.round(res.vinOutUser.CashOutByTopUp / 1.17));
                 } else {
                     $("#money32").html(0);
                     $("#money33").html(0);
@@ -694,9 +666,9 @@ $(document).ready(function () {
                     $("#money37").html(0);
                 }
             }
-            $("#money38").html(commaSeparateNumber(Math.round(res.totalOutAgent*0.83)));
+            $("#money38").html(commaSeparateNumber(Math.round(res.totalOutAgent * 0.83)));
             $("#money39").html(commaSeparateNumber(res.totalOutAgent));
-            $("#money40").html(commaSeparateNumber(Math.round(res.totalOutAgent*0.83)+total2));
+            $("#money40").html(commaSeparateNumber(Math.round(res.totalOutAgent * 0.83) + total2));
             $("#money41").html(commaSeparateNumber(res.totalOut));
             var total3 = 0;
             var total4 = 0;
@@ -740,10 +712,10 @@ $(document).ready(function () {
                 if (res.actionGame.NuDiepVien != null) {
                     total3 += res.actionGame.NuDiepVien.revenue;
                 }
-				 if (res.actionGame.VuongQuocVin != null) {
+                if (res.actionGame.VuongQuocVin != null) {
                     total3 += res.actionGame.VuongQuocVin.revenue;
                 }
-                $('#money42').html(commaSeparateNumber(0-total3));
+                $('#money42').html(commaSeparateNumber(0 - total3));
                 if (res.actionGame.Sam != null) {
                     total4 += res.actionGame.Sam.revenue;
                 }
@@ -756,7 +728,7 @@ $(document).ready(function () {
                 if (res.actionGame.Tlmn != null) {
                     total4 += res.actionGame.Tlmn.revenue;
                 }
-				if(res.actionGame.XiDzach != null) {
+                if (res.actionGame.XiDzach != null) {
                     total4 += res.actionGame.XiDzach.revenue;
                 }
 //                if(res.actionGame.TaLa != null) {
@@ -797,32 +769,32 @@ $(document).ready(function () {
                 if (res.actionGame.Poker != null) {
                     total4 += res.actionGame.Poker.revenue;
                 }
-				  if (res.actionGame.PokerTour != null) {
+                if (res.actionGame.PokerTour != null) {
                     total4 += res.actionGame.PokerTour.revenue;
                 }
-				if (res.actionGame.XocDia != null) {
+                if (res.actionGame.XocDia != null) {
                     total4 += res.actionGame.XocDia.revenue;
                 }
                 if (res.actionGame.Caro != null) {
                     total4 += res.actionGame.Caro.revenue;
                 }
-				 if (res.actionGame.CoTuong != null) {
+                if (res.actionGame.CoTuong != null) {
                     total4 += res.actionGame.CoTuong.revenue;
                 }
-				 if (res.actionGame.CoUp != null) {
+                if (res.actionGame.CoUp != null) {
                     total4 += res.actionGame.CoUp.revenue;
                 }
-				  if (res.actionGame.HamCaMap != null) {
+                if (res.actionGame.HamCaMap != null) {
                     total4 += res.actionGame.HamCaMap.revenue;
                 }
-                $('#money43').html(commaSeparateNumber(0-total4));
+                $('#money43').html(commaSeparateNumber(0 - total4));
 
-            }else{
+            } else {
                 $("#money42").html(0);
                 $("#money43").html(0);
             }
             var total5 = 0;
-			  var total55 = 0;
+            var total55 = 0;
             if ($.isEmptyObject(res.vinOther)) {
                 $("#money44").html(0);
                 $("#money45").html(0);
@@ -832,15 +804,15 @@ $(document).ready(function () {
 
             } else {
                 if (res.vinOther.TransferMoney != null || res.vinOther.TransferMoney != null) {
-                    $("#money44").html( commaSeparateNumber(res.vinOther.TransferMoney));
+                    $("#money44").html(commaSeparateNumber(res.vinOther.TransferMoney));
                     total5 += res.vinOther.TransferMoney;
-                }else{
+                } else {
                     $("#money44").html(0);
                 }
                 if (res.vinOther.ChargeSMS != null || res.vinOther.ChargeSMS != null) {
                     $("#money45").html(commaSeparateNumber(res.vinOther.ChargeSMS));
                     total5 += res.vinOther.ChargeSMS;
-                }else{
+                } else {
                     $("#money45").html(0);
                 }
 
@@ -848,14 +820,14 @@ $(document).ready(function () {
                 if (res.vinOther.NapXu != null || res.vinOther.NapXu != null) {
                     $("#money46").html(commaSeparateNumber(res.vinOther.NapXu));
                     total5 += res.vinOther.NapXu;
-                }else{
+                } else {
                     $("#money46").html(0);
                 }
 
                 if (res.vinOther.Admin != null || res.vinOther.Admin != null) {
                     $("#money47").html(commaSeparateNumber(res.vinOther.Admin));
                     total5 += res.vinOther.Admin;
-                }else{
+                } else {
                     $("#money47").html(0);
                 }
                 if (res.vinOther.GcAgent != null || res.vinOther.GcAgent != null) {
@@ -870,7 +842,7 @@ $(document).ready(function () {
                 }
                 $("#money55").html(commaSeparateNumber(total55));
             }
-            $("#money48").html(commaSeparateNumber(Math.round((total5 - total4 - total3)*0.83)));
+            $("#money48").html(commaSeparateNumber(Math.round((total5 - total4 - total3) * 0.83)));
             $("#money49").html(commaSeparateNumber(total5 - total4 - total3));
             var total6 = 0;
             var total7 = 0;
@@ -894,24 +866,20 @@ $(document).ready(function () {
                 }
                 $("#money53").html(commaSeparateNumber(res.user.userEnd - res.user.userStart));
 
-                $("#money52").html(commaSeparateNumber(Math.round((res.user.userEnd- res.user.userStart)*0.83)));
+                $("#money52").html(commaSeparateNumber(Math.round((res.user.userEnd - res.user.userStart) * 0.83)));
             }
-
-
-
 
 
             $("#money54").html(res.ratioCashout + "%");
 
         }, error: function () {
-            $("#spinner").hide();
-            $("#error-popup").modal("show");
-        }, timeout: 40000
+            errorThongBao();
+        }, timeout: timeOutApi
     })
 });
 
 $("#exportexel").click(function () {
-    $("#checkAll").table2excel({
+    $("#example2").table2excel({
         exclude: ".noExl",
         name: "Excel Document Name",
         filename: "Report",

@@ -1,132 +1,109 @@
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
-<?php if($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
+
+        <section class="content-header">
+            <h1>
+               Tổng số vin hiện tại
+            </h1>
+            <ol class="breadcrumb">
+                <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
+
+                        <label id="resultsearch" style="color: red;"></label>
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <form action="<?php echo admin_url('report/moneytotal') ?>" method="post">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Từ ngày:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' value="<?php echo $start_time ?>"
+                                                       class="form-control"
+                                                       id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Đến ngày:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type='text' value="<?php echo $end_time ?>" class="form-control"
+                                                       id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="button" id="search_tran" value="Tìm kiếm"
+                                                   class="btn btn-success">
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="box-body  table-responsive no-padding">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example2" class="table  table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td>STT</td>
+                                            <td>Người chơi</td>
+                                            <td>Bot</td>
+                                            <td>Đại lý tổng</td>
+                                            <td>Đại lý cấp 1</td>
+                                            <td style="width:100px;">Đại lý cấp 2</td>
+                                            <td>Tổng tiền</td>
+                                            <td>Thời gian</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="logaction">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-<?php else: ?>
- <?php $this->load->view('admin/error')?>
-<div class="wrapper">
-<?php $this->load->view('admin/message', $this->data); ?>
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-    <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-    <script
-        src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-<div class="widget">
-<h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
-
-<div class="title">
-    <h6>Tổng số vin hiện tại</h6>
+        </section>
+    <?php endif; ?>
 </div>
-<form class="list_filter form" action="<?php echo admin_url('report/moneytotal') ?>" method="post">
-    <div class="formRow">
-
-        <table>
-            <tr>
-                <td>
-                    <label for="param_name" class="formLeft" id="nameuser"
-                           style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                <td class="item">
-                    <div class="input-group date" id="datetimepicker1">
-                        <input type="text" id="toDate" name="toDate" value="<?php echo $start_time?>"> <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                    </div>
-
-
-                </td>
-
-                <td>
-                    <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                           class="formLeft"> Đến ngày: </label>
-                </td>
-                <td class="item">
-
-                    <div class="input-group date" id="datetimepicker2">
-                        <input type="text" id="fromDate" name="fromDate" value="<?php echo $end_time?>" > <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                    </div>
-                </td>
-                <td style="">
-                    <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                           style="margin-left: 70px">
-                </td>
-                <td>
-                    <input type="reset"
-                           onclick="window.location.href = '<?php echo admin_url('report/moneytotal') ?>'; "
-                           value="Reset" class="basic" style="margin-left: 20px">
-                </td>
-            </tr>
-        </table>
-    </div>
-</form>
-<div class="formRow"></div>
-<table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
-    <thead>
-    <tr style="height: 20px;">
-        <td>STT</td>
-        <td>Người chơi</td>
-        <td>Bot</td>
-        <td>Đại lý tổng</td>
-        <td>Đại lý cấp 1</td>
-        <td style="width:100px;">Đại lý cấp 2</td>
-        <td>Tổng tiền</td>
-        <td>Thời gian</td>
-    </tr>
-    </thead>
-    <tbody id="logaction">
-    </tbody>
-</table>
-</div>
-</div>
-<?php endif; ?>
-<style>
-    td {
-        word-break: break-all;
-    }
-
-    thead {
-        font-size: 12px;
-    }
-
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-
-<div id="spinner" class="spinner" style="display:none;">
-    <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-</div>
-<div class="text-center">
-    <ul id="pagination-demo" class="pagination-sm"></ul>
-
-</div>
-
-
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({
@@ -145,7 +122,7 @@
             return false;
         }
     });
-    function resultSearchTransction(stt,moneyuser, moneybot, moneyagent, moneyagent1, moneyagent2, totalmoney, date) {
+    function resultSearchTransction(stt, moneyuser, moneybot, moneyagent, moneyagent1, moneyagent2, totalmoney, date) {
         var rs = "";
         rs += "<tr>";
         rs += "<td>" + stt + "</td>";
@@ -167,11 +144,10 @@
         $.ajax({
             type: "POST",
             url: "<?php echo admin_url('report/moneytotalajax')?>",
-            // url: "http://192.168.0.251:8082/api_backend",
             data: {
                 toDate: $("#toDate").val(),
                 fromDate: $("#fromDate").val(),
-                pages : 1
+                pages: 1
             },
 
             dataType: 'json',
@@ -180,11 +156,11 @@
                 if (result.totals == "") {
                     $('#pagination-demo').css("display", "none");
                     $("#resultsearch").html("Không tìm thấy kết quả");
-                }else {
+                } else {
                     var totalPage = 10;
                     stt = 1;
                     $.each(result.totals, function (index, value) {
-                        result += resultSearchTransction(stt, value.moneyUser, value.moneyBot, value.moneySuperAgent, value.moneyAgent1,value.moneyAgent2,value.total,value.timeLog);
+                        result += resultSearchTransction(stt, value.moneyUser, value.moneyBot, value.moneySuperAgent, value.moneyAgent1, value.moneyAgent2, value.total, value.timeLog);
                         stt++;
 
                     });
@@ -202,23 +178,22 @@
                                     data: {
                                         toDate: $("#toDate").val(),
                                         fromDate: $("#fromDate").val(),
-                                        pages : page
+                                        pages: page
                                     },
                                     dataType: 'json',
                                     success: function (result) {
                                         $("#spinner").hide();
                                         stt = 1;
                                         $.each(result.totals, function (index, value) {
-                                            result += resultSearchTransction(stt, value.moneyUser, value.moneyBot, value.moneySuperAgent, value.moneyAgent1,value.moneyAgent2,value.total,value.timeLog);
+                                            result += resultSearchTransction(stt, value.moneyUser, value.moneyBot, value.moneySuperAgent, value.moneyAgent1, value.moneyAgent2, value.total, value.timeLog);
                                             stt++;
 
                                         });
                                         $('#logaction').html(result);
                                     }, error: function () {
-                $('#logaction').html("");
-                $("#spinner").hide();
-                $("#error-popup").modal("show");
-            }, timeout: 40000
+                                        $('#logaction').html("");
+                                        errorThongBao();
+                                    }, timeout: timeOutApi
                                 });
                             }
                             oldPage = page;
@@ -227,9 +202,8 @@
                 }
             }, error: function () {
                 $('#logaction').html("");
-                $("#spinner").hide();
-                $("#error-popup").modal("show");
-            }, timeout: 40000
+               errorThongBao();
+            }, timeout: timeOutApi
         })
     });
 </script>

@@ -1,3 +1,268 @@
+<div class="content-wrapper">
+<?php if ($role == false): ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php else: ?>
+
+    <section class="content-header">
+        <h1>
+            Top chơi game
+        </h1>
+        <ol class="breadcrumb">
+            <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>
+        </ol>
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Từ ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' value="" class="form-control"
+                               id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Đến ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' value="" class="form-control"
+                               id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Nickname:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <input type="text" class="form-control" id="filter_iname"
+                           value="<?php echo $this->input->post('name') ?>" name="name">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Loại thẻ:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="select_provider" name="select_provider" class="form-control">
+                        <option value="">Chọn</option>
+                        <option
+                            value="Viettel" <?php if ($this->input->post('select_provider') == "Viettel") {
+                            echo "selected";
+                        } ?>>Viettel
+                        </option>
+                        <option
+                            value="Mobifone" <?php if ($this->input->post('select_provider') == "Mobifone") {
+                            echo "selected";
+                        } ?>>Mobifone
+                        </option>
+                        <option
+                            value="Vinaphone" <?php if ($this->input->post('select_provider') == "Vinaphone") {
+                            echo "selected";
+                        } ?>>Vinaphone
+                        </option>
+                        <option
+                            value="Zing" <?php if ($this->input->post('select_provider') == "Zing") {
+                            echo "selected";
+                        } ?>>Zing
+                        </option>
+                        <option
+                            value="Vcoin" <?php if ($this->input->post('select_provider') == "Vcoin") {
+                            echo "selected";
+                        } ?>>Vcoin
+                        </option>
+                        <option
+                            value="Gate" <?php if ($this->input->post('select_provider') == "Gate") {
+                            echo "selected";
+                        } ?>>Gate
+                        </option>
+                        <option
+                            value="VietNamMobile" <?php if ($this->input->post('select_provider') == "VietNamMobile") {
+                            echo "selected";
+                        } ?>>VietNamMobile
+                        </option>
+                        <option
+                            value="MegaCard" <?php if ($this->input->post('select_provider') == "MegaCard") {
+                            echo "selected";
+                        } ?>>MegaCard
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Mã thẻ:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <input type="text" id="txtmathe" class="form-control"
+                           value="<?php echo $this->input->post('txtmathe') ?>" name="txtmathe">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Mã serial:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <input type="text" id="txtserial" class="form-control"
+                           value="<?php echo $this->input->post('txtserial') ?>"
+                           name="txtserial">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Mã giao dịch:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <input type="text" id="magiaodich" value="<?php echo $this->input->post('magiaodich') ?>"
+                           name="magiaodich" class="form-control">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Trạng thái:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="select_status" name="select_status" class="form-control">
+                        <option value="">Chọn</option>
+                        <option value="0" <?php if ($this->input->post('select_status') == "0") {
+                            echo "selected";
+                        } ?>>Thành công
+                        </option>
+                        <option value="1" <?php if ($this->input->post('select_status') == "1") {
+                            echo "selected";
+                        } ?>>Thất bại
+                        </option>
+                        <option value="30" <?php if ($this->input->post('select_status') == "30") {
+                            echo "selected";
+                        } ?>>Đang xử lý
+                        </option>
+                        <option value="31" <?php if ($this->input->post('select_status') == "31") {
+                            echo "selected";
+                        } ?>>Thẻ đã nạp trước đó
+                        </option>
+                        <option value="32" <?php if ($this->input->post('select_status') == "32") {
+                            echo "selected";
+                        } ?>>Thẻ bị khóa
+                        </option>
+                        <option value="33" <?php if ($this->input->post('select_status') == "33") {
+                            echo "selected";
+                        } ?>>Thẻ chưa kích hoạt
+                        </option>
+                        <option value="34" <?php if ($this->input->post('select_status') == "34") {
+                            echo "selected";
+                        } ?>>Thẻ hết hạn
+                        </option>
+                        <option value="35" <?php if ($this->input->post('select_status') == "35") {
+                            echo "selected";
+                        } ?>>Sai mã thẻ
+                        </option>
+                        <option value="36" <?php if ($this->input->post('select_status') == "36") {
+                            echo "selected";
+                        } ?>>Mã serial không đúng
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Nhà cung cấp:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="select_partner" name="select_partner" class="form-control">
+                        <option value="">Chọn</option>
+                        <option value="maxpay" <?php if ($this->input->post('select_partner') == "maxpay") {
+                            echo "selected";
+                        } ?>>Maxpay
+                        </option>
+                        <option value="abtpay" <?php if ($this->input->post('select_partner') == "abtpay") {
+                            echo "selected";
+                        } ?>>Abtpay
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="example2" class="table  table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã giao dịch</th>
+                        <th>Nick name</th>
+                        <th>Thẻ</th>
+                        <th>Nhà cung cấp</th>
+                        <th>Serial</th>
+                        <th>Mã thẻ</th>
+                        <th>Mệnh giá</th>
+                        <th>Mã lỗi dịch vụ</th>
+                        <th>Mô tả</th>
+                        <th>Mã lỗi Vinplay</th>
+                        <th>Thời gian</th>
+                        <th>Cập nhật thẻ</th>
+                    </tr>
+                    </thead>
+                    <tbody id="logaction">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+<?php endif; ?>
+</div>
+
+
+
+
+
+
 <div class="titleArea">
     <div class="wrapper">
         <div class="pageTitle">

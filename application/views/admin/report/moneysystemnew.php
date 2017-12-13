@@ -1,628 +1,616 @@
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-    <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-    <script
-        src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-		<script src="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.css">
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
+<div class="content-wrapper">
 <?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php else: ?>
+
+    <section class="content-header">
+
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body">
+        <div class="form-group">
+            <form class="list_filter form" action="<?php echo admin_url('report/moneysystemnew') ?>" method="post">
+                <div class="row">
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <label for="exampleInputEmail1">Từ ngày:</label>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' value="<?php echo $start_time ?>" class="form-control"
+                                   id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <label for="exampleInputEmail1">Đến ngày:</label>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' value="<?php echo $end_time ?>" class="form-control"
+                                   id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <input type="submit" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                    </div>
+                </div>
+            </form>
+
         </div>
     </div>
-<?php else: ?>
-<?php $this->load->view('admin/error')?>
-<div class="wrapper">
-<?php $this->load->view('admin/message', $this->data); ?>
 
-<form class="list_filter form" action="<?php echo admin_url('report/moneysystemnew') ?>" method="post">
+    <div class="box-body  table-responsive no-padding">
+    <?php $this->load->view('admin/message', $this->data); ?>
+    <?php $this->load->view('admin/error', $this->data); ?>
+    <div class="row">
+        <div class="col-sm-12">
+            <table id="example2" class="table  table-bordered table-hover">
+                <thead>
+                <tr>
+                    <td>Tiền nạp</td>
+                    <td>Tiền sự kiên</td>
+                    <td style="font-weight: 600;color: #0000ff">Tổng nạp</td>
+                    <td>Tiền đổi thưởng</td>
+                    <td>Tiền lệch đại lý</td>
 
+                    <td style="font-weight: 600;color: #0000ff">Tổng đổi thưởng</td>
+                    <td style="font-weight: 600;color: #0000ff">Tỉ lệ đổi thưởng</td>
+                </tr>
+                </thead>
+                <tbody id="logactiontotal"></tbody>
 
-    <div class="formRow">
-        <table>
-            <tr>
-                <td>
-                    <label for="param_name" class="formLeft" id="nameuser"
-                           style="margin-left: 70px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                <td class="item">
-                    <div class="input-group date" id="datetimepicker1">
-                        <input type="text" id="toDate" name="toDate"
-                               value="<?php echo $start_time ?>"> <span
-                            class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                    </div>
-
-
-                </td>
-
-                <td>
-                    <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                           class="formLeft"> Đến ngày: </label>
-                </td>
-                <td class="item">
-
-                    <div class="input-group date" id="datetimepicker2">
-                        <input type="text" id="fromDate" name="fromDate"
-                               value="<?php echo $end_time ?>"> <span
-                            class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                    </div>
-                </td>
-                <td style="">
-                    <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                           style="margin-left: 70px">
-                </td>
-                <td>
-                    <input type="reset"
-                           onclick="window.location.href = '<?php echo admin_url('report/moneysystemnew') ?>'; "
-                           value="Reset" class="basic" style="margin-left: 20px">
-                </td>
-            </tr>
-        </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-12">
+        <ul class="tabs-menu">
+            <li class="current"><a href="#tab-1">Game</a></li>
+            <li><a href="#tab-2">Tiền vào game</a></li>
+            <li><a href="#tab-3">Tiền ra game</a></li>
+            <li><a href="#tab-4">Tiền khác</a></li>
+            <!--<li><a href="#tab-5">Bot</a></li>-->
+        </ul>
     </div>
 
-</form>
-
-<div class="formRow">
-    <div class="container">
+    <div id="tab-1" class="tab-content">
         <div class="row">
             <div class="col-sm-12">
-                <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
+                <h4 id="" style="color: red;margin-left: 20px">Minigame</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
                     <thead>
                     <tr style="height: 20px;">
-                        <td>Tiền nạp</td>
-                        <td>Tiền sự kiên</td>
-                        <td style="font-weight: 600;color: #0000ff">Tổng nạp</td>
-                        <td>Tiền đổi thưởng</td>
-                        <td>Tiền lệch đại lý</td>
-					
-                        <td style="font-weight: 600;color: #0000ff">Tổng đổi thưởng</td>
-                        <td style="font-weight: 600;color: #0000ff">Tỉ lệ đổi thưởng</td>
+                        <td>Tên game</td>
+                        <td>Tiền cược</td>
+                        <td>Trả thưởng</td>
+                        <td>Tiền hoàn trả</td>
+                        <td>Tiền sự kiện</td>
+                        <td>Phế</td>
+                        <td class="col-sm-2">Tiền thắng trong game</td>
+                        <td>Tiền thắng tổng</td>
                     </tr>
                     </thead>
-                    <tbody id="logactiontotal"></tbody>
+                    <tbody id="logaction1"></tbody>
+                    <tbody>
+                    <tr>
+                        <td colspan="">Tổng:</td>
+                        <td id="totalmoneylost" style="color:#0000ff "></td>
+                        <td id="totalmoneywin" style="color: #0000ff"></td>
+                        <td id="totalrefund" style="color: #0000ff">0</td>
+                        <td id="totalmoneyother" style="color: #0000ff"></td>
+                        <td id="totalmoneyfee" style="color: #0000ff"></td>
+                        <td id="totalmoneyplay" style="color: #0000ff"></td>
+                        <td id="totalmoney" style="color: #0000ff"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <h4 id="checkAll1" style="color: red;margin-left: 20px">Game bài</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr style="height: 20px;">
+                        <td>Tên game</td>
+                        <td>Tiền cược</td>
+                        <td>Trả thưởng</td>
+                        <td>Tiền hoàn trả</td>
+                        <td>Tiền sự kiện</td>
+                        <td>Phế</td>
+                        <td class="col-sm-2">Tiền thắng trong game</td>
+                        <td>Tiền thắng tổng</td>
+                    </tr>
+                    </thead>
+                    <tbody id="logaction2"></tbody>
+                    <tbody>
+                    <tr>
+                        <td colspan="">Tổng:</td>
+                        <td id="totalmoneylostbai" style="color:#0000ff "></td>
+                        <td id="totalmoneywinbai" style="color: #0000ff"></td>
+                        <td id="" style="color: #0000ff">0</td>
+                        <td id="totalmoneyotherbai" style="color: #0000ff"></td>
+                        <td id="totalmoneyfeebai" style="color: #0000ff"></td>
+                        <td id="totalmoneyplaybai" style="color: #0000ff"></td>
+                        <td id="totalmoneybai" style="color: #0000ff"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <h4 id="" style="color: red;margin-left: 20px">Game khác</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr style="height: 20px;">
+                        <td>Tên game</td>
+                        <td>Tiền Vin đổi sang</td>
+                        <td>Tiền đổi sang Vin</td>
+                        <td>Tiền hoàn trả</td>
+                        <td>Tiền sự kiện</td>
+                        <td>Phế</td>
+                        <td class="col-sm-2">Tiền thắng trong game</td>
+                        <td>Tiền thắng tổng</td>
+                    </tr>
+                    </thead>
+                    <tbody id="logactiongamekhac"></tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <h4 id="" style="color: red;margin-left: 20px">Tổng</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <td colspan="">Tổng:</td>
+                        <td id="summoneylost" style="color:#0000ff "></td>
+                        <td id="summoneywin" style="color: #0000ff"></td>
+                        <td id="sumrefund" style="color: #0000ff"></td>
+                        <td id="summoneyother" style="color: #0000ff"></td>
+                        <td id="summoneyfee" style="color: #0000ff"></td>
+                        <td id="summoneyplay" style="color: #0000ff" class="col-sm-2"></td>
+                        <td id="summoney" style="color: #0000ff"></td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
-</div>
 
-<div class="formRow">
-<div class="container">
-<div id="tabs-container">
-<ul class="tabs-menu">
-    <li class="current"><a href="#tab-1">Game</a></li>
-    <li><a href="#tab-2">Tiền vào game</a></li>
-    <li><a href="#tab-3">Tiền ra game</a></li>
-    <li><a href="#tab-4">Tiền khác</a></li>
-    <!--<li><a href="#tab-5">Bot</a></li>-->
-</ul>
-<div class="tab row">
-<div id="tab-1" class="tab-content col-sm-12">
-    <div class="row">
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Minigame</h4>
+    <div id="tab-2" class="tab-content col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <tr>
+                        <td rowspan="8"
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tiền nạp user
+                        </td>
+                        <td>Tiền nạp thẻ</td>
+                        <td id="money1" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>IAP</td>
+                        <td id="money2" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>SMS</td>
+                        <td id="money3" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Ngân hàng</td>
+                        <td id="money4" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>VinCard</td>
+                        <td id="money5" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>MegaCard</td>
+                        <td id="money555" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Tiền nạp từ VTC</td>
+                        <td id="money444" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="color: #0000ff;font-weight: 600">Tổng</td>
+                        <td id="money6" style="color: #0000ff;font-weight: 600;text-align: right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height: 30px"></td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="17"
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tiền sự kiện
+                        </td>
+                        <td>GiftCode</td>
+                        <td id="money7" class="moneyhtml"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td>GiftCode vận hành</td>
+                        <td id="money8" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Gift code marketing</td>
+                        <td id="money9" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Gift code đại lý</td>
+                        <td id="money91" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Vippoint event</td>
+                        <td id="money10" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Thưởng nhiệm vụ</td>
+                        <td id="money200" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Vòng quay may mắn</td>
+                        <td id="money11" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Vòng quay vip</td>
+                        <td id="money12" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Kho báu free</td>
+                        <td id="money13" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Siêu anh hùng free</td>
+                        <td id="money14" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Nữ điệp viên free</td>
+                        <td id="money15" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Vương quốc vin free</td>
+                        <td id="money16" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Đổi thưởng vippoint</td>
+                        <td id="money17" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Hoàn trả phí đại lý</td>
+                        <td id="money18" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Thưởng doanh số đại lý</td>
+                        <td id="money19" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Trao thưởng vippoint event</td>
+                        <td id="money20" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="color: #0000ff;font-weight: 600">Tổng</td>
+                        <td id="money21" style="color: #0000ff;font-weight: 600; text-align: right"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" style="height: 30px"></td>
+                    </tr>
+
+                    <tr>
+                        <td
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tổng tiền vào
+                        </td>
+
+                        <td colspan="2" id="money22"
+                            style="vertical-align: middle;text-align: right;color: red;font-weight: 600"></td>
+                    </tr>
+                </table>
+
+
+            </div>
         </div>
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>Tên game</td>
-                    <td>Tiền cược</td>
-                    <td>Trả thưởng</td>
-                    <td>Tiền hoàn trả</td>
-                    <td>Tiền sự kiện</td>
-                    <td>Phế</td>
-                    <td class="col-sm-2">Tiền thắng trong game</td>
-                    <td>Tiền thắng tổng</td>
-                </tr>
-                </thead>
-                <tbody id="logaction1"></tbody>
-                <tbody>
-                <tr>
-                    <td colspan="">Tổng:</td>
-                    <td id="totalmoneylost" style="color:#0000ff "></td>
-                    <td id="totalmoneywin" style="color: #0000ff"></td>
-                    <td id="totalrefund" style="color: #0000ff">0</td>
-                    <td id="totalmoneyother" style="color: #0000ff"></td>
-                    <td id="totalmoneyfee" style="color: #0000ff"></td>
-                    <td id="totalmoneyplay" style="color: #0000ff"></td>
-                    <td id="totalmoney" style="color: #0000ff"></td>
-                </tr>
-                </tbody>
-            </table>
+
+    </div>
+    <div id="tab-3" class="tab-content col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <tr>
+                        <td rowspan="3"
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tiền user đổi thưởng
+                        </td>
+                        <td>Đổi thẻ</td>
+                        <td id="money23" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td>Nạp tiền điện thoại</td>
+                        <td id="money24" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="color: #0000ff;font-weight: 600">Tổng</td>
+                        <td id="money25" style="color: #0000ff;font-weight: 600;text-align: right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height: 30px"></td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3"
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tiền lệch đại lý
+                        </td>
+                        <td>Đầu</td>
+                        <td id="money26" class="moneyhtml"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td>Cuối</td>
+                        <td id="money27" class="moneyhtml"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td style="color: #0000ff;font-weight: 600">Tiền lệch</td>
+                        <td id="money28" style="color: #0000ff;font-weight: 600; text-align: right"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" style="height: 30px"></td>
+                    </tr>
+
+                    <tr>
+                        <td
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tổng tiền ra
+                        </td>
+
+                        <td colspan="2" id="money29"
+                            style="vertical-align: middle;text-align: right;color: red;font-weight: 600"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Game bài</h4>
+    </div>
+    <div id="tab-4" class="tab-content col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <tr>
+                        <td rowspan="6"
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tiền khác
+                        </td>
+                        <td>Phí chuyển khoản</td>
+                        <td id="money30" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+                        <td>Đổi xu</td>
+                        <td id="money31" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+                        <td>Phí SMS</td>
+                        <td id="money32" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+                        <td>Admin</td>
+                        <td id="money33" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+                        <td>Đại lý xuất giftcode</td>
+                        <td id="money34" class="moneyhtml"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="color: #0000ff;font-weight: 600">Tổng</td>
+                        <td id="money35" style="color: #0000ff;font-weight: 600;text-align: right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height: 30px"></td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3"
+                            style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
+                            Tiền lệch user
+                        </td>
+                        <td>Đầu</td>
+                        <td id="money36" class="moneyhtml"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td>Cuối</td>
+                        <td id="money37" class="moneyhtml"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td style="color: #0000ff;font-weight: 600">Tiền lệch</td>
+                        <td id="money38" style="color: #0000ff;font-weight: 600; text-align: right"></td>
+                    </tr>
+
+                </table>
+            </div>
         </div>
-        <div class="col-sm-12">
-            <table id="checkAll1" class="table table-bordered" style="table-layout: fixed">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>Tên game</td>
-                    <td>Tiền cược</td>
-                    <td>Trả thưởng</td>
-                    <td>Tiền hoàn trả</td>
-                    <td>Tiền sự kiện</td>
-                    <td>Phế</td>
-                    <td class="col-sm-2">Tiền thắng trong game</td>
-                    <td>Tiền thắng tổng</td>
-                </tr>
-                </thead>
-                <tbody id="logaction2"></tbody>
-                <tbody>
-                <tr>
-                    <td colspan="">Tổng:</td>
-                    <td id="totalmoneylostbai" style="color:#0000ff "></td>
-                    <td id="totalmoneywinbai" style="color: #0000ff"></td>
-                    <td id="" style="color: #0000ff">0</td>
-                    <td id="totalmoneyotherbai" style="color: #0000ff"></td>
-                    <td id="totalmoneyfeebai" style="color: #0000ff"></td>
-                    <td id="totalmoneyplaybai" style="color: #0000ff" ></td>
-                    <td id="totalmoneybai" style="color: #0000ff"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-		 <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Game khác</h4>
-        </div>
-        <div class="col-sm-12">
-            <table id="checkAll1" class="table table-bordered" style="table-layout: fixed">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>Tên game</td>
-                    <td>Tiền Vin đổi sang</td>
-                    <td>Tiền đổi sang Vin</td>
-                    <td>Tiền hoàn trả</td>
-                    <td>Tiền sự kiện</td>
-                    <td>Phế</td>
-                    <td class="col-sm-2">Tiền thắng trong game</td>
-                    <td>Tiền thắng tổng</td>
-                </tr>
-                </thead>
-                <tbody id="logactiongamekhac"></tbody>
-            </table>
-        </div>
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Tổng</h4>
-        </div>
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <tbody>
-                <tr>
-                    <td colspan="">Tổng:</td>
-                    <td id="summoneylost" style="color:#0000ff "></td>
-                    <td id="summoneywin" style="color: #0000ff"></td>
-                    <td id="sumrefund" style="color: #0000ff"></td>
-                    <td id="summoneyother" style="color: #0000ff"></td>
-                    <td id="summoneyfee" style="color: #0000ff"></td>
-                    <td id="summoneyplay" style="color: #0000ff" class="col-sm-2"></td>
-                    <td id="summoney" style="color: #0000ff"></td>
-                </tr>
-                </tbody>
-            </table>
+    </div>
+    <div id="tab-5" class="tab-content col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 id="" style="color: red;margin-left: 20px">Tiền bot</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr style="height: 20px;">
+                        <td>Cộng trừ tiền bot</td>
+                        <td>Admin</td>
+                        <td>Vippoint event</td>
+                    </tr>
+                    <tr style="height: 20px;">
+                        <td id="bot1"></td>
+                        <td id="bot2"></td>
+                        <td id="bot3"></td>
+                    </tr>
+                    </thead>
+
+                </table>
+            </div>
+
+
+            <div class="col-sm-12">
+                <h4 id="" style="color: red;margin-left: 20px">Minigame</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr style="height: 20px;">
+                        <td>Tên game</td>
+                        <td>Tiền cược</td>
+                        <td>Trả thưởng</td>
+                        <td>Tiền hoàn trả</td>
+                        <td>Tiền sự kiện</td>
+                        <td>Phế</td>
+                        <td>Tiền thắng trong game</td>
+                        <td>Tiền thắng tổng</td>
+                    </tr>
+                    </thead>
+                    <tbody id="logactionbot1"></tbody>
+                    <tbody>
+                    <tr>
+                        <td colspan="">Tổng:</td>
+                        <td id="totalmoneylostbot" style="color:#0000ff "></td>
+                        <td id="totalmoneywinbot" style="color: #0000ff"></td>
+                        <td id="totalrefundbot" style="color: #0000ff"></td>
+                        <td id="totalmoneyotherbot" style="color: #0000ff"></td>
+                        <td id="totalmoneyfeebot" style="color: #0000ff"></td>
+                        <td id="totalmoneyplaybot" style="color: #0000ff"></td>
+                        <td id="totalmoneybot" style="color: #0000ff"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <h4 id="" style="color: red;margin-left: 20px">Game bài</h4>
+            </div>
+            <div class="col-sm-12">
+                <table id="" class="table table-bordered">
+                    <thead>
+                    <tr style="height: 20px;">
+                        <td>Tên game</td>
+                        <td>Tiền cược</td>
+                        <td>Trả thưởng</td>
+                        <td>Tiền hoàn trả</td>
+                        <td>Tiền sự kiện</td>
+                        <td>Phế</td>
+                        <td>Tiền thắng trong game</td>
+                        <td>Tiền thắng tổng</td>
+                    </tr>
+                    </thead>
+                    <tbody id="logactionbot2"></tbody>
+                    <tbody>
+                    <tr>
+                        <td colspan="">Tổng:</td>
+                        <td id="totalmoneylostbaibot" style="color:#0000ff "></td>
+                        <td id="totalmoneywinbaibot" style="color: #0000ff"></td>
+                        <td id="" style="color: #0000ff">0</td>
+                        <td id="totalmoneyotherbaibot" style="color: #0000ff"></td>
+                        <td id="totalmoneyfeebaibot" style="color: #0000ff"></td>
+                        <td id="totalmoneyplaybaibot" style="color: #0000ff"></td>
+                        <td id="totalmoneybaibot" style="color: #0000ff"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12">
+                <h4 id="" style="color: red;margin-left: 20px">Tổng</h4>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <td colspan="">Tổng:</td>
+                        <td id="summoneylostbot" style="color:#0000ff "></td>
+                        <td id="summoneywinbot" style="color: #0000ff"></td>
+                        <td id="sumrefundbot" style="color: #0000ff"></td>
+                        <td id="summoneyotherbot" style="color: #0000ff"></td>
+                        <td id="summoneyfeebot" style="color: #0000ff"></td>
+                        <td id="summoneyplaybot" style="color: #0000ff"></td>
+                        <td id="summoneybot" style="color: #0000ff"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-</div>
-<div id="tab-2" class="tab-content col-sm-12">
-    <div class="row">
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <tr>
-                    <td rowspan="8"
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tiền nạp user
-                    </td>
-                    <td>Tiền nạp thẻ</td>
-                    <td id="money1" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>IAP</td>
-                    <td id="money2" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>SMS</td>
-                    <td id="money3" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Ngân hàng</td>
-                    <td id="money4" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>VinCard</td>
-                    <td id="money5" class="moneyhtml"></td>
-                </tr>
-				 <tr>
-
-                    <td>MegaCard</td>
-                    <td id="money555" class="moneyhtml"></td>
-                </tr>
-				<tr>
-
-                    <td>Tiền nạp từ VTC</td>
-                    <td id="money444" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td style="color: #0000ff;font-weight: 600">Tổng</td>
-                    <td id="money6" style="color: #0000ff;font-weight: 600;text-align: right"></td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="height: 30px"></td>
-                </tr>
-
-                <tr>
-                    <td rowspan="17"
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tiền sự kiện
-                    </td>
-                    <td>GiftCode</td>
-                    <td id="money7" class="moneyhtml"></td>
-                </tr>
-
-                <tr>
-
-                    <td>GiftCode vận hành</td>
-                    <td id="money8" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Gift code marketing</td>
-                    <td id="money9" class="moneyhtml"></td>
-                </tr>
-				 <tr>
-
-                    <td>Gift code đại lý</td>
-                    <td id="money91" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Vippoint event</td>
-                    <td id="money10" class="moneyhtml"></td>
-                </tr>
-				 <tr>
-
-                    <td>Thưởng nhiệm vụ</td>
-                    <td id="money200" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Vòng quay may mắn</td>
-                    <td id="money11" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Vòng quay vip</td>
-                    <td id="money12" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Kho báu free</td>
-                    <td id="money13" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Siêu anh hùng free</td>
-                    <td id="money14" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Nữ điệp viên free</td>
-                    <td id="money15" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Vương quốc vin free</td>
-                    <td id="money16" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Đổi thưởng vippoint</td>
-                    <td id="money17" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Hoàn trả phí đại lý</td>
-                    <td id="money18" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Thưởng doanh số đại lý</td>
-                    <td id="money19" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Trao thưởng vippoint event</td>
-                    <td id="money20" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td style="color: #0000ff;font-weight: 600">Tổng</td>
-                    <td id="money21" style="color: #0000ff;font-weight: 600; text-align: right"></td>
-                </tr>
-
-                <tr>
-                    <td colspan="3" style="height: 30px"></td>
-                </tr>
-
-                <tr>
-                    <td
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tổng tiền vào
-                    </td>
-
-                    <td colspan="2" id="money22"
-                        style="vertical-align: middle;text-align: right;color: red;font-weight: 600"></td>
-                </tr>
-            </table>
-
-
-        </div>
+    </div>
+    <div id="spinner" class="spinner" style="display:none;">
+        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+             alt="Loading"/>
+    </div>
+    <div class="text-center">
+        <ul id="pagination-demo" class="pagination-sm"></ul>
     </div>
 
-</div>
-<div id="tab-3" class="tab-content col-sm-12">
-    <div class="row">
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <tr>
-                    <td rowspan="3"
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tiền user đổi thưởng
-                    </td>
-                    <td>Đổi thẻ</td>
-                    <td id="money23" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td>Nạp tiền điện thoại</td>
-                    <td id="money24" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td style="color: #0000ff;font-weight: 600">Tổng</td>
-                    <td id="money25" style="color: #0000ff;font-weight: 600;text-align: right"></td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="height: 30px"></td>
-                </tr>
-
-                <tr>
-                    <td rowspan="3"
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tiền lệch đại lý
-                    </td>
-                    <td>Đầu</td>
-                    <td id="money26" class="moneyhtml"></td>
-                </tr>
-
-                <tr>
-
-                    <td>Cuối</td>
-                    <td id="money27" class="moneyhtml"></td>
-                </tr>
-
-                <tr>
-
-                    <td style="color: #0000ff;font-weight: 600">Tiền lệch</td>
-                    <td id="money28" style="color: #0000ff;font-weight: 600; text-align: right"></td>
-                </tr>
-
-                <tr>
-                    <td colspan="3" style="height: 30px"></td>
-                </tr>
-
-                <tr>
-                    <td
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tổng tiền ra
-                    </td>
-
-                    <td colspan="2" id="money29"
-                        style="vertical-align: middle;text-align: right;color: red;font-weight: 600"></td>
-                </tr>
-            </table>
-        </div>
     </div>
-</div>
-<div id="tab-4" class="tab-content col-sm-12">
-    <div class="row">
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <tr>
-                    <td rowspan="6"
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tiền khác
-                    </td>
-                    <td>Phí chuyển khoản</td>
-                    <td id="money30" class="moneyhtml"></td>
-                </tr>
-                <tr>
-                    <td>Đổi xu</td>
-                    <td id="money31" class="moneyhtml"></td>
-                </tr>
-                <tr>
-                    <td>Phí SMS</td>
-                    <td id="money32" class="moneyhtml"></td>
-                </tr>
-                <tr>
-                    <td>Admin</td>
-                    <td id="money33" class="moneyhtml"></td>
-                </tr>
-                <tr>
-                    <td>Đại lý xuất giftcode</td>
-                    <td id="money34" class="moneyhtml"></td>
-                </tr>
-                <tr>
-
-                    <td style="color: #0000ff;font-weight: 600">Tổng</td>
-                    <td id="money35" style="color: #0000ff;font-weight: 600;text-align: right"></td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="height: 30px"></td>
-                </tr>
-
-                <tr>
-                    <td rowspan="3"
-                        style="vertical-align: middle;text-align: center;color: red;font-weight: 600">
-                        Tiền lệch user
-                    </td>
-                    <td>Đầu</td>
-                    <td id="money36" class="moneyhtml"></td>
-                </tr>
-
-                <tr>
-
-                    <td>Cuối</td>
-                    <td id="money37" class="moneyhtml"></td>
-                </tr>
-
-                <tr>
-
-                    <td style="color: #0000ff;font-weight: 600">Tiền lệch</td>
-                    <td id="money38" style="color: #0000ff;font-weight: 600; text-align: right"></td>
-                </tr>
-
-            </table>
-        </div>
     </div>
-</div>
-<div id="tab-5" class="tab-content col-sm-12">
-    <div class="row">
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Tiền bot</h4>
-        </div>
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>Cộng trừ tiền bot</td>
-                    <td>Admin</td>
-                    <td>Vippoint event</td>
-                </tr>
-                <tr style="height: 20px;">
-                    <td id="bot1"></td>
-                    <td id="bot2"></td>
-                    <td id="bot3"></td>
-                </tr>
-                </thead>
-
-            </table>
-        </div>
-
-        
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Minigame</h4>
-        </div>
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>Tên game</td>
-                    <td>Tiền cược</td>
-                    <td>Trả thưởng</td>
-                    <td>Tiền hoàn trả</td>
-                    <td>Tiền sự kiện</td>
-                    <td>Phế</td>
-                    <td>Tiền thắng trong game</td>
-                    <td>Tiền thắng tổng</td>
-                </tr>
-                </thead>
-                <tbody id="logactionbot1"></tbody>
-                <tbody>
-                <tr>
-                    <td colspan="">Tổng:</td>
-                    <td id="totalmoneylostbot" style="color:#0000ff "></td>
-                    <td id="totalmoneywinbot" style="color: #0000ff"></td>
-                    <td id="totalrefundbot" style="color: #0000ff"></td>
-                    <td id="totalmoneyotherbot" style="color: #0000ff"></td>
-                    <td id="totalmoneyfeebot" style="color: #0000ff"></td>
-                    <td id="totalmoneyplaybot" style="color: #0000ff"></td>
-                    <td id="totalmoneybot" style="color: #0000ff"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Game bài</h4>
-        </div>
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>Tên game</td>
-                    <td>Tiền cược</td>
-                    <td>Trả thưởng</td>
-                    <td>Tiền hoàn trả</td>
-                    <td>Tiền sự kiện</td>
-                    <td>Phế</td>
-                    <td>Tiền thắng trong game</td>
-                    <td>Tiền thắng tổng</td>
-                </tr>
-                </thead>
-                <tbody id="logactionbot2"></tbody>
-                <tbody>
-                <tr>
-                    <td colspan="">Tổng:</td>
-                    <td id="totalmoneylostbaibot" style="color:#0000ff "></td>
-                    <td id="totalmoneywinbaibot" style="color: #0000ff"></td>
-                    <td id="" style="color: #0000ff">0</td>
-                    <td id="totalmoneyotherbaibot" style="color: #0000ff"></td>
-                    <td id="totalmoneyfeebaibot" style="color: #0000ff"></td>
-                    <td id="totalmoneyplaybaibot" style="color: #0000ff"></td>
-                    <td id="totalmoneybaibot" style="color: #0000ff"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-sm-12">
-            <h4 id="" style="color: red;margin-left: 20px">Tổng</h4>
-        </div>
-        <div class="col-sm-12">
-            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                <tbody>
-                <tr>
-                    <td colspan="">Tổng:</td>
-                    <td id="summoneylostbot" style="color:#0000ff "></td>
-                    <td id="summoneywinbot" style="color: #0000ff"></td>
-                    <td id="sumrefundbot" style="color: #0000ff"></td>
-                    <td id="summoneyotherbot" style="color: #0000ff"></td>
-                    <td id="summoneyfeebot" style="color: #0000ff"></td>
-                    <td id="summoneyplaybot" style="color: #0000ff"></td>
-                    <td id="summoneybot" style="color: #0000ff"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    </div>
+    </section>
 <?php endif; ?>
 </div>
 
@@ -634,16 +622,18 @@
 
     .tabs-menu {
         height: 30px;
-        /*float: left;*/
+        display: inline-table;
         clear: both;
+        list-style: none;
     }
 
     .tabs-menu li {
-        height: 30px;
-        line-height: 30px;
+        height: 35px;
+        line-height: 35px;
         float: left;
         margin-right: 10px;
-        background-color: #ccc;
+        margin-bottom: 15px;
+        background-color: #3c8dbc;
         border-top: 1px solid #d4d4d1;
         border-right: 1px solid #d4d4d1;
         border-left: 1px solid #d4d4d1;
@@ -652,7 +642,7 @@
     .tabs-menu li.current {
         position: relative;
         background-color: #fff;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid #d4d4d1;
         z-index: 5;
     }
 
@@ -667,14 +657,6 @@
         color: #2e7da3;
     }
 
-    .tab {
-        border: 1px solid #d4d4d1;
-        background-color: #fff;
-        float: left;
-        margin-bottom: 20px;
-        width: auto;
-    }
-
     .tab-content {
         width: 100%;
         padding: 20px;
@@ -685,34 +667,9 @@
         display: block;
     }
 
-    td {
-        word-break: break-all;
-    }
 
-    thead {
-        font-size: 12px;
-    }
+</style>
 
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-lg"></ul>
-    </div>
-</div>
 <script>
 $(function () {
     $('#datetimepicker1').datetimepicker({
@@ -750,14 +707,14 @@ function resulttotal(inuser, inevent, totalin, outuser, outagent, totalout, rati
     rs += "<td>" + commaSeparateNumber(totalin) + "</td>";
     rs += "<td>" + commaSeparateNumber(outuser) + "</td>";
     rs += "<td>" + commaSeparateNumber(outagent) + "</td>";
-  
+
     rs += "<td>" + commaSeparateNumber(totalout) + "</td>";
 
     rs += "<td>" + ratio + "%" + "</td>";
     rs += "</tr>";
     return rs;
 }
-function resultSearchTransctiontaixiu(gamename, moneywin, moneylost,moneyrefund, moneyother, fee, moneytotal, revenue) {
+function resultSearchTransctiontaixiu(gamename, moneywin, moneylost, moneyrefund, moneyother, fee, moneytotal, revenue) {
 
     var rs = "";
     rs += "<tr>";
@@ -776,7 +733,7 @@ $(document).ready(function () {
     var result1 = "";
     var result2 = "";
     var result3 = "";
-	 var result4 = "";
+    var result4 = "";
     var result11 = "";
     var result22 = "";
     var result33 = "";
@@ -792,8 +749,7 @@ $(document).ready(function () {
     $("#spinner").show();
     $.ajax({
         type: "POST",
-        url: "<?php echo admin_url('report/moneysystemajax  ')?>",
-        // url: "http://192.168.0.251:8082/api_backend",
+        url: "<?php echo admin_url('report/moneysystemajax')?>",
         data: {
             toDate: $("#toDate").val(),
             fromDate: $("#fromDate").val()
@@ -821,7 +777,7 @@ $(document).ready(function () {
             var total16 = 0;
             var total17 = 0;
             var total18 = 0;
-			  var total19 = 0;
+            var total19 = 0;
             var total20 = 0;
             var total21 = 0;
             var total22 = 0;
@@ -830,7 +786,7 @@ $(document).ready(function () {
             var totalrefund = 0;
 
             if (res.taiXiu != null || res.taiXiu != "") {
-                result2 += resultSearchTransctiontaixiu("Tài Xỉu", res.taiXiu.moneyWin, res.taiXiu.moneyLost,res.taiXiu.moneyRefund, res.taiXiu.moneyOther, res.taiXiu.fee, res.taiXiu.revenuePlayGame, res.taiXiu.revenue);
+                result2 += resultSearchTransctiontaixiu("Tài Xỉu", res.taiXiu.moneyWin, res.taiXiu.moneyLost, res.taiXiu.moneyRefund, res.taiXiu.moneyOther, res.taiXiu.fee, res.taiXiu.revenuePlayGame, res.taiXiu.revenue);
                 $('#logaction1').html(result2);
                 total13 += res.taiXiu.moneyWin;
                 total14 += res.taiXiu.moneyLost;
@@ -952,8 +908,8 @@ $(document).ready(function () {
                     result2 += resultSearchTransction("Nữ Điệp Viên", 0, 0, 0, 0, 0, 0);
                     $('#logaction1').html(result2);
                 }
-				
-				if (res.actionGame.VuongQuocVin != null) {
+
+                if (res.actionGame.VuongQuocVin != null) {
                     result2 += resultSearchTransction("Vương Quốc Vin", res.actionGame.VuongQuocVin.moneyWin, res.actionGame.VuongQuocVin.moneyLost, res.actionGame.VuongQuocVin.moneyOther, res.actionGame.VuongQuocVin.fee, res.actionGame.VuongQuocVin.revenuePlayGame, res.actionGame.VuongQuocVin.revenue);
                     $('#logaction1').html(result2);
                     total1 += res.actionGame.VuongQuocVin.moneyWin;
@@ -966,12 +922,12 @@ $(document).ready(function () {
                     result2 += resultSearchTransction("Vương Quốc Vin", 0, 0, 0, 0, 0, 0);
                     $('#logaction1').html(result2);
                 }
-                $('#totalmoneywin').html(commaSeparateNumber(total1+total13));
-                $('#totalmoneylost').html(commaSeparateNumber(total2+total14));
+                $('#totalmoneywin').html(commaSeparateNumber(total1 + total13));
+                $('#totalmoneylost').html(commaSeparateNumber(total2 + total14));
                 $('#totalrefund').html(commaSeparateNumber(totalrefund));
-                $('#totalmoneyother').html(commaSeparateNumber(total3+total15));
-                $('#totalmoneyfee').html(commaSeparateNumber(total4+total16));
-                $('#totalmoneyplay').html(commaSeparateNumber(total5+total17));
+                $('#totalmoneyother').html(commaSeparateNumber(total3 + total15));
+                $('#totalmoneyfee').html(commaSeparateNumber(total4 + total16));
+                $('#totalmoneyplay').html(commaSeparateNumber(total5 + total17));
                 $('#totalmoney').html(commaSeparateNumber(total6 + total18));
                 if (res.actionGame.Sam != null) {
                     result3 += resultSearchTransction("Sâm", res.actionGame.Sam.moneyWin, res.actionGame.Sam.moneyLost, res.actionGame.Sam.moneyOther, res.actionGame.Sam.fee, res.actionGame.Sam.revenuePlayGame, res.actionGame.Sam.revenue);
@@ -1028,18 +984,18 @@ $(document).ready(function () {
                     result3 += resultSearchTransction("Tiến lên miền nam", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
-				if(res.actionGame.XiDzach != null) {
+                if (res.actionGame.XiDzach != null) {
                     result3 += resultSearchTransction("XiDzach", res.actionGame.XiDzach.moneyWin, res.actionGame.XiDzach.moneyLost, res.actionGame.XiDzach.moneyOther, res.actionGame.XiDzach.fee, res.actionGame.XiDzach.revenuePlayGame, res.actionGame.XiDzach.revenue);
                     $('#logaction2').html(result3);
                     total7 += res.actionGame.XiDzach.moneyWin;
-                    total8 +=  res.actionGame.XiDzach.moneyLost;
+                    total8 += res.actionGame.XiDzach.moneyLost;
                     total9 += res.actionGame.XiDzach.moneyOther;
                     total10 += res.actionGame.XiDzach.fee;
                     total11 += res.actionGame.XiDzach.revenuePlayGame;
                     total12 += res.actionGame.XiDzach.revenue;
                 }
-                else{
-                    result3 += resultSearchTransction("XiDzach", 0, 0, 0, 0,0, 0);
+                else {
+                    result3 += resultSearchTransction("XiDzach", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
                 if (res.actionGame.Lieng != null) {
@@ -1057,19 +1013,19 @@ $(document).ready(function () {
                     result3 += resultSearchTransction("Liêng", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
-				 if(res.actionGame.XocDia != null) {
+                if (res.actionGame.XocDia != null) {
 
                     result3 += resultSearchTransction("Xoc Đĩa", res.actionGame.XocDia.moneyWin, res.actionGame.XocDia.moneyLost, res.actionGame.XocDia.moneyOther, res.actionGame.XocDia.fee, res.actionGame.XocDia.revenuePlayGame, res.actionGame.XocDia.revenue);
                     $('#logaction2').html(result3);
                     total7 += res.actionGame.XocDia.moneyWin;
-                    total8 +=  res.actionGame.XocDia.moneyLost;
+                    total8 += res.actionGame.XocDia.moneyLost;
                     total9 += res.actionGame.XocDia.moneyOther;
                     total10 += res.actionGame.XocDia.fee;
                     total11 += res.actionGame.XocDia.revenuePlayGame;
                     total12 += res.actionGame.XocDia.revenue;
                 }
-                else{
-                    result3 += resultSearchTransction("Xóc Đĩa", 0, 0, 0, 0,0, 0);
+                else {
+                    result3 += resultSearchTransction("Xóc Đĩa", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
 //                if(res.actionGame.XiTo != null) {
@@ -1117,8 +1073,8 @@ $(document).ready(function () {
                     result3 += resultSearchTransction("Poker", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
-				
-				  if (res.actionGame.PokerTour != null) {
+
+                if (res.actionGame.PokerTour != null) {
 
                     result3 += resultSearchTransction("PokerTour", res.actionGame.PokerTour.moneyWin, res.actionGame.PokerTour.moneyLost, res.actionGame.PokerTour.moneyOther, res.actionGame.PokerTour.fee, res.actionGame.PokerTour.revenuePlayGame, res.actionGame.PokerTour.revenue);
                     $('#logaction2').html(result3);
@@ -1147,7 +1103,7 @@ $(document).ready(function () {
                     result3 += resultSearchTransction("Caro", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
-				if (res.actionGame.CoTuong != null) {
+                if (res.actionGame.CoTuong != null) {
                     result3 += resultSearchTransction("Cờ Tướng", res.actionGame.CoTuong.moneyWin, res.actionGame.CoTuong.moneyLost, res.actionGame.CoTuong.moneyOther, res.actionGame.CoTuong.fee, res.actionGame.CoTuong.revenuePlayGame, res.actionGame.CoTuong.revenue);
                     $('#logaction2').html(result3);
                     total7 += res.actionGame.CoTuong.moneyWin;
@@ -1160,7 +1116,7 @@ $(document).ready(function () {
                     result3 += resultSearchTransction("Cờ Tướng", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
-				 if (res.actionGame.CoUp != null) {
+                if (res.actionGame.CoUp != null) {
                     result3 += resultSearchTransction("Cờ Úp", res.actionGame.CoUp.moneyWin, res.actionGame.CoUp.moneyLost, res.actionGame.CoUp.moneyOther, res.actionGame.CoUp.fee, res.actionGame.CoUp.revenuePlayGame, res.actionGame.CoUp.revenue);
                     $('#logaction2').html(result3);
                     total7 += res.actionGame.CoUp.moneyWin;
@@ -1173,17 +1129,17 @@ $(document).ready(function () {
                     result3 += resultSearchTransction("Cờ Úp", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
-				
-				 if(res.actionGame.HamCaMap != null){
+
+                if (res.actionGame.HamCaMap != null) {
                     result4 += resultSearchTransction("Bắn cá", res.actionGame.HamCaMap.moneyWin, res.actionGame.HamCaMap.moneyLost, res.actionGame.HamCaMap.moneyOther, res.actionGame.HamCaMap.fee, res.actionGame.HamCaMap.revenuePlayGame, res.actionGame.HamCaMap.revenue);
                     $('#logactiongamekhac').html(result4);
                     total19 += res.actionGame.HamCaMap.moneyWin;
-                    total20+= res.actionGame.HamCaMap.moneyLost;
+                    total20 += res.actionGame.HamCaMap.moneyLost;
                     total21 += res.actionGame.HamCaMap.moneyOther;
                     total22 += res.actionGame.HamCaMap.fee;
                     total23 += res.actionGame.HamCaMap.revenuePlayGame;
                     total24 += res.actionGame.HamCaMap.revenue;
-                }else{
+                } else {
                     result4 += resultSearchTransction("Bắn cá", 0, 0, 0, 0, 0, 0);
                     $('#logactiongamekhac').html(result4);
                 }
@@ -1197,17 +1153,17 @@ $(document).ready(function () {
                 $('#summoneywin').html(commaSeparateNumber(total1 + total7 + total13 + total19));
                 $('#summoneylost').html(commaSeparateNumber(total2 + total8 + total14 + total20));
                 $('#sumrefund').html(commaSeparateNumber(totalrefund));
-                $('#summoneyother').html(commaSeparateNumber(total3 + total9 + total15+ total21));
-                $('#summoneyfee').html(commaSeparateNumber(total4 + total10 + total16+ total22));
-                $('#summoneyplay').html(commaSeparateNumber(total5 + total11 + total17+ total23));
+                $('#summoneyother').html(commaSeparateNumber(total3 + total9 + total15 + total21));
+                $('#summoneyfee').html(commaSeparateNumber(total4 + total10 + total16 + total22));
+                $('#summoneyplay').html(commaSeparateNumber(total5 + total11 + total17 + total23));
                 $('#summoney').html(commaSeparateNumber(total6 + total12 + total18 + total24));
-				  var table = $('#checkAll1').DataTable({
-                    "ordering": true,
-                    "searching": false,
-                    "paging": false,
-                    "draw": false, 
-					"bInfo" : false
-                });
+//                var table = $('#checkAll1').DataTable({
+//                    "ordering": true,
+//                    "searching": false,
+//                    "paging": false,
+//                    "draw": false,
+//                    "bInfo": false
+//                });
 
             }
             var total19 = 0;
@@ -1218,8 +1174,8 @@ $(document).ready(function () {
                 $("#money3").html(0);
                 $("#money4").html(0);
                 $("#money5").html(0);
-				$("#money555").html(0);
-				 $("#money444").html(0);
+                $("#money555").html(0);
+                $("#money444").html(0);
                 $("#money6").html(0);
             } else {
                 if (res.vinInUser.RechargeByCard != null || res.vinInUser.RechargeByCard != null) {
@@ -1252,13 +1208,13 @@ $(document).ready(function () {
                 } else {
                     $("#money5").html(0);
                 }
-				 if (res.vinInUser.RechargeByMegaCard != null || res.vinInUser.RechargeByMegaCard != null) {
+                if (res.vinInUser.RechargeByMegaCard != null || res.vinInUser.RechargeByMegaCard != null) {
                     $("#money555").html(commaSeparateNumber(res.vinInUser.RechargeByMegaCard));
                     total19 += res.vinInUser.RechargeByMegaCard;
                 } else {
                     $("#money555").html(0);
                 }
-				if (res.vinInUser.TopupVTCPay != null || res.vinInUser.TopupVTCPay != null) {
+                if (res.vinInUser.TopupVTCPay != null || res.vinInUser.TopupVTCPay != null) {
                     $("#money444").html(commaSeparateNumber(res.vinInUser.TopupVTCPay));
                     total19 += res.vinInUser.TopupVTCPay;
                 } else {
@@ -1273,7 +1229,7 @@ $(document).ready(function () {
                 $("#money7").html(0);
                 $("#money8").html(0);
                 $("#money9").html(0);
-				$("#money91").html(0);
+                $("#money91").html(0);
                 $("#money10").html(0);
                 $("#money11").html(0);
                 $("#money12").html(0);
@@ -1285,7 +1241,7 @@ $(document).ready(function () {
                 $("#money18").html(0);
                 $("#money19").html(0);
                 $("#money20").html(0);
-				 $("#money200").html(0);
+                $("#money200").html(0);
                 $("#money21").html(0);
 
             } else {
@@ -1308,8 +1264,8 @@ $(document).ready(function () {
                 } else {
                     $("#money9").html(0);
                 }
-				
-				   if (res.vinInEvent.GcAgentImport != null || res.vinInEvent.GcAgentImport != null) {
+
+                if (res.vinInEvent.GcAgentImport != null || res.vinInEvent.GcAgentImport != null) {
                     $("#money91").html(commaSeparateNumber(res.vinInEvent.GcAgentImport));
                     total20 += res.vinInEvent.GcAgentImport;
                 } else {
@@ -1321,7 +1277,7 @@ $(document).ready(function () {
                 } else {
                     $("#money10").html(0);
                 }
-				 if (res.vinInEvent.NhiemVu != null || res.vinInEvent.NhiemVu != null) {
+                if (res.vinInEvent.NhiemVu != null || res.vinInEvent.NhiemVu != null) {
                     $("#money200").html(commaSeparateNumber(res.vinInEvent.NhiemVu));
                     total20 += res.vinInEvent.NhiemVu;
                 } else {
@@ -1440,7 +1396,7 @@ $(document).ready(function () {
             var total24 = 0;
             var total25 = 0;
             var total26 = 0;
-			  var total266 = 0;
+            var total266 = 0;
             if ($.isEmptyObject(res.vinOther)) {
                 $("#money30").html(0);
                 $("#money31").html(0);
@@ -1473,12 +1429,12 @@ $(document).ready(function () {
                 } else {
                     $("#money33").html(0);
                 }
-                if ( res.vinOther.GcAgent != null) {
+                if (res.vinOther.GcAgent != null) {
                     total24 += res.vinOther.GcAgent;
                     total266 += res.vinOther.GcAgent;
                 }
-                if ( res.vinOther.GcAgentExport != null) {
-                    total24 +=  res.vinOther.GcAgentExport;
+                if (res.vinOther.GcAgentExport != null) {
+                    total24 += res.vinOther.GcAgentExport;
                     total266 += res.vinOther.GcAgentExport;
                 }
                 $("#money34").html(commaSeparateNumber(total266));
@@ -1551,7 +1507,7 @@ $(document).ready(function () {
             var total48 = 0;
             var totalrefundbot = 0;
             if (res.taiXiuBot != null || res.taiXiuBot != "") {
-                result22 += resultSearchTransctiontaixiu("Tài Xỉu", res.taiXiuBot.moneyWin, res.taiXiuBot.moneyLost,res.taiXiuBot.moneyRefund, res.taiXiuBot.moneyOther, res.taiXiuBot.fee, res.taiXiuBot.revenuePlayGame, res.taiXiuBot.revenue);
+                result22 += resultSearchTransctiontaixiu("Tài Xỉu", res.taiXiuBot.moneyWin, res.taiXiuBot.moneyLost, res.taiXiuBot.moneyRefund, res.taiXiuBot.moneyOther, res.taiXiuBot.fee, res.taiXiuBot.revenuePlayGame, res.taiXiuBot.revenue);
                 $('#logactionbot1').html(result22);
                 total43 += res.taiXiuBot.moneyWin;
                 total44 += res.taiXiuBot.moneyLost;
@@ -1673,8 +1629,8 @@ $(document).ready(function () {
                     result22 += resultSearchTransction("Nữ Điệp Viên", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot1').html(result22);
                 }
-				
-				if (res.actionGameBot.VuongQuocVin != null) {
+
+                if (res.actionGameBot.VuongQuocVin != null) {
                     result22 += resultSearchTransction("Vương Quốc Vin", res.actionGameBot.VuongQuocVin.moneyWin, res.actionGameBot.VuongQuocVin.moneyLost, res.actionGameBot.VuongQuocVin.moneyOther, res.actionGameBot.VuongQuocVin.fee, res.actionGameBot.VuongQuocVin.revenuePlayGame, res.actionGameBot.VuongQuocVin.revenue);
                     $('#logactionbot1').html(result22);
                     total31 += res.actionGameBot.VuongQuocVin.moneyWin;
@@ -1687,14 +1643,14 @@ $(document).ready(function () {
                     result22 += resultSearchTransction("Vương Quốc Vin", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot1').html(result22);
                 }
-                $('#totalmoneywinbot').html(commaSeparateNumber(total31+total43));
-                $('#totalmoneylostbot').html(commaSeparateNumber(total32+total44));
+                $('#totalmoneywinbot').html(commaSeparateNumber(total31 + total43));
+                $('#totalmoneylostbot').html(commaSeparateNumber(total32 + total44));
                 $('#totalrefundbot').html(commaSeparateNumber(totalrefundbot));
 
-                $('#totalmoneyotherbot').html(commaSeparateNumber(total33+total45));
-                $('#totalmoneyfeebot').html(commaSeparateNumber(total34+total46));
-                $('#totalmoneyplaybot').html(commaSeparateNumber(total35+total47));
-                $('#totalmoneybot').html(commaSeparateNumber(total36+total48));
+                $('#totalmoneyotherbot').html(commaSeparateNumber(total33 + total45));
+                $('#totalmoneyfeebot').html(commaSeparateNumber(total34 + total46));
+                $('#totalmoneyplaybot').html(commaSeparateNumber(total35 + total47));
+                $('#totalmoneybot').html(commaSeparateNumber(total36 + total48));
                 if (res.actionGameBot.Sam != null) {
                     result33 += resultSearchTransction("Sâm", res.actionGameBot.Sam.moneyWin, res.actionGameBot.Sam.moneyLost, res.actionGameBot.Sam.moneyOther, res.actionGameBot.Sam.fee, res.actionGameBot.Sam.revenuePlayGame, res.actionGameBot.Sam.revenue);
                     $('#logactionbot2').html(result33);
@@ -1823,7 +1779,7 @@ $(document).ready(function () {
                     result33 += resultSearchTransction("Poker", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot2').html(result33);
                 }
-				 if (res.actionGameBot.XiDzach != null) {
+                if (res.actionGameBot.XiDzach != null) {
 
                     result33 += resultSearchTransction("XiDzach", res.actionGameBot.XiDzach.moneyWin, res.actionGameBot.XiDzach.moneyLost, res.actionGameBot.XiDzach.moneyOther, res.actionGameBot.XiDzach.fee, res.actionGameBot.XiDzach.revenuePlayGame, res.actionGameBot.XiDzach.revenue);
                     $('#logactionbot2').html(result33);
@@ -1838,7 +1794,7 @@ $(document).ready(function () {
                     result33 += resultSearchTransction("XiDzach", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot2').html(result33);
                 }
-				 if (res.actionGameBot.XocDia != null) {
+                if (res.actionGameBot.XocDia != null) {
 
                     result33 += resultSearchTransction("Xóc Đĩa", res.actionGameBot.XocDia.moneyWin, res.actionGameBot.XocDia.moneyLost, res.actionGameBot.XocDia.moneyOther, res.actionGameBot.XocDia.fee, res.actionGameBot.XocDia.revenuePlayGame, res.actionGameBot.XocDia.revenue);
                     $('#logactionbot2').html(result33);
@@ -1867,7 +1823,7 @@ $(document).ready(function () {
                     result33 += resultSearchTransction("Caro", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot2').html(result33);
                 }
-				if (res.actionGameBot.CoTuong != null) {
+                if (res.actionGameBot.CoTuong != null) {
                     result33 += resultSearchTransction("Cờ Tướng", res.actionGameBot.CoTuong.moneyWin, res.actionGameBot.CoTuong.moneyLost, res.actionGameBot.CoTuong.moneyOther, res.actionGameBot.CoTuong.fee, res.actionGameBot.CoTuong.revenuePlayGame, res.actionGameBot.CoTuong.revenue);
                     $('#logactionbot2').html(result33);
                     total37 += res.actionGameBot.CoTuong.moneyWin;
@@ -1880,7 +1836,7 @@ $(document).ready(function () {
                     result33 += resultSearchTransction("Cờ Tướng", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot2').html(result33);
                 }
-				if (res.actionGameBot.CoUp != null) {
+                if (res.actionGameBot.CoUp != null) {
                     result33 += resultSearchTransction("Cờ Úp", res.actionGameBot.CoUp.moneyWin, res.actionGameBot.CoUp.moneyLost, res.actionGameBot.CoUp.moneyOther, res.actionGameBot.CoUp.fee, res.actionGameBot.CoUp.revenuePlayGame, res.actionGameBot.CoUp.revenue);
                     $('#logactionbot2').html(result33);
                     total37 += res.actionGameBot.CoUp.moneyWin;
@@ -1908,13 +1864,12 @@ $(document).ready(function () {
                 $('#summoneybot').html(commaSeparateNumber(total36 + total42 + total48));
 
             }
-            result44 += resulttotal(res.totalInUser, res.totalInEvent, res.totalIn, res.totalOutUser, res.totalOutAgent,res.totalOut, res.ratioCashout);
+            result44 += resulttotal(res.totalInUser, res.totalInEvent, res.totalIn, res.totalOutUser, res.totalOutAgent, res.totalOut, res.ratioCashout);
             $('#logactiontotal').html(result44);
 
         }, error: function () {
-            $("#spinner").hide();
-            $("#error-popup").modal("show");
-        }, timeout: 40000
+            errorThongBao();
+        }, timeout: timeOutApi
     })
 });
 </script>
