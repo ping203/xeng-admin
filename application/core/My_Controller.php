@@ -28,6 +28,7 @@ Class MY_Controller extends CI_Controller
 				  $this->load->library('curl');
                 $this->load->helper('admin');
                 if ($admin_login) {
+                    $this->data['namegame'] = "Z";
                      $this->load->model('admin_model');
                     $this->load->model('userrole_model');
                     $this->load->model('menurole_model');
