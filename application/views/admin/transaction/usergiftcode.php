@@ -88,7 +88,7 @@
                 <div class="formRow">
                     <table>
                         <tr>
-                            <td><label  id = "labelvin" style="margin-left: 50px;margin-bottom:-2px;width: 100px;">Mệnh giá vin</label></td>
+                            <td><label  id = "labelvin" style="margin-left: 50px;margin-bottom:-2px;width: 100px;">Mệnh giá Z</label></td>
                             <td><select id="menhgiavin" name="menhgiavin"
                                         style="margin-left: 20px;margin-bottom:-2px;width: 145px;">
                                     <option value="">Chọn</option>

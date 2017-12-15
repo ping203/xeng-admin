@@ -62,7 +62,7 @@
                         <td class="">
                             <select id="money_type"
                                     style="margin-left: 0px;margin-bottom:-2px;width: 143px">
-                                <option value="vin">Vin</option>
+                                <option value="vin">Z</option>
                                 <option value="xu">Xu</option>
 
                             </select>

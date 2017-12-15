@@ -229,9 +229,9 @@
         rs += "<td>" + commaSeparateNumber(money) + "</td>";
         rs += "<td>" + moneyType + "</td>";
         if (type == 1) {
-            rs += "<td>" + "Trừ vin" + "</td>";
+            rs += "<td>" + "Trừ Z" + "</td>";
         } else if (type == 0) {
-            rs += "<td>" + "Cộng vin" + "</td>";
+            rs += "<td>" + "Cộng Z" + "</td>";
         }
         rs += "<td>" + commaSeparateNumber(exchangeMoney) + "</td>";
         rs += "<td>" + commaSeparateNumber(fee) + "</td>";

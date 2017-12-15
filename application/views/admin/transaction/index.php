@@ -1,113 +1,92 @@
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
-<?php if($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
+<div class="content-wrapper">
+<?php if ($role == false): ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
 <?php else: ?>
-<div class="wrapper">
-<?php $this->load->view('admin/message', $this->data); ?>
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-<link rel="stylesheet"
-      href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-<script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-<script
-    src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-<div class="widget">
-<h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
 
-<div class="title">
-    <h6>Lịch sử giao dịch hệ thống</h6>
-</div>
-<form class="list_filter form" action="<?php echo admin_url('transaction') ?>" method="post">
-<table>
-    <tr>
-        <td>
-            <label for="param_name"
-                   style="margin-top:30px;width: 100px">Từ ngày:</label></td>
-        <td class="item">
-            <div class="input-group date" id="datetimepicker1">
-                <input type="text" id="toDate" name="toDate"
-                       value="<?php echo $start_time ?>"> <span class="input-group-addon">
+    <section class="content-header">
+        <h1>
+            Lịch sử giao dịch hệ thống
+            Lịch sử giao dịch hệ thống
+        </h1>
+        <ol class="breadcrumb">
+            <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>
+        </ol>
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Từ ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' value="<?php echo $start_time ?>" class="form-control"
+                               id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-</span>
+                    </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Đến ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' value="<?php echo $end_time ?>" class="form-control"
+                               id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
             </div>
 
-
-        </td>
-
-        <td>
-            <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                   class="formLeft"> Đến ngày: </label>
-        </td>
-        <td class="item">
-
-            <div class="input-group date" id="datetimepicker2">
-                <input type="text" id="fromDate" name="fromDate"
-                       value="<?php echo $end_time ?>"> <span
-                    class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Nickname:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <input type="text" class="form-control" id="filter_iname"
+                           value="<?php echo $this->input->post('name') ?>" name="name">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Tiền:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="money_type" name="money" class="form-control">
+                        <option value="vin" <?php if ($this->input->post('money') == "vin") {
+                            echo "selected";
+                        } ?>><?php echo $namegame ?>
+                        </option>
+                        <option value="xu" <?php if ($this->input->post('money') == "xu") {
+                            echo "selected";
+                        } ?>>Xu
+                        </option>
+                    </select>
+                </div>
             </div>
-        </td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td><label style="margin-left: 180px">Nick name:</label></td>
-        <td><input type="text" style="margin-left: 20px;margin-top:30px;width: 150px"
-                   id="filter_iname" value="<?php echo $this->input->post('name') ?>" name="name"></td>
-        <td><label style="margin-left: 105px;margin-bottom:-2px;width: 100px">Tiền:</label></td>
-        <td class="">
-            <select id="money_type" name="money"
-                    style="margin-left: -30px;margin-bottom:-2px;width: 143px">
-                <option value="vin" <?php if ($this->input->post('money') == "vin") {
-                    echo "selected";
-                } ?>>Vin
-                </option>
-                <option value="xu" <?php if ($this->input->post('money') == "xu") {
-                    echo "selected";
-                } ?>>Xu
-                </option>
-            </select>
-        </td>
-		<td style="">
-            <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
-                   style="margin-left: 60px">
-        </td>
-        <td>
-            <input type="reset"
-                   onclick="window.location.href = '<?php echo admin_url('transaction') ?>'; "
-                   value="Reset" class="basic" style="margin-left: 20px">
-        </td>
-
-    </tr>
-
-</table>
-
-
-<table>
-    <tr>
-        <td>
-            <label for="param_name" style="width: 100px;margin-bottom:-3px;margin-left: 190px;margin-top: 30px"
-                   class="formLeft">Dịch vụ: </label>
-        </td>
-        <td class="item">
-		<select id="servicename" name="servicename"
-                                 style="margin-left: -15px;margin-bottom:-2px;width: 142px">
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Dịch vụ:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                <select id="servicename" name="servicename" class="form-control">
                 <option value="">Minigame</option>
                 <option value="VQMM" <?php if ($this->input->post('servicename') == "VQMM") {
                     echo "selected";
@@ -154,9 +133,9 @@
                     echo "selected";
                 } ?>>------Quay Nữ Điệp Viên
                 </option>
-				 <option value="VuongQuocVin" <?php if ($this->input->post('servicename') == "VuongQuocVin") {
+                <option value="VuongQuocVin" <?php if ($this->input->post('servicename') == "VuongQuocVin") {
                     echo "selected";
-                } ?>>------Quay Vương Quốc Vin
+                } ?>>------Quay Vương Quốc <?php echo $namegame ?>
                 </option>
                 <option value="">Dịch vụ khác</option>
                 <option value="SafeMoney" <?php if ($this->input->post('servicename') == "SafeMoney") {
@@ -181,32 +160,32 @@
                 <option
                     value="RechargeByCard" <?php if ($this->input->post('servicename') == "RechargeByCard") {
                     echo "selected";
-                } ?>>------Nạp vin qua thẻ
+                } ?>>------Nạp <?php echo $namegame ?> qua thẻ
                 </option>
-				<option
-        value="RechargeByVinCard" <?php if ($this->input->post('servicename') == "RechargeByVinCard") {
-        echo "selected";
-    } ?>>------Nạp vin qua VinCard
-    </option>
-    <option
-        value="RechargeByMegaCard" <?php if ($this->input->post('servicename') == "RechargeByMegaCard") {
-        echo "selected";
-    } ?>>------Nạp vin qua MegaCard
-    </option>
+                <option
+                    value="RechargeByVinCard" <?php if ($this->input->post('servicename') == "RechargeByVinCard") {
+                    echo "selected";
+                } ?>>------Nạp <?php echo $namegame ?> qua VinCard
+                </option>
+                <option
+                    value="RechargeByMegaCard" <?php if ($this->input->post('servicename') == "RechargeByMegaCard") {
+                    echo "selected";
+                } ?>>------Nạp <?php echo $namegame ?> qua MegaCard
+                </option>
                 <option
                     value="RechargeByIAP" <?php if ($this->input->post('servicename') == "RechargeByIAP") {
                     echo "selected";
-                } ?>>------Nạp vin qua IAP
+                } ?>>------Nạp <?php echo $namegame ?> qua IAP
                 </option>
                 <option
                     value="RechargeByBank" <?php if ($this->input->post('servicename') == "RechargeByBank") {
                     echo "selected";
-                } ?>>------Nạp vin qua ngân hàng
+                } ?>>------Nạp <?php echo $namegame ?> qua ngân hàng
                 </option>
                 <option
                     value="RechargeBySMS" <?php if ($this->input->post('servicename') == "RechargeBySMS") {
                     echo "selected";
-                } ?>>------Nạp vin qua SMS
+                } ?>>------Nạp <?php echo $namegame ?> qua SMS
                 </option>
                 <option value="NapXu" <?php if ($this->input->post('servicename') == "NapXu") {
                     echo "selected";
@@ -253,10 +232,10 @@
                     echo "selected";
                 } ?>>------Vippoint Event
                 </option>
-				<option value="NhiemVu" <?php if ($this->input->post('servicename') == "NhiemVu") {
-        echo "selected";
-    } ?>>------Nhận thưởng nhiệm vụ
-    </option>
+                <option value="NhiemVu" <?php if ($this->input->post('servicename') == "NhiemVu") {
+                    echo "selected";
+                } ?>>------Nhận thưởng nhiệm vụ
+                </option>
                 <option value="EventVP" <?php if ($this->input->post('servicename') == "EventVP") {
                     echo "selected";
                 } ?>>------Trao thưởng Vippoint Event
@@ -310,30 +289,30 @@
                     echo "selected";
                 } ?>>------Chơi game Poker
                 </option>
-				<option value="PokerTour" <?php if ($this->input->post('servicename') == "PokerTour") {
-        echo "selected";
-    } ?>>------Chơi game PokerTour
-    </option>
-				 <option value="XiDzach" <?php if ($this->input->post('servicename') == "XiDzach") {
+                <option value="PokerTour" <?php if ($this->input->post('servicename') == "PokerTour") {
+                    echo "selected";
+                } ?>>------Chơi game PokerTour
+                </option>
+                <option value="XiDzach" <?php if ($this->input->post('servicename') == "XiDzach") {
                     echo "selected";
                 } ?>>------Chơi game XiDzach
                 </option>
-				
-				<option value="">Game Khác</option>
-    <option value="HamCaMap" <?php if ($this->input->post('servicename') == "HamCaMap") {
-        echo "selected";
-    } ?>>------Chơi game bắn cá
-    </option>
+
+                <option value="">Game Khác</option>
+                <option value="HamCaMap" <?php if ($this->input->post('servicename') == "HamCaMap") {
+                    echo "selected";
+                } ?>>------Chơi game bắn cá
+                </option>
                 <option value="">Game Cờ</option>
                 <option value="Caro" <?php if ($this->input->post('servicename') == "Caro") {
                     echo "selected";
                 } ?>>------Chơi game cờ caro
                 </option>
-				 <option value="CoTuong" <?php if ($this->input->post('servicename') == "CoTuong") {
+                <option value="CoTuong" <?php if ($this->input->post('servicename') == "CoTuong") {
                     echo "selected";
                 } ?>>------Chơi game cờ Cờ tướng
                 </option>
-				 <option value="CoUp" <?php if ($this->input->post('servicename') == "CoUp") {
+                <option value="CoUp" <?php if ($this->input->post('servicename') == "CoUp") {
                     echo "selected";
                 } ?>>------Chơi game cờ úp
                 </option>
@@ -349,103 +328,95 @@
                 <option value="SieuAnhHungVqFree" <?php if ($this->input->post('servicename') == "SieuAnhHungVqFree") {
                     echo "selected";
                 } ?>>------Quay siêu anh hùng free
-                
 
-         </select>
-        </td>
-		<td>
-        <label for="param_name" style="width: 115px;margin-bottom:-3px;margin-left: 47px;"
-               class="formLeft"> Hiển thị: </label>
-    </td>
-    <td class="item"><select id="record" name="record"
-                             style="margin-left: 5px;margin-bottom:-2px;width: 150px">
-            <option value="50" <?php if ($this->input->post('record') == 50) {
-                echo "selected";
-            } ?> >50
-            </option>
-            <option value="100" <?php if ($this->input->post('record') == 100) {
-                echo "selected";
-            } ?>>100
-            </option>
-            <option value="200" <?php if ($this->input->post('record') == 200) {
-                echo "selected";
-            } ?>>200
-            </option>
-            <option value="500" <?php if ($this->input->post('record') == 500) {
-                echo "selected";
-            } ?>>500
-            </option>
-            <option value="1000" <?php if ($this->input->post('record') == 1000) {
-                echo "selected";
-            } ?>>1000
-            </option>
-            <option value="2000" <?php if ($this->input->post('record') == 2000) {
-                echo "selected";
-            } ?>>2000
-            </option>
-            <option value="5000" <?php if ($this->input->post('record') == 5000) {
-                echo "selected";
-            } ?>>5000
-            </option>
-        </select>
-    </td>
-        
-    </tr>
-</table>
-</form>
-<div class="formRow"></div>
-<table cellpadding="0" cellspacing="0" width="100%" class="tablesorter table table-bordered table-hover" id="checkAll">
-    <thead>
-    <tr style="height: 20px;">
-        <th>STT</th>
-        <th>Nick name</th>
-        <th>Dịch vụ</th>
-        <th>Hành động</th>
-        <th class="col-sm-3" id="des">Mô tả</th>
-        <th style="width:100px;">Số dư</th>
-        <th>Tiền thay đổi</th>
-        <th>Phế</th>
-        <th>Ngày tạo</th>
-    </tr>
-    </thead>
-    <tbody id="logaction">
-    </tbody>
-</table>
-</div>
-</div>
+
+                </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Hiển thị:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="record" name="record" class="form-control">
+                        <option value="50" <?php if ($this->input->post('record') == 50) {
+                            echo "selected";
+                        } ?> >50
+                        </option>
+                        <option value="100" <?php if ($this->input->post('record') == 100) {
+                            echo "selected";
+                        } ?>>100
+                        </option>
+                        <option value="200" <?php if ($this->input->post('record') == 200) {
+                            echo "selected";
+                        } ?>>200
+                        </option>
+                        <option value="500" <?php if ($this->input->post('record') == 500) {
+                            echo "selected";
+                        } ?>>500
+                        </option>
+                        <option value="1000" <?php if ($this->input->post('record') == 1000) {
+                            echo "selected";
+                        } ?>>1000
+                        </option>
+                        <option value="2000" <?php if ($this->input->post('record') == 2000) {
+                            echo "selected";
+                        } ?>>2000
+                        </option>
+                        <option value="5000" <?php if ($this->input->post('record') == 5000) {
+                            echo "selected";
+                        } ?>>5000
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="checkAll" class="table  table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Nick name</th>
+                        <th>Dịch vụ</th>
+                        <th>Hành động</th>
+                        <th class="col-sm-3" id="des">Mô tả</th>
+                        <th style="width:100px;">Số dư</th>
+                        <th>Tiền thay đổi</th>
+                        <th>Phế</th>
+                        <th>Ngày tạo</th>
+                    </tr>
+                    </thead>
+                    <tbody id="logaction">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
 <?php endif; ?>
-<style>
-    td {
-        word-break: break-all;
-    }
-
-    thead {
-        font-size: 12px;
-    }
-
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-
-<div id="spinner" class="spinner" style="display:none;">
-    <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-</div>
-<div class="text-center">
-    <ul id="pagination-demo" class="pagination-sm"></ul>
-
 </div>
 
-<script src="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.css">
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({

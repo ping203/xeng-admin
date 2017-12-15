@@ -199,7 +199,7 @@
 
 
     function updateratio(nickname, ratio) {
-        if (!confirm('Bạn chắc chắn muốn cập nhật tỉ lệ nhận thưởng vincard ?')) {
+        if (!confirm('Bạn chắc chắn muốn cập nhật tỉ lệ nhận thưởng zcard ?')) {
             return false;
         }
         $("#spinner").show();
@@ -219,7 +219,7 @@
                 if (result.errorCode == 0) {
                     $("#bsModal3").modal("show");
                     $("#statuspenđing").css({"color": "blue"});
-                    $("#statuspenđing").html("Bạn cập nhật tỉ lệ nhận thưởng vincard thành công");
+                    $("#statuspenđing").html("Bạn cập nhật tỉ lệ nhận thưởng zcard thành công");
 
                 } else if (result.errorCode == 1044) {
                     $("#bsModal3").modal("show");

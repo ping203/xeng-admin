@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 <?php $this->load->view('admin/usergame/head', $this->data) ?>
 <div class="line"></div>
 <?php if($role == false): ?>

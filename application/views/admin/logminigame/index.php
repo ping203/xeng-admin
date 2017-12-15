@@ -75,7 +75,7 @@
                             <td class="">
                                 <select id="money_type" name="money"
                                         style="margin-left: 0px;margin-bottom:-2px;width: 143px">
-                                    <option value="1" <?php if($this->input->post('money') == "1"){echo "selected";} ?>>Vin</option>
+                                    <option value="1" <?php if($this->input->post('money') == "1"){echo "selected";} ?>>Z</option>
                                     <option value="0" <?php if($this->input->post('money') == "0"){echo "selected";} ?>>Xu</option>
                                 </select>
                             </td>

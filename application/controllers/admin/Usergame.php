@@ -6,7 +6,7 @@ Class Usergame extends MY_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('usergame_model');
+       // $this->load->model('usergame_model');
         $this->load->model('logadmin_model');
         $this->load->model('actionadmin_model');
         $this->load->library('paginationlib');

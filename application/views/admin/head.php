@@ -66,6 +66,7 @@
 <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.css">
 <script src="<?php echo public_url() ?>/js/common.js"></script>
 <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.table2excel.js"></script>
+<script src="<?php echo public_url() ?>/site/bootstrap/highcharts.js"></script>
 <script>
 	 var timeOutApi = 60000;
 

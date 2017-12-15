@@ -178,7 +178,25 @@ Class Transaction extends MY_Controller
         }
     }
     function  freemoney(){
-       
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $start_time = null;
+        $end_time = null;
+        if ($this->input->post('toDate')) {
+            $start_time = $this->input->post('toDate');
+        }
+
+        if ($this->input->post('fromDate')) {
+            $end_time = $this->input->post('fromDate');
+        }
+
+        if ($start_time === null) {
+            $start_time = date('Y-m-d 00:00:00');
+        }
+        if ($end_time === null) {
+            $end_time = date('Y-m-d 23:59:59');
+        }
+        $this->data['start_time'] = $start_time;
+        $this->data['end_time'] = $end_time;
         $this->data['temp'] = 'admin/transaction/freemoney';
         $this->load->view('admin/main', $this->data);
     }

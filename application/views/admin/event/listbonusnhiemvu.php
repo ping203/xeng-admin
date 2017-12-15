@@ -114,7 +114,7 @@
                                 <option
                                     value="VuongQuocVin" <?php if ($this->input->post('sl-gamname') == "VuongQuocVin") {
                                     echo "selected";
-                                } ?> >------Vương Quốc Vin
+                                } ?> >------Vương Quốc Z
                                 </option>
                                 <option value="" <?php if ($this->input->post('sl-gamname') == "") {
                                     echo "selected";
@@ -182,7 +182,7 @@
                                 </option>
                                 <option value="vin" <?php if ($this->input->post('sl-moneytype') == "vin") {
                                     echo "selected";
-                                } ?> >Vin
+                                } ?> >Z
                                 </option>
                                 <option value="xu" <?php if ($this->input->post('sl-moneytype') == "xu") {
                                     echo "selected";

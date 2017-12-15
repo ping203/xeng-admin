@@ -50,7 +50,7 @@
                         <option value="nganluong">Ngân Lượng</option>
                         <option value="admin">Admin</option>
                         <option value="vippoint_event">Vippoint Event</option>
-                        <option value="vin_plus">Vin Plus</option>
+                        <option value="vin_plus">Z Plus</option>
                         <option value="lucky_vip">Lucky Vip</option>
                         <option value="agent">Agent</option>
                         <option value="sms_plus">Sms Plus</option>

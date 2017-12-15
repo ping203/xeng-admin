@@ -49,7 +49,7 @@
                     <option value="10000">10,000</option>
                 </select>
             </div>
-            <div class="col-sm-1"><label>Số vin thắng</label></div>
+            <div class="col-sm-1"><label>Số Z thắng</label></div>
             <div class="col-sm-2"><input class="form-control" id="txtprize" type="text" placeholder="Nhập số vin"></div>
             <label id="numchuyen" style="color: blueviolet"></label>
         </div>

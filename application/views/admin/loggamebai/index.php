@@ -109,7 +109,7 @@
                         <td><label style="margin-left: 70px;margin-bottom:-2px;width: 80px">Loại tiền:</label></td>
                         <td><select id="moneytype" name="moneytype" style="margin-left: 27px;margin-bottom:-2px;width: 142px">
                                 <option value="" <?php if($this->input->post('moneytype') == ""){echo "selected";} ?>>Chọn</option>
-                                <option value="1" <?php if($this->input->post('moneytype') == "1"){echo "selected";} ?>>Vin</option>
+                                <option value="1" <?php if($this->input->post('moneytype') == "1"){echo "selected";} ?>>Z</option>
                                 <option value="0" <?php if($this->input->post('moneytype') == "0"){echo "selected";} ?>>Xu</option>
                             </select></td>
                         <td style="">

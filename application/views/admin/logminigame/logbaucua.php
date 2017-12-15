@@ -69,7 +69,7 @@
             <div class="formRow">
                 <table>
                     <tr>
-                        <td><label  id = "labelvin" style="margin-left: 60px;margin-bottom:-2px;width: 90px;">Phòng vin:</label></td>
+                        <td><label  id = "labelvin" style="margin-left: 60px;margin-bottom:-2px;width: 90px;">Phòng Z:</label></td>
 
                         <td><select id="menhgiavin" name="menhgiavin"
                                     style="margin-left: 0px;margin-bottom:-2px;width: 150px;">

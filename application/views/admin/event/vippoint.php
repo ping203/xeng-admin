@@ -77,7 +77,7 @@
                                     <option value="" <?php if($this->input->post('txttype') == ""){echo "selected";} ?>>Chọn</option>
                                     <option value="1" <?php if($this->input->post('txttype') == "1"){echo "selected";} ?>>Cộng vippoint event</option>
                                     <option value="2" <?php if($this->input->post('txttype') == "2"){echo "selected";} ?>>Trừ vippoint event</option>
-                                    <option value="3" <?php if($this->input->post('txttype') == "3"){echo "selected";} ?>>Cộng vin</option>
+                                    <option value="3" <?php if($this->input->post('txttype') == "3"){echo "selected";} ?>>Cộng Z</option>
                                 </select>
                             </td>
                         </tr>

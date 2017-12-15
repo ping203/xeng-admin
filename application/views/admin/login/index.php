@@ -30,7 +30,7 @@
     <input type="hidden" id="iduser">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b>XengClub</a>
+        <a href="#"><b>Admin</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

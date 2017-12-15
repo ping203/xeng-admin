@@ -76,7 +76,7 @@
                         style="margin-left: -30px;margin-bottom:-2px;width: 143px">
                     <option value="vin" <?php if ($this->input->post('money') == "vin") {
                         echo "selected";
-                    } ?>>Vin
+                    } ?>>Z
                     </option>
                     <option value="xu" <?php if ($this->input->post('money') == "xu") {
                         echo "selected";
@@ -163,17 +163,17 @@
                     <option
                         value="RechargeByCard" <?php if ($this->input->post('servicename') == "RechargeByCard") {
                         echo "selected";
-                    } ?>>------Nạp vin qua thẻ
+                    } ?>>------Nạp Z qua thẻ
                     </option>
                     <option
                         value="RechargeByIAP" <?php if ($this->input->post('servicename') == "RechargeByIAP") {
                         echo "selected";
-                    } ?>>------Nạp vin qua IAP
+                    } ?>>------Nạp Z qua IAP
                     </option>
                     <option
                         value="RechargeByBank" <?php if ($this->input->post('servicename') == "RechargeByBank") {
                         echo "selected";
-                    } ?>>------Nạp vin qua ngân hàng
+                    } ?>>------Nạp Z qua ngân hàng
                     </option>
                     <option value="NapXu" <?php if ($this->input->post('servicename') == "NapXu") {
                         echo "selected";
