@@ -1,100 +1,169 @@
-<!-- head -->
-<?php $this->load->view('admin/marketing/head', $this->data) ?>
-<div class="line"></div>
-<div class="wrapper">
-    <div class="widget">
-        <div class="title">
-            <h6>Thêm mới chiến dịch</h6>
-        </div>
-        <form id="form_marketing" class="form" enctype="multipart/form-data" method="post" action="">
+<div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Thêm mới chiến dịch
+            </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
 
-            <fieldset>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">URL của trang web :<span class="req">*</span></label>
+                        <label id="resultsearch" style="color: red;"></label>
 
-                    <div class="formRight">
-                        <span class="oneTwo"><input type="text" id="url_web" name="url_web" _autocheck="true" value="<?php echo set_value('url_web')?>"></span>
-                        <span style="width: 100%;float: left;">(ví dụ: http://www.urchin.com/download.html)</span>
+                        <div class="box-body">
+                            <form id="form_marketing" class="form" enctype="multipart/form-data" method="post"
+                                  action="">
 
-                        <div class="clear error" ><?php echo form_error('url_web')?></div>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <label for="exampleInputEmail1">URL của trang web :</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <input type="text" id="url_web" name="url_web" class="form-control"
+                                                       value="<?php echo set_value('url_web') ?>">
+                                                <label>(ví dụ: http://www.urchin.com/download.html)</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <label style="color: red"><?php echo form_error('url_web') ?></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <label for="exampleInputEmail1">Nguồn chiến dịch:</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <select name="utm_source" class="form-control">
+                                                    <option value=""></option>
+                                                    <?php foreach ($utm_source as $row): ?>
+                                                        <option
+                                                            value="<?php echo $row->name ?>"><?php echo $row->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                                <label>(Liên kết giới thiệu: google, citysearch, newsletter4)</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <label style="color: red"><?php echo form_error('utm_source') ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <label for="exampleInputEmail1">Phương tiện chiến dịch :</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <select name="utm_medium" value="<?php echo set_value('utm_medium') ?>"
+                                                        class="form-control">
+                                                    <option value=""></option>
+                                                    <?php foreach ($utm_medium as $row): ?>
+                                                        <option
+                                                            value="<?php echo $row->name ?>"><?php echo $row->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                                <label>(Phương tiện tiếp thị: cpc, biểu ngữ, email)</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <label style="color: red"><?php echo form_error('utm_medium') ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <label for="exampleInputEmail1">Từ khóa chiến dịch :</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <input type="text" id="utm_term" name="utm_term" class="form-control"
+                                                       value="<?php echo set_value('utm_term') ?>">
+                                                <label>(Nhận dạng các từ khóa phải trả tiền)</label>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <label style="color: red"><?php echo form_error('utm_term') ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <label for="exampleInputEmail1">Nội dung chiến dịch:</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <input type="text" id="utm_content" name="utm_content"
+                                                       class="form-control"
+                                                       value="<?php echo set_value('utm_content') ?>">
+                                                <label>(Sử dụng để phân biệt quảng cáo)</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <label
+                                                    style="color: red"><?php echo form_error('utm_content') ?></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <label for="exampleInputEmail1">Tên chiến dịch:</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <select name="utm_campaign" class="form-control">
+                                                    <option value=""></option>
+                                                    <?php foreach ($utm_campain as $row): ?>
+                                                        <option
+                                                            value="<?php echo $row->name ?>"><?php echo $row->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                                <label>(Sản phẩm, mã khuyến mại hoặc khẩu hiệu)</label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                                <label
+                                                    style="color: red"><?php echo form_error('utm_campaign') ?></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                            </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-12">
+                                                <input type="submit" class="btn btn-success" id="btnCreate"
+                                                       name="btnCreate" value="Tạo url">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <div class="box-body">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="clear"></div>
                 </div>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">Nguồn chiến dịch :<span class="req">*</span></label>
-
-                    <div class="formRight">
-                        <select name="utm_source"  value="<?php echo set_value('utm_source')?>" class="left">
-                            <option value=""></option>
-                            <?php foreach ($utm_source as $row): ?>
-                                <option value="<?php echo $row->name ?>"><?php echo $row->name ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <span
-                            style="width: 100%;float: left;">(Liên kết giới thiệu: google, citysearch, newsletter4)</span>
-                        <div class="clear error" id="utm_source_error"><?php echo form_error('utm_source')?></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">Phương tiện chiến dịch :<span class="req">*</span></label>
-
-                    <div class="formRight">
-                        <select name="utm_medium"  value="<?php echo set_value('utm_medium')?>" class="left">
-                            <option value=""></option>
-                            <?php foreach ($utm_medium as $row): ?>
-                                <option value="<?php echo $row->name ?>"><?php echo $row->name ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <span style="width: 100%;float: left;">(Phương tiện tiếp thị: cpc, biểu ngữ, email)</span>
-
-                        <div class="clear error" id="utm_medium_error"><?php echo form_error('utm_medium')?></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">Từ khóa chiến dịch :</label>
-
-                    <div class="formRight">
-                        <span class="oneTwo"><input type="text" id="utm_term" name="utm_term" _autocheck="true" value="<?php echo set_value('utm_term')?>"></span>
-                        <span style="width: 100%;float: left;">Nnhận dạng các từ khóa phải trả tiền)</span>
-
-                        <div class="clear error" id="utm_term_error"><?php echo form_error('utm_term')?></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">Nội dung chiến dịch :</label>
-
-                    <div class="formRight">
-                        <span class="oneTwo"><input type="text" id="utm_content" name="utm_content" _autocheck="true" value="<?php echo set_value('utm_content')?>"></span>
-                        <span style="width: 100%;float: left;">(Sử dụng để phân biệt quảng cáo)</span>
-
-                        <div class="clear error" id="utm_content_error"><?php echo form_error('utm_content')?></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">Tên chiến dịch :<span class="req">*</span></label>
-
-                    <div class="formRight">
-                        <select name="utm_campaign"  value="<?php echo set_value('utm_campaign')?>" class="left">
-                            <option value=""></option>
-                            <?php foreach ($utm_campain as $row): ?>
-                                <option value="<?php echo $row->name ?>"><?php echo $row->name ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <span style="width: 100%;float: left;">(Sản phẩm, mã khuyến mại hoặc khẩu hiệu)</span>
-
-                        <div class="clear error" id="utm_campaign_error"><?php echo form_error('utm_campaign')?></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-
-                <div class="formSubmit">
-                    <input type="submit" class="redB" id="btnCreate" name="btnCreate" value="Tạo url">
-                </div>
-            </fieldset>
-        </form>
-    </div>
+            </div>
+        </section>
 </div>
+
+
+
+
+
+

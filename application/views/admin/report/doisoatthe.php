@@ -1,159 +1,145 @@
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-<link rel="stylesheet"
-      href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-<script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-<script
-    src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
+<div class="content-wrapper">
 <?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
 <?php else: ?>
-    <?php $this->load->view('admin/error')?>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-		
-        <div class="formRow">
-            <h4>Đối soát thẻ nạp</h4>
-        </div>
-        <form class="list_filter form" action="<?php echo admin_url('report/doisoatthe') ?>" method="post">
 
-            <div class="formRow">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="param_name" class="formLeft" id="nameuser"
-                                   style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                        <td class="item">
-                            <div class="input-group date" id="datetimepicker1">
-                                <input type="text" id="toDate" name="toDate" value="<?php echo $start_time ?>"> <span
-                                    class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                            </div>
+    <section class="content-header">
+        <h1>
+            Đối soát thẻ nạp
+        </h1>
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
 
+    <label id="resultsearch" style="color: red;"></label>
 
-                        </td>
-
-                        <td>
-                            <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                   class="formLeft"> Đến ngày: </label>
-                        </td>
-                        <td class="item">
-
-                            <div class="input-group date" id="datetimepicker2">
-                                <input type="text" id="fromDate" name="fromDate" value="<?php echo $end_time ?>"> <span
-                                    class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                            </div>
-                        </td>
-                       
-                    </tr>
-                </table>
-            </div>
-			<div class="formRow">
-                <table>
-                    <tr>
-                        <td><label style="margin-left: 70px;margin-bottom:-2px;width: 100px">Loại thẻ:</label></td>
-                        <td class="">
-                            <select id="select_provider" name="select_provider"
-                                    style="margin-left: 0px;margin-bottom:-2px;width: 143px">
-								<option value="Gate" <?php if ($this->input->post('select_provider') == "Gate") {
-                                    echo "selected";
-                                } ?>>Gate
-                                </option>
-                               
-                                <option
-                                    value="Mobifone" <?php if ($this->input->post('select_provider') == "Mobifone") {
-                                    echo "selected";
-                                } ?>>Mobifone
-                                </option>
-                                <option
-                                    value="Vinaphone" <?php if ($this->input->post('select_provider') == "Vinaphone") {
-                                    echo "selected";
-                                } ?>>Vinaphone
-                                </option>
-                                <option value="Vcoin" <?php if ($this->input->post('select_provider') == "Vcoin") {
-                                    echo "selected";
-                                } ?>>Vcoin
-                                </option>
-                                
-                                <option value="MegaCard" <?php if ($this->input->post('select_provider') == "MegaCard") {
-                                    echo "selected";
-                                } ?>>MegaCard
-                                </option>
-								 <option value="Viettel" <?php if ($this->input->post('select_provider') == "Viettel") {
-                                    echo "selected";
-                                } ?>>Viettel
-                                </option>
-                            </select>
-                        </td>
-						<td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Nhà cung cấp:</label></td>
-                        <td class="">
-                            <select id="select_partner" name="select_partner"
-                                    style="margin-left: 20px;margin-bottom:-2px;width: 143px">
-                                <option value="">Chọn</option>
-                                <option value="maxpay" <?php if ($this->input->post('select_partner') == "maxpay") {
-                                    echo "selected";
-                                } ?>>Maxpay
-                                </option>
-                                <option value="abtpay" <?php if ($this->input->post('select_partner') == "abtpay") {
-                                    echo "selected";
-                                } ?>>Abtpay
-                                </option>
-                            </select>
-                        </td>
-                        <td style="">
-                            <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                   style="margin-left: 70px">
-                        </td>
-                        <td style="">
-                            <input type="button" id="exportexel" value="Xuất Exel" class="button blueB"
-                                   style="margin-left: 20px">
-                        </td>
-                    </tr>
-                    </table>
+    <div class="box-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Từ ngày:</label>
                 </div>
-        </form>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' value="<?php echo $start_time ?>" class="form-control"
+                               id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Đến ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
 
-        <div class="widget">
-            <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
-
-            <div id="widget">
-
-
-                <div class="formRow">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                                <tbody id="reportvt">
-                                </tbody>
-
-                            </table>
-                        </div>
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' value="<?php echo $end_time ?>" class="form-control"
+                               id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
                     </div>
                 </div>
             </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Loại thẻ:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="select_provider" name="select_provider" class="form-control">
+                        <option value="Gate" <?php if ($this->input->post('select_provider') == "Gate") {
+                            echo "selected";
+                        } ?>>Gate
+                        </option>
+
+                        <option
+                            value="Mobifone" <?php if ($this->input->post('select_provider') == "Mobifone") {
+                            echo "selected";
+                        } ?>>Mobifone
+                        </option>
+                        <option
+                            value="Vinaphone" <?php if ($this->input->post('select_provider') == "Vinaphone") {
+                            echo "selected";
+                        } ?>>Vinaphone
+                        </option>
+                        <option value="Vcoin" <?php if ($this->input->post('select_provider') == "Vcoin") {
+                            echo "selected";
+                        } ?>>Vcoin
+                        </option>
+
+                        <option value="MegaCard" <?php if ($this->input->post('select_provider') == "MegaCard") {
+                            echo "selected";
+                        } ?>>MegaCard
+                        </option>
+                        <option value="Viettel" <?php if ($this->input->post('select_provider') == "Viettel") {
+                            echo "selected";
+                        } ?>>Viettel
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Nhà cung cấp:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="select_partner" name="select_partner" class="form-control">
+                        <option value="">Chọn</option>
+                        <option value="maxpay" <?php if ($this->input->post('select_partner') == "maxpay") {
+                            echo "selected";
+                        } ?>>Maxpay
+                        </option>
+                        <option value="abtpay" <?php if ($this->input->post('select_partner') == "abtpay") {
+                            echo "selected";
+                        } ?>>Abtpay
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="exportexel" value="Xuất Exel" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="checkAll" class="table table-bordered">
+                    <tbody id="reportvt">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
         </div>
 
     </div>
+    </div>
+    </div>
+    </div>
+    </section>
 <?php endif; ?>
+</div>
+
 <style>
     td {
         word-break: break-all;
@@ -172,28 +158,8 @@
     .tdmoney {
         text-align: right;
     }
+</style>
 
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-lg"></ul>
-    </div>
-</div>
-<script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.table2excel.js"></script>
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({
@@ -412,9 +378,8 @@
 
             }, error: function () {
                 $('#reportvt').html("");
-                $("#spinner").hide();
-                $("#error-popup").modal("show");
-            }, timeout: 40000
+               errorThongBao();
+            }, timeout: timeOutApi
         })
     });
 

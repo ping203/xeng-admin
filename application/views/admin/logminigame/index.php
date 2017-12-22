@@ -245,7 +245,7 @@
                 $("#spinner").hide();
                 $('#logaction').html("");
                 $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-            },timeout : 40000
+            },timeout : timeOutApi
 									
                                 });
                             }
@@ -260,7 +260,7 @@
                 $("#spinner").hide();
                 $('#logaction').html("");
                 $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-            },timeout : 40000
+            },timeout : timeOutApi
         })
 
     });

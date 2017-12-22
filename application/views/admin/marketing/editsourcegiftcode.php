@@ -1,62 +1,108 @@
 <!-- head -->
-<?php $this->load->view('admin/marketing/head', $this->data) ?>
-<div class="line"></div>
-<div class="wrapper">
-    <div class="widget">
-        <div class="title">
-            <h6>Cập nhật nguồn giftcode</h6>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Cập nhật nguồn giftcode
+        </h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-body">
+
+                    <label id="resultsearch" style="color: red;"></label>
+
+                    <div class="box-body">
+                        <form id="form" class="form" enctype="multipart/form-data" method="post" action="">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Key giftcode:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" _autocheck="true" id="keygiftcode"
+                                                   class="form-control"
+                                                   value="<?php echo $info->key ?>" name="keygiftcode"
+                                                   maxlength="3">
+                                        </div>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <label
+                                                style="color: red"><?php echo form_error('keygiftcode') ?></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Tên nguồn giftcode:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" _autocheck="true" id="sourcegiftcode"
+                                                   class="form-control"
+                                                   value="<?php echo $info->name ?>"
+                                                   name="sourcegiftcode">
+                                        </div>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <label
+                                                style="color: red"><?php echo form_error('sourcegiftcode') ?></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Loại giftcode:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <select id="typegiftcode" class="form-control"
+                                                    value="<?php echo set_value('typegiftcode') ?>"
+                                                    name="typegiftcode">
+                                                <option value="1" <?php if($info->type == 1){echo "selected";}  ?>>Giftcode marketing</option>
+                                                <option value="2" <?php if($info->type == 2){echo "selected";}  ?>>Giftcode minigame</option>
+                                                <option value="3" <?php if($info->type == 3){echo "selected";}  ?>>Giftcode vận hành</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <label
+                                                style="color: red"><?php echo form_error('typegiftcode') ?></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Hiển thị:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="checkbox" id="statusgc" name="statusgc  value="<?php echo $info->display ?>" <?php if($info->display == 1 ) {echo "checked"; }?>>
+                                            <input type="hidden" name="displaygc" id="displaygc" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="submit" class="btn btn-success" value="Cập nhật">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                    </div>
+
+
+                </div>
+            </div>
         </div>
-        <form id="form" class="form" enctype="multipart/form-data" method="post" action="">
-            <fieldset>
-                <div class="formRow">
-                    <label for="param_username" class="formLeft">Key giftcode:<span class="req">*</span></label>
-                    <div class="formRight">
-                        <span class="oneTwo"><input type="text" _autocheck="true" value="<?php echo $info->key ?>"  maxlength="3" name="keygiftcode"></span>
-                        <span class="autocheck" name="name_autocheck"></span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_username" class="formLeft">Tên nguồn giftcode:<span class="req">*</span></label>
-                    <div class="formRight">
-                        <span class="oneTwo"><input type="text" _autocheck="true" value="<?php echo $info->name ?>"   name="sourcegiftcode"></span>
-                        <span class="autocheck" name="name_autocheck"></span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_name" class="formLeft">Loại giftcode:<span class="req">*</span></label>
-
-                    <div class="formRight">
-                        <span class="oneTwo"><select id="typegiftcode" name="typegiftcode">
-                                <option value="1" <?php if($info->type == 1){echo "selected";}  ?>>Giftcode marketing</option>
-                                <option value="2" <?php if($info->type == 2){echo "selected";}  ?>>Giftcode minigame</option>
-                                <option value="3" <?php if($info->type == 3){echo "selected";}  ?>>Giftcode vận hành</option>
-                            </select>
-                        </span>
-                        <span class="autocheck" name="name_autocheck"></span>
-
-                        <div class="clear error" name="name_error"><?php echo form_error('typegiftcode') ?></div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formRow">
-                    <label for="param_username" class="formLeft">Hiển thị:<span class="req">*</span></label>
-                    <div class="formRight">
-                        <span style="width: 150px;float: left">
-                             <input type="checkbox" id="statusgc" name="statusgc  value="<?php echo $info->display ?>" <?php if($info->display == 1 ) {echo "checked"; }?>>
-                             <input type="hidden" name="displaygc" id="displaygc" value="">
-                        </span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="formSubmit">
-                    <input type="submit" class="redB" value="Cập nhật">
-                </div>
-            </fieldset>
-        </form>
-    </div>
+    </section>
 </div>
+
 <script>
     $( document ).ready(function() {
         $("#displaygc").val($('#statusgc').val());

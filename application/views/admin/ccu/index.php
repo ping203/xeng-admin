@@ -1,102 +1,101 @@
-<?php $this->load->view('admin/ccu/head', $this->data) ?>
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-<link rel="stylesheet"
-      href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-<script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-<script
-    src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-<div class="line"></div>
-<?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
+
+        <section class="content-header">
+            <h1>
+                CCU
+            </h1>
+            <ol class="breadcrumb">
+                <label class="">Tổng: <span id="sumccu" style="color: #0000ff"></span></label>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
+
+                        <label id="resultsearch" style="color: red;"></label>
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Từ ngày:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' value="" class="form-control"
+                                                   id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Đến ngày:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type='text' value="" class="form-control"
+                                                   id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="button" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-body  table-responsive no-padding">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table>
+                                        <div id="container"
+                                             style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-<?php else: ?>
-    <div class="wrapper">
-        <div class="widget">
-
-            <div class="formRow">
-                <form class="list_filter form" action="<?php echo admin_url('logminigame') ?>" method="get">
-                    <table>
-                        <tr>
-
-                            <td>
-                                <label for="param_name" class="formLeft" id="nameuser"
-                                       style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                            <td class="item"><input name="created"
-                                                    value="<?php echo $this->input->get('created') ?>"
-                                                    id="toDate" type="text" class="datepicker"/></td>
-                            <td>
-                                <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                       class="formLeft"> Đến ngày: </label>
-                            </td>
-                            <td class="item"><input name="created_to"
-                                                    value="<?php echo $this->input->get('created_to') ?>"
-                                                    id="fromDate" type="text" class="datepicker-input"/></td>
-                            <td style="">
-                                <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                       style="margin-left: 20px">
-                            </td>
-
-                        </tr>
-                    </table>
-                </form>
-            </div>
-
-            <div class="formRow">
-                <h4>Tổng CCU : <span id="sumccu" style="color: #0000ff"></span></h4>
-            </div>
-                <!--<table class="table table-bordered table-striped" id="checkAll">
-                    <thead>
-                    <tr>
-                        <td style="width: 14.15%">
-                            Web
-                        </td>
-                        <td style="width: 14.15%">
-                            Android
-                        </td>
-                        <td style="width: 14.15%">
-                            Ios
-                        </td>
-                        <td style="width: 14.15%">
-                            Winphone
-                        </td>
-                        <td style="width: 14.15%">
-                            App Facebook
-                        </td>
-                        <td style="width: 14.15%">
-                            Desktop
-                        </td>
-                        <td style="width: 14.15%">
-                            Other
-                        </td>
-
-                    </tr>
-                    </thead>
-                    <tbody id="logccu">
-                    </tbody>
-                </table>-->
-
-
-
-            <div class="formRow">
-                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-            </div>
-           <!-- <div class="formRow">
-                <div id="chartcontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-            </div> -->
-        </div>
-    </div>
-<?php endif; ?>
-<script src="<?php echo public_url() ?>/site/bootstrap/highcharts.js"></script>
-<script src="<?php echo public_url() ?>/site/bootstrap/exporting.js"></script>
+        </section>
+    <?php endif; ?>
+</div>
 <script>
+
+$(function () {
+
+    $('#datetimepicker1').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss'
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss'
+    });
+});
 $(document).ready(function () {
     $("#toDate").val(moment().subtract('minutes', 15).format('YYYY-MM-DD HH:mm:ss'));
     $("#fromDate").val(moment().format('YYYY-MM-DD HH:mm:ss'));
@@ -157,7 +156,7 @@ function getCcu() {
 
             result += resultccu(Web[count - 1], Android[count - 1], Ios[count - 1], Winphone[count - 1], Facebook[count - 1], Destkop[count - 1], Other[count - 1]);
             $('#logccu').html(result);
-            $('#sumccu').html(ccu[count-1]);
+            $('#sumccu').html(ccu[count - 1]);
             $(function () {
                 $('#container').highcharts({
                     title: {

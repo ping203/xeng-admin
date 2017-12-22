@@ -129,9 +129,8 @@
                     chart(Agent1,Agent2,Time);
                 }
             }, error: function () {
-            $("#spinner").hide();
-            $("#error-popup").modal("show");
-        }, timeout: 40000
+          errorThongBao();
+        }, timeout: timeOutApi
         })
     });
 </script>

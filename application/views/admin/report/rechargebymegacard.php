@@ -335,9 +335,8 @@ $(document).ready(function () {
                                     });
                                     $('#logaction').html(result);
                                 }, error: function () {
-                                    $("#spinner").hide();
+                                   errorThongBao();
                                     $('#logaction').html("");
-                                    $("#error-popup").modal("show");
                                     $("#resultsearch").html("");
                                 }, timeout: timeOutApi
                             });
@@ -348,9 +347,8 @@ $(document).ready(function () {
             }
 
         }, error: function () {
-            $("#spinner").hide();
+            errorThongBao();
             $('#logaction').html("");
-            $("#error-popup").modal("show");
             $("#resultsearch").html("");
         }, timeout: timeOutApi
     });

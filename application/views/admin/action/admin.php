@@ -1,195 +1,194 @@
 <!-- head -->
-<?php $this->load->view('admin/action/head', $this->data) ?>
-<div class="line"></div>
-<?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
-<?php else: ?>
-     <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-    <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-    <script
-        src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-        <div class="widget">
-            <div class="title">
-                <h6>Log mở khóa tài khoản</h6>
-            </div>
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
 
-            <form class="list_filter form" action="<?php echo admin_url('actionadmin') ?>" method="post">
-                <div class="formRow">
+        <section class="content-header">
+            <h1>
+                Log mở khóa tài khoản
+            </h1>
 
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="param_name" class="formLeft" id="nameuser"
-                                       style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                            <td class="item">
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" id="toDate" name="toDate"
-                                           value="<?php echo $this->input->post('toDate') ?>"> <span
-                                        class="input-group-addon">
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
+
+                        <label id="resultsearch" style="color: red;"></label>
+                        <div class="box-body">
+                            <form action="<?php echo admin_url('actionadmin') ?>" method="post">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Từ ngày:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' value="<?php echo $this->input->post('toDate') ?>"
+                                                       class="form-control"
+                                                       id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                                </div>
+                    </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Đến ngày:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
 
-
-                            </td>
-
-                            <td>
-                                <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                       class="formLeft"> Đến ngày: </label>
-                            </td>
-                            <td class="item">
-
-                                <div class="input-group date" id="datetimepicker2">
-                                    <input type="text" id="fromDate" name="fromDate"
-                                           value="<?php echo $this->input->post('fromDate') ?>"> <span
-                                        class="input-group-addon">
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type='text' value="<?php echo $this->input->post('fromDate') ?>"
+                                                       class="form-control"
+                                                       id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-</span>
+                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </td>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Admin:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" class="form-control"
+                                                   id="filter_iname" value="<?php echo $this->input->post('name') ?>"
+                                                   name="name">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Hành động:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" class="form-control" id="txtaction"
+                                                   value="<?php echo $this->input->post('txtaction') ?>"
+                                                   name="txtaction">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Nick name:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" class="form-control" id="txtname"
+                                                   value="<?php echo $this->input->post('txtname') ?>" name="txtname">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Lý do:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" class="form-control" id="txtlydo"
+                                                   value="<?php echo $this->input->post('txtlydo') ?>" name="txtlydo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Trạng thái:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <select id="lockstatus" name="status" class="form-control">
+                                                <option value="1" <?php if ($this->input->post('status') == "1") {
+                                                    echo "selected";
+                                                } ?>>Khóa tài khoản
+                                                </option>
+                                                <option value="0" <?php if ($this->input->post('status') == "0") {
+                                                    echo "selected";
+                                                } ?>>Mở khóa tài khoản
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="submit" id="search_tran" value="Tìm kiếm"
+                                                   class="btn btn-success">
+                                        </div>
 
-                        </tr>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
 
-                    </table>
+                        <div class="box-body  table-responsive no-padding">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="checkAll" class="table  table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td>STT</td>
+                                            <td>Tài khoản admin</td>
+                                            <td>Nick game</td>
+                                            <td>Hành động</td>
+                                            <td>Lý do</td>
+                                            <td>Trạng thái</td>
+                                            <td>Ngày tạo</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="logdongbang">
+                                        <?php $stt = 1; ?>
+                                        <?php foreach ($list as $row): ?>
+                                            <tr class="row_<?php echo $row->id ?>">
+                                                <td><?php echo $stt ?></td>
+                                                <td>
+                                                    <?php echo $row->username ?>
+                                                </td>
+                                                <td class="col-sm-4" style="word-break: break-all;">
+                                                    <?php echo $row->account_name ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row->action ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row->reason ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($row->status == "1"): ?>
+                                                        <?php echo "Khóa tài khoản" ?>
+                                                    <?php elseif ($row->status == "0"): ?>
+                                                        <?php echo "Mở khóa tài khoản" ?>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row->timestamp ?>
+                                                </td>
+                                            </tr>
+                                            <?php $stt++; ?>
+                                        <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="pagination">
+                                <div id="pagination"></div>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Admin:</label></td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="filter_iname" value="<?php echo $this->input->post('name') ?>" name="name">
-                            </td>
-                            <td>
-                                <label for="param_name" style="width: 100px;margin-bottom:-3px;margin-left: 43px;"
-                                       class="formLeft">Hành động: </label>
-                            </td>
-                            <td><input type="text" style="margin-left: 27px;margin-bottom:-2px;width: 150px"
-                                       id="txtaction" value="<?php echo $this->input->post('txtaction') ?>"
-                                       name="txtaction"></td>
+            </div>
+        </section>
+    <?php endif; ?>
+</div>
 
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Nick name:</label></td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="txtname" value="<?php echo $this->input->post('txtname') ?>" name="txtname">
-                            </td>
-                            <td>
-                                <label for="param_name" style="width: 100px;margin-bottom:-3px;margin-left: 43px;"
-                                       class="formLeft">Lý do: </label>
-                            </td>
-                            <td><input type="text" style="margin-left: 27px;margin-bottom:-2px;width: 150px"
-                                       id="txtlydo" value="<?php echo $this->input->post('txtlydo') ?>"
-                                       name="txtlydo"></td>
 
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 50px;margin-bottom:-2px;width: 100px">Trạng thái:</label></td>
-                            <td class="">
-                                <select id="lockstatus" name="status"
-                                        style="margin-left: 0px;margin-bottom:-2px;width: 143px">
-
-                                    <option value ="1" <?php if ($this->input->post('status') == "1") {
-                                        echo "selected";
-                                    } ?>>Khóa tài khoản
-                                    </option>
-                                    <option value="0" <?php if($this->input->post('status') == "0") {
-                                        echo "selected";
-                                    } ?>>Mở khóa tài khoản
-                                    </option>
-                                </select>
-                            </td>
-                            <td style="">
-                                <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                       style="margin-left: 123px">
-                            </td>
-                            <td>
-                                <input type="reset"
-                                       onclick="window.location.href = '<?php echo admin_url('actionadmin') ?>'; "
-                                       value="Reset" class="basic" style="margin-left: 20px">
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="formRow">
-                </div>
-            </form>
-            <table cellpadding="0" cellspacing="0" width="100%" class="table table-bordered table-hover" id="checkAll">
-                <thead>
-                <tr>
-                    <td style="width:80px;">STT</td>
-                    <td>Tài khoản admin</td>
-                    <td>Nick game</td>
-                    <td>Hành động</td>
-                    <td>Lý do</td>
-                    <td>Trạng thái</td>
-                    <td>Ngày tạo</td>
-                </tr>
-                </thead>
-                <tbody id="logdongbang">
-                <?php $stt = 1; ?>
-                <?php foreach ($list as $row): ?>
-                    <tr class="row_<?php echo $row->id ?>">
-                        <td class="textC"><?php echo $stt ?></td>
-                        <td>
-							<?php echo $row->username ?>
-                        </td>
-                        <td class="col-sm-4" style="word-break: break-all;">
-							<?php echo $row->account_name ?>
-                        </td>
-                        <td>
-							<?php echo $row->action ?>
-                        </td>
-                        <td>
-							<?php echo $row->reason ?>
-                        </td>
-                        <td>
-                            <?php if ($row->status == "1"): ?>
-                                <?php echo "Khóa tài khoản" ?>
-                            <?php elseif ($row->status == "0"): ?>
-                                <?php echo "Mở khóa tài khoản" ?>
-                            <?php endif; ?>
-                        </td>
-                        <td>
-							<?php echo $row->timestamp ?>
-                        </td>
-                    </tr>
-                    <?php $stt++; ?>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-
-        </div>
-        <div class="pagination">
-            <div id="pagination"></div>
-        </div>
-    </div>
-<?php endif; ?>
-<div class="clear mt30"></div>
-<script type="text/javascript" src="<?php echo public_url()?>/js/jquery.simplePagination.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo public_url()?>/admin/css/simplePagination.css" media="screen" />
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({
@@ -205,11 +204,11 @@
         Pagging();
 
     });
-    function Pagging(){
+    function Pagging() {
         var items = $("#checkAll #logdongbang tr");
         var numItems = items.length;
         console.log(numItems);
-        $("#num").html(numItems) ;
+        $("#num").html(numItems);
         var perPage = 50;
         // only show the first 2 (or "first per_page") items initially
         items.slice(perPage).hide();
@@ -218,7 +217,7 @@
             items: numItems,
             itemsOnPage: perPage,
             cssStyle: "light-theme",
-            onPageClick: function(pageNumber) { // this is where the magic happens
+            onPageClick: function (pageNumber) { // this is where the magic happens
                 // someone changed page, lets hide/show trs appropriately
                 var showFrom = perPage * (pageNumber - 1);
                 var showTo = showFrom + perPage;

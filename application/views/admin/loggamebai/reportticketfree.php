@@ -477,10 +477,10 @@
                                         });
                                         $('#logaction').html(result);
                                     }, error: function () {
-                                        $("#spinner").hide();
+                                      errorThongBao();
                                         $('#logaction').html("");
                                         $("#resultsearch").html("");
-                                        $("#error-popup").modal("show");
+
                                     }, timeout: timeOutApi
                                 });
                             }
@@ -490,10 +490,10 @@
 
                 }
             }, error: function () {
-                $("#spinner").hide();
+               errorThongBao();
                 $('#logaction').html("");
                 $("#resultsearch").html("");
-                $("#error-popup").modal("show");
+
             }, timeout: timeOutApi
         })
 

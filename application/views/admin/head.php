@@ -28,6 +28,7 @@
 <!-- bootstrap wysihtml5 - text editor -->
 <link rel="stylesheet" href="<?php echo public_url() ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -67,6 +68,11 @@
 <script src="<?php echo public_url() ?>/js/common.js"></script>
 <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.table2excel.js"></script>
 <script src="<?php echo public_url() ?>/site/bootstrap/highcharts.js"></script>
+<script src="<?php echo public_url() ?>/site/bootstrap/exporting.js"></script>
+<script src="<?php echo public_url('js') ?>/jquery/jquery.colorbox.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo public_url('admin')?>/css/colorbox.css" media="screen" />
+<script type="text/javascript" src="<?php echo public_url()?>/js/jquery.simplePagination.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo public_url()?>/admin/css/simplePagination.css" media="screen" />
 <script>
 	 var timeOutApi = 60000;
 

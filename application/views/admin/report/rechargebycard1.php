@@ -812,7 +812,7 @@ $('#bsModal3').on('hidden.bs.modal', function () {
             }, error: function () {
                 $("#spinner").hide();
                 $("#bsModal11").modal("show");
-            }, timeout: 20000
+            }, timeout: timeOutApi
         });
 
 

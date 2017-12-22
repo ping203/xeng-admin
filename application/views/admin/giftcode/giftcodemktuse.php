@@ -1,147 +1,124 @@
-<?php $this->load->view('admin/giftcode/head', $this->data) ?>
-<div class="line"></div>
-<?php if($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
+<div class="content-wrapper">
+<?php if ($role == false): ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php else: ?>
+
+    <section class="content-header">
+        <h1>
+            Thống kê giftcode
+        </h1>
+
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Từ ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' value="" class="form-control"
+                               id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Đến ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' value="" class="form-control"
+                               id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Tìm theo::</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select name="filterdate"  id="filterdate"  class="form-control">
+                        <option value="1" <?php if ($this->input->post("filterdate") == "1") {echo "selected";} ?>>Ngày tạo</option>
+                        <option value="2" <?php if ($this->input->post("filterdate") == "2") {echo "selected";} ?>>Ngày sử dụng</option>
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Nguồn xuất:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="nguonxuat" name="nguonxuat" class="form-control">
+                        <option value="" <?php if($this->input->post("nguonxuat")== ""){echo "selected";}  ?>>Chọn</option>
+                        <?php foreach($source as $row): ?>
+                            <option value="<?php echo $row->key ?>" <?php if($this->input->post("nguonxuat")==  $row->key){echo "selected";}  ?>><?php echo $row->name ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Tìm theo:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="money" name="money" class="form-control">
+                        <option value="1"><?php echo $namegame ?></option>
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                </div>
             </div>
         </div>
     </div>
-<?php else: ?>
 
-    <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-    <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-    <script
-        src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-<div class="wrapper">
-    <div class="widget">
-        <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
-        <div class="title">
-            <h6>Thống kê giftcode</h6>
-
-        </div>
-        <form class="list_filter form" >
-            <div class="formRow">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="param_name" class="formLeft" id="nameuser"
-                                   style="margin-left: 70px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                        <td class="item">
-                            <div class="input-group date" id="datetimepicker1">
-                                <input type="text" id="toDate" name="toDate" value="<?php echo $this->input->post('toDate') ?>"> <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                            </div>
-
-
-                        </td>
-
-                        <td>
-                            <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                   class="formLeft"> Đến ngày: </label>
-                        </td>
-                        <td class="item">
-
-                            <div class="input-group date" id="datetimepicker2">
-                                <input type="text" id="fromDate" name="fromDate" value="<?php echo $this->input->post('fromDate') ?>"> <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                            </div>
-                        </td>
-                        </tr>
-                    </table>
-                </div>
-        <div class="formRow">
-                <table>
-                    <tr>
-                        <td>
-                            <label style="margin-left: 50px;margin-bottom:-2px;width: 100px">Tìm theo:</label>
-                        </td>
-                        <td>
-                            <select name="filterdate"  id="filterdate"  style="margin-left: 20px;width:138px">
-                                <option value="1" <?php if ($this->input->post("filterdate") == "1") {echo "selected";} ?>>Ngày tạo</option>
-                                <option value="2" <?php if ($this->input->post("filterdate") == "2") {echo "selected";} ?>>Ngày sử dụng</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label style="margin-left: 50px;margin-bottom:-2px;width: 100px">Nguồn xuất:</label></td>
-                        <td class="item">
-                            <select id="nguonxuat" name="nguonxuat"
-                                    style="margin-left: 13px;margin-bottom:-2px;width: 150px">
-                                <option value="" <?php if($this->input->post("nguonxuat")== ""){echo "selected";}  ?>>Chọn</option>
-                                <?php foreach($source as $row): ?>
-                                    <option value="<?php echo $row->key ?>" <?php if($this->input->post("nguonxuat")==  $row->key){echo "selected";}  ?>><?php echo $row->name ?></option>
-                                <?php endforeach; ?>
-
-
-                            </select>
-                        </td>
-
-
-                    </tr>
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+                <table  class="table  table-bordered table-hover" id="checkAll">
+                    <tbody id="reportvt">
+                    </tbody>
                 </table>
-
+            </div>
         </div>
-            <div class="formRow">
-                <table>
-                    <tr>
-                        <td><label style="margin-left: 84px;margin-bottom:-2px;width: 64px">Tiền:</label></td>
-                        <td class="">
-                            <select id="money" name="money"
-                                    style="margin-left: 20px;margin-bottom:-2px;width: 150px">
-                                <option value="1">Vin</option>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
+        </div>
 
-                            </select>
-                        </td>
-
-                        <td style="">
-                            <input type="button" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                   style="margin-left: 55px">
-                        </td>
-                        <td>
-                            <input type="reset"
-                                   onclick="window.location.href = '<?php echo admin_url('giftcode/giftcodemktuse') ?>'; "
-                                   value="Reset" class="basic" style="margin-left: 20px">
-                        </td>
-                    </tr>
-                    </table>
-                </div>
-            <div class="formRow">
-                </div>
-        </form>
-        <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
-            <tbody id="reportvt">
-            </tbody>
-        </table>
     </div>
-</div>
+    </div>
+    </div>
+    </div>
+    </section>
 <?php endif; ?>
-<div class="pagination">
-    <div id="pagination"></div>
 </div>
-<h1 id="resultsearch" style="position: absolute;top: 50%;left: 50%"></h1>
-<div id="spinner" class="spinner" style="display:none;">
-    <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-</div>
-<style>.spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }
+<style>
     .tdmoney {
         text-align: right;
     }
@@ -276,7 +253,7 @@ function giftcodexu(){
             $("#spinner").hide();
             $("#resultsearch").html("Hệ thống quá tải.Vui lòng thử lại");
             $('#reportvt').html("");
-        }, timeout: 40000
+        }, timeout: timeOutApi
     });
 }
 function giftcodevin(){
@@ -379,7 +356,7 @@ function giftcodevin(){
             $("#spinner").hide();
             $("#resultsearch").html("Hệ thống quá tải.Vui lòng thử lại");
             $('#reportvt').html("");
-        }, timeout: 40000
+        }, timeout: timeOutApi
     });
 
 }

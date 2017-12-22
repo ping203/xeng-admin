@@ -277,7 +277,7 @@
                                         $("#spinner").hide();
                                         $('#logaction').html("");
                                         $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-                                    }, timeout: 20000
+                                    }, timeout: timeOutApi
                                 });
                             }
                             oldPage = page;
@@ -288,7 +288,7 @@
                 $("#spinner").hide();
                 $('#logaction').html("");
                 $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-            }, timeout: 20000
+            }, timeout: timeOutApi
         })
     });
     function resultSearchTransction(stt, sesionid, nickname, money, date, status) {
@@ -342,7 +342,7 @@
             }, error: function () {
                 $("#spinner").hide();
                 $("#bsModal11").modal("show");
-            }, timeout: 20000
+            }, timeout: timeOutApi
         });
 
 

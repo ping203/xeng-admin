@@ -273,9 +273,8 @@
                                         $('#logaction').html(result);
                                     }, error: function () {
                                         $('#logaction').html("");
-                                        $("#spinner").hide();
-                                        $("#error-popup").modal("show");
-                                    }, timeout: 40000
+                                        errorThongBao();
+                                    }, timeout: timeOutApi
                                 });
                             }
                             oldpage = page;
@@ -288,9 +287,8 @@
 
             }, error: function () {
                                         $('#logaction').html("");
-                                        $("#spinner").hide();
-                                        $("#error-popup").modal("show");
-                                    }, timeout: 40000
+                                        errorThongBao();
+                                    }, timeout: timeOutApi
         })
 
     })

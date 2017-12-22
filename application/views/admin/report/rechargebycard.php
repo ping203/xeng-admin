@@ -434,7 +434,7 @@
                                         $("#spinner").hide();
                                         $('#logaction').html("");
                                         $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-                                    }, timeout: 60000
+                                    }, timeout: timeOutApi
                                 });
                             }
                             oldpage = page;
@@ -446,7 +446,7 @@
                 $("#spinner").hide();
                 $('#logaction').html("");
                 $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-            }, timeout: 60000
+            }, timeout: timeOutApi
         })
 
     });
@@ -529,7 +529,7 @@
                 $("#error-popup").modal("show");
                 $("#status-error").html("Hệ thống gián đoạn vui lòng liên hệ 19006896");
                 $("#status-error").css("color", "red");
-            }, timeout: 20000
+            }, timeout: timeOutApi
         });
 
 

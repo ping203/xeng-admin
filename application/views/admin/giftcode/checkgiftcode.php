@@ -1,68 +1,66 @@
-<?php $this->load->view('admin/usergame/head', $this->data) ?>
-<div class="line"></div>
+<div class="content-wrapper">
 <?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
+<?php else: ?>
+
+    <section class="content-header">
+        <h1>
+            Kiểm tra giftcode
+        </h1>
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+        <input type="hidden" id="listgiftcode" value="<?php echo $listnn ?>">
+    <div class="box-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label  style="color: red;word-break: break-all" id="errocode"><?php echo $error; ?></label>
+                </div>
             </div>
         </div>
-    </div>
-<?php else: ?>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-        <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-        <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-        <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-        <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-        <script
-            src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-        <input type="hidden" id="listgiftcode" value="<?php echo $listnn ?>">
-        <div class="widget">
-            <div class="title">
-                <h4 style="margin-left: 20px">Kiểm tra giftcode</h4>
-            </div>
-
-            <div class="formRow">
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <label class="col-sm-4" style="color: red;word-break: break-all" id="errocode"><?php echo $error; ?>
-                    </label>
-
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label  style="color: red;word-break: break-all" id="errocodeuse"></label>
                 </div>
             </div>
-            <div class="formRow">
+        </div>
+        <form action="<?php echo admin_url("giftcode/checkgiftcode") ?>" id="fileinfo" name="fileinfo"
+              enctype="multipart/form-data" method="post">
+            <div class="form-group">
                 <div class="row">
-                    <div class="col-sm-4"></div>
-                    <label class="col-sm-4" style="color: red;word-break: break-all" id="errocodeuse">
-                    </label>
-
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <label for="exampleInputEmail1">Giftcode:</label>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <input type="file" id="userfile" name="filexls"
+                               value="<?php echo $this->input->post('filexls') ?>">
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                    </div>
+                    <div class="col-md-1 col-sm-2 col-xs-12">
+                        <input type="submit" class="btn btn-success" id="upload"
+                               value="Upload" name="ok">
+                    </div>
                 </div>
             </div>
-            <div class="formRow">
-                <form action="<?php echo admin_url("giftcode/checkgiftcode") ?>" id="fileinfo" name="fileinfo"
-                      enctype="multipart/form-data" method="post">
-                    <div class="row">
-                        <div class="col-sm-1"></div>
-                        <label class="col-sm-1 control-label" for="exampleInputEmail1">Giftcode:</label>
-
-                        <div class="col-sm-2">
-                            <input type="file" id="userfile" name="filexls"
-                                   value="<?php echo $this->input->post('filexls') ?>">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="submit" class="btn btn-primary pull-left button blueB" id="upload"
-                                   value="Upload" name="ok">
-                        </div>
-                </form>
-
-                <td><label style="margin-left: 70px;margin-bottom:-2px;width: 100px">Hiển thị:</label></td>
-                <td class="">
-                    <select id="selectdisplay" name="selectdisplay"
-                            style="margin-left: 0px;margin-bottom:-2px;width: 143px">
+        </form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Hiển thị:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="selectdisplay" name="selectdisplay" class="form-control">
                         <option value="50" >50</option>
                         <option value="100" >100</option>
                         <option value="200" >200</option>
@@ -71,62 +69,55 @@
                         <option value="2000" >2000</option>
                         <option value="5000" >5000</option>
                     </select>
-                </td>
-                <div class="col-sm-1"><input type="button" id="openuser" value="Tìm kiếm" class="button blueB">
                 </div>
-                <td style="">
-                    <input type="button" id="exportexel" value="Xuất Exel" class="button blueB"
-                           style="margin-left: 20px">
-                </td>
-            </div>
-            <div class="formRow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <table id="checkAll" class="table table-bordered" style="table-layout: fixed">
-                            <thead>
-                            <tr style="height: 20px;">
-                                <td>STT</td>
-                                <td>Giftcode</td>
-                                <td>Nickname</td>
-                                <td>Tổng tiền nạp</td>
-                                <td>Thời gian</td>
-                            </tr>
-                            </thead>
-                            <tbody id="logaction">
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="openuser" value="Tìm kiếm" class="btn btn-success">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="exportexel" value="Xuất Exel" class="btn btn-success">
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="checkAll" class="table  table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td>STT</td>
+                        <td>Giftcode</td>
+                        <td>Nickname</td>
+                        <td>Tổng tiền nạp</td>
+                        <td>Thời gian</td>
+                    </tr>
+                    </thead>
+                    <tbody id="logaction">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
         </div>
 
     </div>
     </div>
-
-
+    </div>
+    </div>
+    </section>
 <?php endif; ?>
-<style>.spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-sm"></ul>
-    </div>
 </div>
-<script type="text/javascript" src="<?php echo public_url()?>/js/jquery.table2excel.js"></script>
+
 <script type="text/javascript">
     $("#openuser").click(function () {
         var result = ""
@@ -203,7 +194,7 @@
                 }, error: function () {
                     $("#spinner").hide();
                     $("#errocode").html("Hệ thống gián đoạn");
-                }
+                },timeout : timeOutApi
             });
         }
 

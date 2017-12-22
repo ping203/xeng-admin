@@ -6,7 +6,7 @@ Class Confignew extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('gameconfig_model');
+       // $this->load->model('gameconfig_model');
         $this->load->model('logadmin_model');
     }
 
@@ -39,8 +39,7 @@ Class Confignew extends MY_Controller
 
     function listconfig()
     {
-        $list = $this->gameconfig_model->get_list_game_config();
-        $this->data['list'] = $list;
+
         $this->data['temp'] = 'admin/config/listconfignew';
         $this->load->view('admin/main', $this->data);
     }
@@ -94,7 +93,7 @@ Class Confignew extends MY_Controller
 
      function configajax()
     {
-        $datainfo = file_get_contents($this->config->item('api_url') . '?c=7');
+        $datainfo = $this->curl->simple_get($this->config->item('api_url') . '?c=7');
         if (isset($datainfo)) {
             echo $datainfo;
         } else {

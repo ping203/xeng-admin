@@ -201,8 +201,7 @@
 
             }, error: function () {
                 $('#reportvt').html("");
-                $("#spinner").hide();
-                $("#error-popup").modal("show");
+               errorThongBao();
             }, timeout: timeOutApi
         })
     });

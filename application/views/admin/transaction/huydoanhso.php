@@ -1,242 +1,210 @@
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
+<div class="content-wrapper">
 <?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
 <?php else: ?>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-        <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-        <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-        <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-        <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-        <script
-            src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-        <div class="widget">
-            <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
 
-            <div class="title">
-                <h6>Trừ phí đại lý</h6>
+    <section class="content-header">
+        <h1>
+            Trừ phí đại lý
+        </h1>
+
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-body">
+
+                    <label id="resultsearch" style="color: red;"></label>
+
+                    <div class="box-body">
+                        <form action="<?php echo admin_url('transaction/huydoanhso') ?>" method="post">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Từ ngày:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' value="<?php echo $start_time ?>" class="form-control"
+                                                   id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Đến ngày:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type='text' value="<?php echo $end_time ?>" class="form-control"
+                                                   id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Nickname gửi:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <input type="text" class="form-control" id="filter_iname"
+                                               value="<?php echo $this->input->post('name') ?>" name="name">
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Nickname nhận:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <input type="text" class="form-control"
+                                               id="nicknamere" value="<?php echo $this->input->post('nicknamere') ?>"
+                                               name="nicknamere">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Doanh số:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <select id="doanhso" name="doanhso" class="form-control">
+                                            <option value="" <?php if ($this->input->post('doanhso') == "") {
+                                                echo "selected";
+                                            } ?>>Tất cả
+                                            </option>
+                                            <option value="1" <?php if ($this->input->post('doanhso') == "1") {
+                                                echo "selected";
+                                            } ?>>Cộng
+                                            </option>
+                                            <option value="0" <?php if ($this->input->post('doanhso') == "0") {
+                                                echo "selected";
+                                            } ?>>Hủy
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Trạng thái:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <select id="status" name="status" class="form-control">
+                                            <option value="" <?php if ($this->input->post('status') == "") {
+                                                echo "selected";
+                                            } ?>>Chọn
+                                            </option>
+
+                                            <option value="1" <?php if ($this->input->post('status') == "1") {
+                                                echo "selected";
+                                            } ?>>Tài khoản thường chuyển đại lý cấp 1
+                                            </option>
+                                            <option value="2" <?php if ($this->input->post('status') == "2") {
+                                                echo "selected";
+                                            } ?>>Tài khoản thường chuyển đại lý cấp 2
+                                            </option>
+                                            <option value="3" <?php if ($this->input->post('status') == "3") {
+                                                echo "selected";
+                                            } ?>>Đại lý cấp 1 chuyển tài khoản thường
+                                            </option>
+                                            <option value="4" <?php if ($this->input->post('status') == "4") {
+                                                echo "selected";
+                                            } ?>>Đại lý cấp 1 chuyển đại lý cấp 1
+                                            </option>
+                                            <option value="5" <?php if ($this->input->post('status') == "5") {
+                                                echo "selected";
+                                            } ?>>Đại lý cấp 1 chuyển đại lý cấp 2
+                                            </option>
+                                            <option value="6" <?php if ($this->input->post('status') == "6") {
+                                                echo "selected";
+                                            } ?>>Đại lý cấp 2 chuyển tài khoản thường
+                                            </option>
+                                            <option value="7" <?php if ($this->input->post('status') == "7") {
+                                                echo "selected";
+                                            } ?>>Đại lý cấp 2 chuyển đại lý cấp 1
+                                            </option>
+                                            <option value="8" <?php if ($this->input->post('status') == "8") {
+                                                echo "selected";
+                                            } ?>>Đại lý cấp 2 chuyển đại lý cấp 2
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="submit" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="box-body  table-responsive no-padding">
+                        <?php $this->load->view('admin/message', $this->data); ?>
+                        <?php $this->load->view('admin/error', $this->data); ?>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="example2" class="table  table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <td>STT</td>
+                                        <td>Tài khoản chuyển</td>
+                                        <td>Tài khoản nhận</td>
+                                        <td>Số vin gửi</td>
+                                        <td>Số vin nhận</td>
+                                        <td>Phí chuyển khoản</td>
+                                        <td>Trạng thái</td>
+                                        <td>Doanh số</td>
+                                        <td>Thời gian</td>
+                                        <td>Hủy doanh số</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="logaction">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="spinner" class="spinner" style="display:none;">
+                            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                 alt="Loading"/>
+                        </div>
+                        <div class="text-center">
+                            <ul id="pagination-demo" class="pagination-sm"></ul>
+                        </div>
+                        <div class="modal fade" id="bsModal3" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="statuspenđing"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input class="blueB logMeIn" type="submit" value="Đóng" data-dismiss="modal"
+                                               aria-hidden="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <form class="list_filter form" action="<?php echo admin_url('transaction/huydoanhso') ?>" method="post">
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="param_name" class="formLeft" id="nameuser"
-                                       style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                            <td class="item">
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" id="toDate" name="toDate"
-                                           value="<?php echo $start_time; ?>"> <span
-                                        class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                                </div>
-
-                            </td>
-
-                            <td>
-                                <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                       class="formLeft"> Đến ngày: </label>
-                            </td>
-                            <td class="item">
-
-                                <div class="input-group date" id="datetimepicker2">
-                                    <input type="text" id="fromDate" name="fromDate"
-                                           value="<?php echo $end_time; ?>"> <span
-                                        class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 20px;margin-bottom:-2px;width: 110px">Nick name gửi:</label>
-                            </td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="filter_iname" value="<?php echo $this->input->post('name') ?>" name="name">
-                            </td>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 118px">Nick name nhận:</label>
-                            </td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="nicknamere" value="<?php echo $this->input->post('nicknamere') ?>"
-                                       name="nicknamere">
-                            </td>
-
-
-
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 50px;margin-bottom:-2px;width: 100px">Doanh số:</label>
-                            <td><select id="doanhso" name="doanhso" style="margin-bottom:-2px;width: 160px">
-                                    <option value="" <?php if ($this->input->post('doanhso') == "") {
-                                        echo "selected";
-                                    } ?>>Tất cả
-                                    </option>
-                                    <option value="1" <?php if ($this->input->post('doanhso') == "1") {
-                                        echo "selected";
-                                    } ?>>Cộng
-                                    </option>
-                                    <option value="0" <?php if ($this->input->post('doanhso') == "0") {
-                                        echo "selected";
-                                    } ?>>Hủy
-                                    </option>
-                                </select>
-                            </td>
-                            <td><label style="margin-left: 50px;margin-bottom:-2px;width: 100px">Trạng thái:</label>
-                            </td>
-                            <td><select id="status" name="status" style="margin-bottom:-2px;width: 160px">
-                                    <option value="" <?php if ($this->input->post('status') == "") {
-                                        echo "selected";
-                                    } ?>>Chọn
-                                    </option>
-
-                                    <option value="1" <?php if ($this->input->post('status') == "1") {
-                                        echo "selected";
-                                    } ?>>Tài khoản thường chuyển đại lý cấp 1
-                                    </option>
-                                    <option value="2" <?php if ($this->input->post('status') == "2") {
-                                        echo "selected";
-                                    } ?>>Tài khoản thường chuyển đại lý cấp 2
-                                    </option>
-                                    <option value="3" <?php if ($this->input->post('status') == "3") {
-                                        echo "selected";
-                                    } ?>>Đại lý cấp 1 chuyển tài khoản thường
-                                    </option>
-                                    <option value="4" <?php if ($this->input->post('status') == "4") {
-                                        echo "selected";
-                                    } ?>>Đại lý cấp 1 chuyển đại lý cấp 1
-                                    </option>
-                                    <option value="5" <?php if ($this->input->post('status') == "5") {
-                                        echo "selected";
-                                    } ?>>Đại lý cấp 1 chuyển đại lý cấp 2
-                                    </option>
-                                    <option value="6" <?php if ($this->input->post('status') == "6") {
-                                        echo "selected";
-                                    } ?>>Đại lý cấp 2 chuyển tài khoản thường
-                                    </option>
-                                    <option value="7" <?php if ($this->input->post('status') == "7") {
-                                        echo "selected";
-                                    } ?>>Đại lý cấp 2 chuyển đại lý cấp 1
-                                    </option>
-                                    <option value="8" <?php if ($this->input->post('status') == "8") {
-                                        echo "selected";
-                                    } ?>>Đại lý cấp 2 chuyển đại lý cấp 2
-                                    </option>
-                                </select></td>
-
-                            <td style="">
-                                <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                       style="margin-left: 70px">
-                            </td>
-                            <td>
-                                <input type="reset"
-                                       onclick="window.location.href = '<?php echo admin_url('transaction/huydoanhso') ?>'; "
-                                       value="Reset" class="basic" style="margin-left: 20px">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </form>
-            <div class="formRow"><h5>Tổng bán:<span style="color: #0000ff" id="summoney"></span></h5></div>
-            <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>STT</td>
-                    <td>Tài khoản chuyển</td>
-                    <td>Tài khoản nhận</td>
-                    <td>Số vin gửi</td>
-                    <td>Số vin nhận</td>
-                    <td>Phí chuyển khoản</td>
-                    <td>Trạng thái</td>
-                    <td>Doanh số</td>
-                    <td>Thời gian</td>
-                    <td>Hủy doanh số</td>
-                </tr>
-                </thead>
-                <tbody id="logaction">
-                </tbody>
-            </table>
         </div>
-    </div>
+    </section>
 <?php endif; ?>
-<style>
-    td {
-        word-break: break-all;
-    }
-
-    thead {
-        font-size: 12px;
-    }
-
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-sm"></ul>
-    </div>
-
 </div>
-<form class="list_filter form" action="<?php echo admin_url('transaction/huydoanhso') ?>" method="post">
-<div class="modal fade" id="bsModal3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-            </div>
-            <div class="modal-body">
-                <p id="statuspenđing"></p>
-            </div>
-            <div class="modal-footer">
-                <input class="blueB logMeIn" type="submit" value="Đóng" data-dismiss="modal"
-                       aria-hidden="true">
-            </div>
-        </div>
-    </div>
-</div>
-</form>
-<script src="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/jquery.dataTables.min.css">
+
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({
@@ -279,10 +247,10 @@
         if (status == 1 || status == 2 || status == 3 || status == 6) {
 
             if (topds == 1) {
-                rs += "<td>" + "<input type='button' id='huydoanhso' value='Hủy' class='button blueB' style='margin-left: 70px' onclick=\"huydoanhso('" + namesend + "','" + namerecive + "','" + date + "',0)\" >" + "</td>";
+                rs += "<td>" + "<input type='button' id='huydoanhso' value='Hủy' class='btn btn-success' style='margin-left: 70px' onclick=\"huydoanhso('" + namesend + "','" + namerecive + "','" + date + "',0)\" >" + "</td>";
             }
             else if (topds == 0) {
-                rs += "<td>" + "<input type='button' id='congdoanhso' value='Cộng' class='button redB' style='margin-left: 70px' onclick=\"congdoanhso('" + namesend + "','" + namerecive + "','" + date + "',1)\" >" + "</td>";
+                rs += "<td>" + "<input type='button' id='congdoanhso' value='Cộng' class='btn btn-success' style='margin-left: 70px' onclick=\"congdoanhso('" + namesend + "','" + namerecive + "','" + date + "',1)\" >" + "</td>";
             }
         } else {
             rs += "<td></td>";
@@ -300,11 +268,11 @@
             url: "<?php echo admin_url('transaction/huydoanhsoajax')?>",
             data: {
                 nickname: $("#filter_iname").val(),
-                nicknamere : $("#nicknamere").val(),
+                nicknamere: $("#nicknamere").val(),
                 toDate: $("#toDate").val(),
                 fromDate: $("#fromDate").val(),
                 status: $("#status").val(),
-                topds : $("#doanhso").val(),
+                topds: $("#doanhso").val(),
                 pages: 1
             },
 
@@ -315,7 +283,7 @@
                     $('#pagination-demo').css("display", "none");
                     $("#resultsearch").html("Không tìm thấy kết quả");
                 } else {
-						$("#resultsearch").html("");
+                    $("#resultsearch").html("");
                     var totalPage = result.total;
                     var totalmoney = commaSeparateNumber(result.totalVinSend);
                     $('#summoney').html(totalmoney);
@@ -344,16 +312,16 @@
                                     url: "<?php echo admin_url('transaction/huydoanhsoajax')?>",
                                     data: {
                                         nickname: $("#filter_iname").val(),
-                                        nicknamere : $("#nicknamere").val(),
+                                        nicknamere: $("#nicknamere").val(),
                                         toDate: $("#toDate").val(),
                                         fromDate: $("#fromDate").val(),
                                         status: $("#status").val(),
-                                        topds : $("#doanhso").val(),
+                                        topds: $("#doanhso").val(),
                                         pages: page
                                     },
                                     dataType: 'json',
                                     success: function (result) {
-										$("#resultsearch").html("");
+                                        $("#resultsearch").html("");
                                         $("#spinner").hide();
                                         stt = 1;
                                         $.each(result.transactions, function (index, value) {
@@ -370,10 +338,10 @@
                                         });
 
                                     }, error: function () {
-                $("#spinner").hide();
-                $('#logaction').html("");
-                $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-            },timeout : timeOutApi
+                                        $("#spinner").hide();
+                                        $('#logaction').html("");
+                                        $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
+                                    }, timeout: timeOutApi
                                 });
                             }
                             oldPage = page;
@@ -385,11 +353,11 @@
                 $("#spinner").hide();
                 $('#logaction').html("");
                 $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-            },timeout : timeOutApi
+            }, timeout: timeOutApi
         })
 
     });
-	 $('#bsModal3').on('hidden.bs.modal', function () {
+    $('#bsModal3').on('hidden.bs.modal', function () {
         location.reload();
     });
 </script>
@@ -433,34 +401,7 @@
 
 
     function huydoanhso(nicknamesend, nicknamerecive, date, topds) {
-            if(!confirm('Bạn chắc chắn muốn hủy doanh số đại lý ?'))
-            {
-                return false;
-            }
-
-        $.ajax({
-            type: "POST",
-            url: "<?php echo admin_url('transaction/doanhsoajax')?>",
-            data: {
-                ns: nicknamesend,
-                nr: nicknamerecive,
-                date: date,
-                tds: topds
-            },
-
-            dataType: 'json',
-            success: function (result) {
-                $("#bsModal3").modal("show");
-                $("#statuspenđing").css({"color":"blue"});
-                $("#statuspenđing").html("Hủy doanh số thành công");
-
-            }
-        });
-    }
-
-    function congdoanhso(nicknamesend, nicknamerecive, date, topds) {
-        if(!confirm('Bạn chắc chắn muốn cộng doanh số đại lý ?'))
-        {
+        if (!confirm('Bạn chắc chắn muốn hủy doanh số đại lý ?')) {
             return false;
         }
 
@@ -477,7 +418,32 @@
             dataType: 'json',
             success: function (result) {
                 $("#bsModal3").modal("show");
-                $("#statuspenđing").css({"color":"blue"});
+                $("#statuspenđing").css({"color": "blue"});
+                $("#statuspenđing").html("Hủy doanh số thành công");
+
+            }
+        });
+    }
+
+    function congdoanhso(nicknamesend, nicknamerecive, date, topds) {
+        if (!confirm('Bạn chắc chắn muốn cộng doanh số đại lý ?')) {
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo admin_url('transaction/doanhsoajax')?>",
+            data: {
+                ns: nicknamesend,
+                nr: nicknamerecive,
+                date: date,
+                tds: topds
+            },
+
+            dataType: 'json',
+            success: function (result) {
+                $("#bsModal3").modal("show");
+                $("#statuspenđing").css({"color": "blue"});
                 $("#statuspenđing").html("Cộng doanh số thành công");
 
             }

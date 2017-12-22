@@ -1,190 +1,212 @@
-<?php $this->load->view('admin/usergame/head', $this->data) ?>
-<div class="line"></div>
-<div class="wrapper">
-    <?php $this->load->view('admin/message', $this->data); ?>
-    <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css"> 
+<div class="content-wrapper">
+
+
+
     <?php if ($admin_info->Status == "A" || $admin_info->Status == "W" || $admin_info->Status == "S" || $admin_info->Status == "D")  : ?>
+    <section class="content-header">
+        <h1>
+            Khóa tài khoản <span style="color: #0000FF"><?php echo $nickname ?></span>
+        </h1>
+        <input type="hidden" id="nickname" value="<?php echo $nickname ?>">
+        <input type="hidden" id="status" value="<?php echo $status ?>">
+        <input type="hidden" id="daochuoi" value="<?php echo $daochuoi ?>">
+        <input type="hidden" id="txtaction" value="">
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
 
-        <div class="widget">
-            <div class="title">
-                <h4>Khóa tài khoản <span style="color: #0000FF"><?php echo $nickname ?></span></h4>
-            </div>
-            <input type="hidden" id="nickname" value="<?php echo $nickname ?>">
-            <input type="hidden" id="status" value="<?php echo $status ?>">
-            <input type="hidden" id="daochuoi" value="<?php echo $daochuoi ?>">
-            <input type="hidden" id="txtaction" value="">
-            <div id="list_role">
-                <div class="formRow">
-                    <div class="row">
-                        <label class="col-sm-1" style="width: 154px"> Cấm login</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="0">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chuyển tiền</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="3">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi sâm</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="8">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi ba cây</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="9">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi binh</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="10">
-                        </div>
-                    </div>
+    <label id="resultsearch" style="color: red;"></label>
+    <div class="box-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm login:</label>
                 </div>
-                <div class="formRow">
-                    <div class="row">
-
-                        <label class="col-sm-1" style="width: 154px"> Cấm đổi thưởng</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="1">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Login sandbox</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="2">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi tlmn</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="11">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi tá lả</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="12">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi liêng</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="13">
-                        </div>
-                    </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="0" class="minimal">
                 </div>
-                <div class="formRow">
-                    <div class="row">
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi xì tố</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="14">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi xóc xóc</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="15">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi bài cào</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="16">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi poker</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="17">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi xi dzach</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="23">
-                        </div>
-                    </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm đổi thưởng</label>
                 </div>
-                <div class="formRow">
-                    <div class="row">
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi xóc đĩa</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="24">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi caro</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="25">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi cờ tướng</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="26">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi cờ vua</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="27">
-                        </div>
-						<label class="col-sm-1" style="width: 154px"> Cấm chơi PokerTour</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="28">
-                        </div>
-                    </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="1" class="minimal">
                 </div>
-				<div class="formRow">
-                    <div class="row">
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi Cờ Úp</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="29">
-                        </div>
-                        <label class="col-sm-1" style="width: 154px"> Cấm chơi Hàm Cá Mập</label>
-
-                        <div class="col-sm-1">
-                            <input type="checkbox" name="role" value="30">
-                        </div>
-                    </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Login sandbox</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="2" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chuyển tiền</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="3" class="minimal">
                 </div>
             </div>
-            <div class="formRow">
-                <div class="row">
-                    <label class="col-sm-1" style="width: 154px">Lý do khóa</label>
-                    <div class="col-sm-2">
-                        <input type="text"  id="txtlydo" class="form-control" placeholder="Nhập lý do khóa">
-                    </div>
-                    <div class="col-sm-1"><input type="button" id="openuser" value="Cập nhật" class="button blueB">
-                    </div>
-                </div>
-            </div>
-            <div class="formRow">
-            </div>
-
 
         </div>
-    <?php else: ?>
-    <div class="widget">
-        <div class="title">
-            <h4>Bạn không được phân quyền</h4>
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi sâm:</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="8" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi ba cây</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="9" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm Binh</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="10" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi tlmn</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="11" class="minimal">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi tá lả</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="12" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi liêng</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="13" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi xì tố</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="14" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi xóc xóc</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="15" class="minimal">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi bài cào</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="16" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi Poker</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="17" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi xizack</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="23" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi xóc đĩa</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="24" class="minimal">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi caro</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="25" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi cờ tướng</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="26" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm cờ vua</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="27" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi pokertour</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="28" class="minimal">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi cờ úp</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="29" class="minimal">
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Cấm chơi hàm cá mập</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="checkbox" name="role" value="30" class="minimal">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <label for="exampleInputEmail1">Lý do</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <input type="text"  id="txtlydo" class="form-control" placeholder="Nhập lý do khóa">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="button" id="openuser" value="Cập nhật" class="btn btn-success">
+                </div>
+            </div>
         </div>
     </div>
-    <?php endif; ?>
-</div>
-<style>.spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+
     </div>
+    </div>
+    </div>
+    </section>
+        <?php else: ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+<?php endif; ?>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {

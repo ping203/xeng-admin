@@ -257,10 +257,10 @@
 
                     }
                 }, error: function () {
-                    $("#spinner").hide();
+
                     $('#logaction').html("");
                     $("#resultsearch").html("");
-                    $("#error-popup").modal("show");
+                   errorThongBao();
                 }, timeout: timeOutApi
             })
 

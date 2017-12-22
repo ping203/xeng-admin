@@ -5,9 +5,9 @@ Class Event extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('eventminigame_model');
+      //  $this->load->model('eventminigame_model');
         $this->load->model('admin_model');
-        $this->load->model('usergame_model');
+    //    $this->load->model('usergame_model');
         $this->load->model('logadmin_model');
     }
     function index(){

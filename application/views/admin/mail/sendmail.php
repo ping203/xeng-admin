@@ -153,7 +153,7 @@ $("#sendmail").click(function () {
                        }, error: function () {
                            $("#spinner").hide();
                            $("#errocode").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
-                       },timeout : 20000
+                       },timeout : timeOutApi
                    });
         });
 

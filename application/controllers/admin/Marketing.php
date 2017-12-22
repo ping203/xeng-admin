@@ -26,12 +26,12 @@ Class Marketing extends MY_Controller
 
         $this->load->library('form_validation');
         $this->load->helper('form');
-        $utm_campain = $this->utmcampain_model->get_list_game();
-        $this->data['utm_campain'] = $utm_campain;
-        $utm_medium = $this->utmmedium_model->get_list_game();
-        $this->data['utm_medium'] = $utm_medium;
-        $utm_source = $this->utmsource_model->get_list_game();
-        $this->data['utm_source'] = $utm_source;
+        $utm_campain = file_get_contents($this->config->item('api_backend2').'?c=166');
+        $this->data['utm_campain'] = json_decode($utm_campain)->transactions;
+        $utm_medium = file_get_contents($this->config->item('api_backend2').'?c=170');
+        $this->data['utm_medium'] = json_decode($utm_medium)->transactions;
+        $utm_source = file_get_contents($this->config->item('api_backend2').'?c=174');
+        $this->data['utm_source'] = json_decode($utm_source)->transactions;
         //neu ma co du lieu post len thi kiem tra
         if ($this->input->post()) {
             $this->form_validation->set_rules('url_web', 'url web', 'required');
@@ -88,12 +88,12 @@ Class Marketing extends MY_Controller
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
-        $utm_campain = $this->utmcampain_model->get_list_game();
-        $this->data['utm_campain'] = $utm_campain;
-        $utm_medium = $this->utmmedium_model->get_list_game();
-        $this->data['utm_medium'] = $utm_medium;
-        $utm_source = $this->utmsource_model->get_list_game();
-        $this->data['utm_source'] = $utm_source;
+        $utm_campain = file_get_contents($this->config->item('api_backend2').'?c=166');
+        $this->data['utm_campain'] = json_decode($utm_campain)->transactions;
+        $utm_medium = file_get_contents($this->config->item('api_backend2').'?c=170');
+        $this->data['utm_medium'] = json_decode($utm_medium)->transactions;
+        $utm_source = file_get_contents($this->config->item('api_backend2').'?c=174');
+        $this->data['utm_source'] = json_decode($utm_source)->transactions;
         $id = $this->uri->rsegment(3);
         $info = $this->urlbuilder_model->get_info($id);
         $this->data['info'] = $info;
@@ -178,12 +178,13 @@ Class Marketing extends MY_Controller
         }
         $this->data['start_time'] = $start_time;
         $this->data['end_time'] = $end_time;
-        $utm_campain = $this->utmcampain_model->get_list_game();
-        $this->data['utm_campain'] = $utm_campain;
-        $utm_medium = $this->utmmedium_model->get_list_game();
-        $this->data['utm_medium'] = $utm_medium;
-        $utm_source = $this->utmsource_model->get_list_game();
-        $this->data['utm_source'] = $utm_source;
+        $utm_campain = file_get_contents($this->config->item('api_backend2').'?c=166');
+        $this->data['utm_campain'] = json_decode($utm_campain)->transactions;
+        $utm_medium = file_get_contents($this->config->item('api_backend2').'?c=170');
+        $this->data['utm_medium'] = json_decode($utm_medium)->transactions;
+        $utm_source = file_get_contents($this->config->item('api_backend2').'?c=174');
+        $this->data['utm_source'] = json_decode($utm_source)->transactions;
+
         $this->data['temp'] = 'admin/marketing/listcampaing';
         $this->load->view('admin/main', $this->data);
 
@@ -233,6 +234,17 @@ Class Marketing extends MY_Controller
         $this->load->view('admin/main', $this->data);
 
     }
+
+    function addcampainajax(){
+        $name = urlencode($this->input->post("name"));
+        $displayname = urlencode($this->input->post("displayname"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') ."?c=167&nm=".$name."&nmd=".$displayname);
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
+    }
     function addsource(){
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -261,6 +273,16 @@ Class Marketing extends MY_Controller
         $this->data['temp'] = 'admin/marketing/addsource';
         $this->load->view('admin/main', $this->data);
 
+    }
+    function addsourceajax(){
+        $name = urlencode($this->input->post("name"));
+        $displayname = urlencode($this->input->post("displayname"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') ."?c=175&nm=".$name."&nmd=".$displayname);
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
     }
     function addmedium(){
         $this->load->library('form_validation');
@@ -291,6 +313,18 @@ Class Marketing extends MY_Controller
         $this->load->view('admin/main', $this->data);
 
     }
+
+    function addmediumajax(){
+        $name = urlencode($this->input->post("name"));
+        $displayname = urlencode($this->input->post("displayname"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') ."?c=171&nm=".$name."&nmd=".$displayname);
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
+    }
+
     function addDate(){
         $startdate = $this->input->post('startdate');
         $enddate =  $this->input->post('enddate');
@@ -305,8 +339,8 @@ Class Marketing extends MY_Controller
 
  function campain(){
 
-        $list = $this->utmcampain_model->get_list_game();
-        $this->data['list'] = $list;
+     $list = file_get_contents($this->config->item('api_backend2').'?c=166');
+     $this->data['list'] = json_decode($list)->transactions;
         $message = $this->session->flashdata('message');
         $this->data['message'] = $message;
         $this->data['temp'] = 'admin/marketing/campain';
@@ -314,8 +348,8 @@ Class Marketing extends MY_Controller
     }
     function medium(){
 
-        $list = $this->utmmedium_model->get_list_game();
-        $this->data['list'] = $list;
+        $list = file_get_contents($this->config->item('api_backend2').'?c=170');
+        $this->data['list'] = json_decode($list)->transactions;
         $message = $this->session->flashdata('message');
         $this->data['message'] = $message;
         $this->data['temp'] = 'admin/marketing/medium';
@@ -323,8 +357,8 @@ Class Marketing extends MY_Controller
     }
     function source(){
 
-        $list = $this->utmsource_model->get_list_game();
-        $this->data['list'] = $list;
+        $list = file_get_contents($this->config->item('api_backend2').'?c=174');
+        $this->data['list'] = json_decode($list)->transactions;
         $message = $this->session->flashdata('message');
         $this->data['message'] = $message;
         $this->data['temp'] = 'admin/marketing/source';
@@ -334,134 +368,106 @@ Class Marketing extends MY_Controller
     function editcampain(){
         $id = $this->uri->rsegment('3');
         $id = intval($id);
-        $this->load->library('form_validation');
-        $this->load->helper('form');
-        //lay thong cua quan trị viên
-        $info = $this->utmcampain_model->get_info($id);
-        if (!$info) {
-            $this->session->set_flashdata('message', 'Không tồn tại quản trị viên');
-            redirect(admin_url('marketing/campain'));
-        }
-        $this->data['info'] = $info;
-        if ($this->input->post()) {
-
-                $name = $this->input->post('name');
-                $display_name = $this->input->post('display_name');
-                $data = array(
-                    'name' => $name,
-                    'name_display' => $display_name
-                );
-                //neu ma thay doi mat khau thi moi gan du lieu
-                if ($this->utmcampain_model->update($id, $data)) {
-                    //tạo ra nội dung thông báo
-                    $this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công');
-                } else {
-                    $this->session->set_flashdata('message', 'Không cập nhật được');
-                }
-                //chuyen tới trang danh sách quản trị viên
-                redirect(admin_url('marketing/campain'));
-
-        }
+        $list = file_get_contents($this->config->item('api_backend2').'?c=166&id='.$id);
+        $this->data['info'] = json_decode($list)->transactions;
 
         $this->data['temp'] = 'admin/marketing/editcampain';
         $this->load->view('admin/main', $this->data);
     }
+
+    function editcampainajax(){
+        $name = urlencode($this->input->post("name"));
+        $displayname = urlencode($this->input->post("displayname"));
+        $id = urlencode($this->input->post("id"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') ."?c=168&nm=".$name."&nmd=".$displayname."&id=".$id);
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
+    }
     function editmedium(){
         $id = $this->uri->rsegment('3');
         $id = intval($id);
-        $this->load->library('form_validation');
-        $this->load->helper('form');
-        //lay thong cua quan trị viên
-        $info = $this->utmmedium_model->get_info($id);
-        if (!$info) {
-            $this->session->set_flashdata('message', 'Không tồn tại quản trị viên');
-            redirect(admin_url('marketing/medium'));
-        }
-        $this->data['info'] = $info;
-        if ($this->input->post()) {
-
-            $name = $this->input->post('name');
-            $display_name = $this->input->post('display_name');
-            $data = array(
-                'name' => $name,
-                'name_display' => $display_name
-            );
-            //neu ma thay doi mat khau thi moi gan du lieu
-            if ($this->utmmedium_model->update($id, $data)) {
-                //tạo ra nội dung thông báo
-                $this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công');
-            } else {
-                $this->session->set_flashdata('message', 'Không cập nhật được');
-            }
-            //chuyen tới trang danh sách quản trị viên
-            redirect(admin_url('marketing/medium'));
-
-        }
-
+        $list = file_get_contents($this->config->item('api_backend2').'?c=170&id='.$id);
+        $this->data['info'] = json_decode($list)->transactions;
         $this->data['temp'] = 'admin/marketing/editmedium';
         $this->load->view('admin/main', $this->data);
     }
+    function editmediumajax(){
+        $name = urlencode($this->input->post("name"));
+        $displayname = urlencode($this->input->post("displayname"));
+        $id = urlencode($this->input->post("id"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') ."?c=172&nm=".$name."&nmd=".$displayname."&id=".$id);
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
+    }
+
+
     function editsource(){
         $id = $this->uri->rsegment('3');
         $id = intval($id);
-        $this->load->library('form_validation');
-        $this->load->helper('form');
-        //lay thong cua quan trị viên
-        $info = $this->utmsource_model->get_info($id);
-        if (!$info) {
-            $this->session->set_flashdata('message', 'Không tồn tại quản trị viên');
-            redirect(admin_url('marketing/source'));
-        }
-        $this->data['info'] = $info;
-        if ($this->input->post()) {
-
-            $name = $this->input->post('name');
-            $display_name = $this->input->post('display_name');
-            $data = array(
-                'name' => $name,
-                'name_display' => $display_name
-            );
-            //neu ma thay doi mat khau thi moi gan du lieu
-            if ($this->utmsource_model->update($id, $data)) {
-                //tạo ra nội dung thông báo
-                $this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công');
-            } else {
-                $this->session->set_flashdata('message', 'Không cập nhật được');
-            }
-            //chuyen tới trang danh sách quản trị viên
-            redirect(admin_url('marketing/source'));
-
-        }
+        $list = file_get_contents($this->config->item('api_backend2').'?c=174&id='.$id);
+        $this->data['info'] = json_decode($list)->transactions;
 
         $this->data['temp'] = 'admin/marketing/editsource';
         $this->load->view('admin/main', $this->data);
     }
 
+    function editsourceajax(){
+        $name = urlencode($this->input->post("name"));
+        $displayname = urlencode($this->input->post("displayname"));
+        $id = urlencode($this->input->post("id"));
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend') ."?c=176&nm=".$name."&nmd=".$displayname."&id=".$id);
+        if(isset($datainfo)) {
+            echo $datainfo;
+        }else{
+            echo "Bạn không được hack";
+        }
+    }
+
     function deletecampain()
     {
-        //lay id danh mục
         $id = $this->uri->rsegment(3);
-        $this->utmcampain_model->delete($id);
+        $delete = file_get_contents($this->config->item('api_backend').'?c=169&id='.$id);
+        $delete = json_decode($delete);
         //tạo ra nội dung thông báo
-        $this->session->set_flashdata('message', 'Xóa dữ liệu thành công');
+        if($delete == 1){
+            $this->session->set_flashdata('message', 'Xóa dữ liệu thành công');
+        }else{
+            $this->session->set_flashdata('message', 'Xóa dữ liệu không thành công');
+        }
+
         redirect(admin_url('marketing/campain'));
     }
     function deletemedium()
     {
         //lay id danh mục
         $id = $this->uri->rsegment(3);
-        $this->utmmedium_model->delete($id);
+        $delete = file_get_contents($this->config->item('api_backend').'?c=173&id='.$id);
+        $delete = json_decode($delete);
         //tạo ra nội dung thông báo
-        $this->session->set_flashdata('message', 'Xóa dữ liệu thành công');
+        if($delete == 1){
+            $this->session->set_flashdata('message', 'Xóa dữ liệu thành công');
+        }else{
+            $this->session->set_flashdata('message', 'Xóa dữ liệu không thành công');
+        }
         redirect(admin_url('marketing/medium'));
     }
     function deletesource()
     {
-        //lay id danh mục
         $id = $this->uri->rsegment(3);
-        $this->utmsource_model->delete($id);
+        $delete = file_get_contents($this->config->item('api_backend').'?c=177&id='.$id);
+        $delete = json_decode($delete);
         //tạo ra nội dung thông báo
-        $this->session->set_flashdata('message', 'Xóa dữ liệu thành công');
+        if($delete == 1){
+            $this->session->set_flashdata('message', 'Xóa dữ liệu thành công');
+        }else{
+            $this->session->set_flashdata('message', 'Xóa dữ liệu không thành công');
+        }
         redirect(admin_url('marketing/source'));
     }
 	

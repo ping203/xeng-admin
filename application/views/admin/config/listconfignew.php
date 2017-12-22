@@ -1,22 +1,32 @@
 <!-- head -->
-<?php $this->load->view('admin/config/head', $this->data) ?>
-<div class="line"></div>
-<?php if($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
+<div class="content-wrapper">
+<?php if ($role == false): ?>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
 <?php else: ?>
-    <div class="wrapper">
-        <div class="widget">
-            <?php if($admin_info ->Status == "A" || $admin_info ->Status == "C"): ?>
-                <div class="title">
-                    <h6>Danh sách game config new</h6>
-                </div>
-                <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
+
+    <section class="content-header">
+        <h1>
+            Danh sách game config new
+        </h1>
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+    <?php if($admin_info ->Status == "A" || $admin_info ->Status == "C"): ?>
+                <table id="example2" class="table  table-bordered table-hover">
                     <thead>
                     <tr>
                         <td>Id</td>
@@ -29,16 +39,24 @@
 
                     </tbody>
                 </table>
-            <?php else: ?>
-                <div class="title">
-                    <h6>Bạn không được phân quyền</h6>
-                </div>
-            <?php endif; ?>
+        <?php else: ?>
+        <?php endif; ?>
+            </div>
         </div>
-    </div>
-<?php endif;?>
-<div class="clear mt30"></div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
+        </div>
 
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+<?php endif; ?>
+</div>
 <script>
     function resultSearchTransction(id, name, platform) {
         var rs = "";
@@ -55,17 +73,21 @@
         $.ajax({
             type: "POST",
             url: "<?php echo admin_url('confignew/listconfigajax')?>",
-// url: "http://192.168.0.251:8082/api_backend",
             data: {
             },
             dataType: 'json',
             success: function (result) {
+                $("#spinner").hide();
                 $.each(result.gameconfig, function (index, value) {
                     result += resultSearchTransction(value.id, value.name,value.platform);
                 });
                 $('#logaction').html(result);
 
-            }
+            }, error: function () {
+                $("#spinner").hide();
+                $('#logaction').html("");
+                $("#resultsearch").html("Hệ thống quá tải. Vui lòng gọi 19008698 hoặc F5 lại pages");
+            }, timeout: timeOutApi
         })
 
     });
