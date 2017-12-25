@@ -6,27 +6,16 @@ Class Logminigame extends MY_Controller
     {
         parent::__construct();
         $this->load->library('pagination');
-        $this->load->model('resulttaixiu_model');
+      //  $this->load->model('resulttaixiu_model');
         $this->load->model('logadmin_model');
-        $this->load->model('eventminigame_model');
-        $this->load->model('usergame_model');
+     //   $this->load->model('eventminigame_model');
+      //  $this->load->model('usergame_model');
     }
 
     function index()
     {
-        $this->load->helper('form');
-        $money = $this->input->get('money');
-        $list = $this->resulttaixiu_model->search();
-        $this->data['list'] = $list['rows'];
-        if($list['rows'] != null){
-            $str = "";
-            $this->data['str'] = $str;
-        }
-        else{
-            $str = "<h1 style='position: absolute;top: 50%;left: 50%' id='resultsearch'>Không tìm thấy kết quả</h1>";
-            $this->data['str'] = $str;
-        }
-        $this->data['money'] = $money;
+
+
         $this->data['temp'] = 'admin/logminigame/index';
         $this->load->view('admin/main', $this->data);
     }
@@ -48,18 +37,7 @@ Class Logminigame extends MY_Controller
     }
     function accounttaixiu()
     {
-        $money = $this->input->get('money');
-        $list = $this->resulttaixiu_model->account_taixiu();
-        $this->data['list'] = $list['rows'];
-        if($list['rows'] != null){
-            $str = "";
-            $this->data['str'] = $str;
-        }
-        else{
-            $str = "<h1 style='position: absolute;top: 50%;left: 50%' id='resultsearch'>Không tìm thấy kết quả</h1>";
-            $this->data['str'] = $str;
-        }
-        $this->data['money'] = $money;
+
         $this->data['temp'] = 'admin/logminigame/accounttaixiu';
         $this->load->view('admin/main', $this->data);
     }

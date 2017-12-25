@@ -1,3 +1,147 @@
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
+
+        <section class="content-header">
+            <h1>
+                Lịch sử bầu cua
+            </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
+
+                        <label id="resultsearch" style="color: red;"></label>
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Từ ngày:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            <input type='text' value="<?php echo $this->input->post('toDate') ?>"
+                                                   class="form-control"
+                                                   id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Đến ngày:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            <input type='text' value="<?php echo $this->input->post('fromDate') ?>"
+                                                   class="form-control"
+                                                   id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <td><label  style="margin-left: 50px;margin-bottom:-2px;width: 80px;">Phiên:</label></td>
+                            <td ><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"  id="phienbc" value="<?php echo $this->input->post('phienbc') ?>" name="phienbc"></td>
+                            <td><label  style="margin-left:70px;margin-bottom:-2px;width: 80px;">Nick name:</label></td>
+                            <td ><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"  id="nickname" value="<?php echo $this->input->post('nickname') ?>" name="nickname"></td>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Phiên:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <input type="text" class="form-control" value="<?php echo $this->input->post('phienbc') ?>" name="phienbc">
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <label for="exampleInputEmail1">Tiền:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <select id="money_type" name="money" class="form-control">
+                                            <option value="1" <?php if ($this->input->post('money') == "1") {
+                                                echo "selected";
+                                            } ?>><?php echo $namegame ?></option>
+                                            <option value="0" <?php if ($this->input->post('money') == "0") {
+                                                echo "selected";
+                                            } ?>>Xu
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+
+                                    </div>
+                                    <div class="col-md-1 col-sm-2 col-xs-12">
+                                        <input type="button" id="search_tran" value="Tìm kiếm"
+                                               class="btn btn-success">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-body  table-responsive no-padding">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="checkAll" class="table  table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td>Phiên</td>
+                                            <td>Tiền đặt xỉu</td>
+                                            <td style="width:100px;">Tiền đặt tài</td>
+                                            <td>Tổng đặt xỉu</td>
+                                            <td style="width:100px;">Tổng đặt tài</td>
+                                            <td>Kết quả</td>
+                                            <td>Kết quả giải</td>
+                                            <td>Hoàn trả cửa tài</td>
+                                            <td>Hoàn trả cửa xỉu</td>
+                                            <td>Loại tiền</td>
+                                            <td>Ngày tạo</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="logaction">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+</div>
+
+
+
+
+
+
+
+
 <?php $this->load->view('admin/logminigame/head', $this->data) ?>
 <div class="line"></div>
 <?php if($role == false): ?>

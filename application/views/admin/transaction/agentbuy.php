@@ -63,7 +63,7 @@
                            value="<?php echo $this->input->post('name') ?>" name="name">
                 </div>
                 <div class="col-md-1 col-sm-2 col-xs-12">
-                    <label for="exampleInputEmail1">Loại thẻ:</label>
+                    <label for="exampleInputEmail1">Hiển thị:</label>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <select id="record" name="record" class="form-control">
