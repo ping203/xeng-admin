@@ -9,7 +9,7 @@
 
         <section class="content-header">
             <h1>
-                Biểu đồ tổng số vin đại lý
+                Biểu đồ tổng số <?php echo $namegame ?> đại lý
             </h1>
 
         </section>
@@ -167,7 +167,7 @@
 
             },
             tooltip: {
-                valueSuffix: ' Vin'
+                valueSuffix: ' <?php echo $namegame ?>'
             },
             legend: {
                 layout: 'vertical',

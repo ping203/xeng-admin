@@ -22,7 +22,7 @@
                     <tr>
                         <td><label style="margin-left: 30px;margin-bottom:-2px;width: 120px">Tiền:</label></td>
                         <td><select id="money_type">
-                                <option value="vin">Z</option>
+                                <option value="<?php echo $namegame ?>">Z</option>
                                 <option value="xu">Xu</option>
                         </select>
                         </td>

@@ -153,7 +153,7 @@
         if (money_type == 0) {
             rs += "<td>" + "xu" + "</td>";
         } else if (money_type == 1) {
-            rs += "<td>" + "vin" + "</td>";
+            rs += "<td>" + "<?php echo $namegame ?>" + "</td>";
         }
         rs += "<td>" + time_log + "</td>";
         rs += "</tr>";

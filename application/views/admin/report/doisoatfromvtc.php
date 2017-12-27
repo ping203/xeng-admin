@@ -9,7 +9,7 @@
 
         <section class="content-header">
             <h1>
-                Đối soát nạp vin từ VTC
+                Đối soát nạp <?php echo $namegame ?> từ VTC
             </h1>
         </section>
         <section class="content">

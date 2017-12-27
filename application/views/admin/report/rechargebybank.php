@@ -30,7 +30,7 @@
     <div class="widget">
         <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
         <div class="title">
-            <h6>Lịch sử nạp vin qua ngân hàng</h6>
+            <h6>Lịch sử nạp <?php echo $namegame ?> qua ngân hàng</h6>
         </div>
         <form class="list_filter form" action="<?php echo admin_url('report/rechargebybank') ?>" method="post">
             <div class="formRow">

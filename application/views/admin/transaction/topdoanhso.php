@@ -58,7 +58,7 @@
                                             <td>Tên đại lý</td>
                                             <td>Nickname</td>
                                             <td>Doanh số</td>
-                                            <td>Thưởng doanh số(Vin)</td>
+                                            <td>Thưởng doanh số(<?php echo $namegame ?>)</td>
                                         </tr>
                                         </thead>
                                         <tbody id="logaction">

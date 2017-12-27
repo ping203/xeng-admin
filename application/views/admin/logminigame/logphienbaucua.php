@@ -304,13 +304,13 @@ function resultroom(count) {
     var strresult;
     switch (count) {
         case 0:
-            strresult = "1K Vin";
+            strresult = "1K <?php echo $namegame ?>";
             break;
         case 1:
-            strresult = "10K Vin";
+            strresult = "10K <?php echo $namegame ?>";
             break;
         case 2:
-            strresult = "100K Vin";
+            strresult = "100K <?php echo $namegame ?>";
             break;
         case 3:
             strresult = "10K Xu";

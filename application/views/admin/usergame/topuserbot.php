@@ -88,7 +88,7 @@
                                             <option value="SieuAnhHung">--------Siêu Anh Hùng</option>
                                             <option value="MyNhanNgu">--------MyNhanNgu</option>
                                             <option value="NuDiepVien">--------NuDiepVien</option>
-                                            <option value="VuongQuocVin">--------VuongQuocZ</option>
+                                            <option value="VuongQuocVin">--------VuongQuoc<?php echo $namegame ?></option>
                                             <option value="HamCaMap">--------HamCaMap</option>
                                             <option value="">Game bài</option>
                                             <option value="Sam">--------Sam</option>

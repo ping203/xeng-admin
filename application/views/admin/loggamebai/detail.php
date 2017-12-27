@@ -1,52 +1,59 @@
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-            <h5>Log game bài detail</h5>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
-<div class="wrapper">
-    <div class="widget" style="width: 70%; margin-left: 100px">
-        <table cellpadding="0" cellspacing="0" width="100%" style="font-size: 18px"
-               class="sTable mTable myTable withCheck" id="checkAll">
-            <thead>
-            <tr style="line-height: 30px">
-                <td>Vị trí</td>
-                <td>Tên người chơi</td>
-                <td>Hành động</td>
-                <td>Nội dung</td>
-            </tr>
-            </thead>
-            <tbody id="logbai">
+<div class="content-wrapper">
 
-            </tbody>
-        </table>
-        <input type="hidden" id="sid" value="<?php echo $sid ?>">
-        <input type="hidden" id="gamename" value="<?php echo $gamename ?>">
-        <input type="hidden" id="createtime" value="<?php echo $createtime ?>">
+        <section class="content-header">
+            <h1>
+                Log game bài detail
+            </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
 
-        <div class="formRow" style="line-height: 30px">
-            <h3 id="ketthuc"></h3>
-        </div>
-    </div>
+                        <label id="resultsearch" style="color: red;"></label>
+                        <input type="hidden" id="typemoney" value="<?php echo $namegame ?>">
+                        <div class="box-body  table-responsive no-padding">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="checkAll" class="table  table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Vị trí</th>
+                                            <th>Tên người chơi</th>
+                                            <th>Hành động</th>
+                                            <th>Nội dung</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="logbai">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <input type="hidden" id="sid" value="<?php echo $sid ?>">
+                            <input type="hidden" id="gamename" value="<?php echo $gamename ?>">
+                            <input type="hidden" id="createtime" value="<?php echo $createtime ?>">
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 </div>
-<div id="spinner" class="spinner" style="display:none;">
-    <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-</div>
-<style>.spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
+
+
 <script>
 $(document).ready(function () {
     $("#spinner").show();
@@ -722,7 +729,7 @@ function BatDau(str) {
         } else {
             listbdmc.push(listbd[0]);
             if (listbdmc[0] == 1) {
-                moneyType = "vin";
+                moneyType = "<?php echo $namegame ?>";
             } else {
                 moneyType = "xu";
             }
@@ -781,7 +788,7 @@ function MoiCuocdt(str) {
             listmc.push(listbd[0]);
 
             if (listmc[2] == 1) {
-                moneyType = "vin";
+                moneyType = "<?php echo $namegame ?>";
             } else {
                 moneyType = "xu";
             }
@@ -1377,7 +1384,7 @@ function BatDauXDCT(str) {
         } else {
             listbdmc.push(listbd[0]);
             if (listbdmc[0] == 1) {
-                moneyType = "vin";
+                moneyType = "<?php echo $namegame ?>";
             } else {
                 moneyType = "xu";
             }
@@ -1618,7 +1625,7 @@ function resultWintype(count) {
             strresult = "Thắng bắt treo";
             break;
         case 6:
-            strresult = "50,000 Vin";
+            strresult = "50,000 "+ "<?php echo $namegame ?>";
             break;
         case 7:
             strresult = "Thắng trắng tứ 2";

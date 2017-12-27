@@ -8,7 +8,7 @@
 <?php else: ?>
     <section class="content-header">
         <h1>
-            Lịch sử nạp vin qua IAP
+            Lịch sử nạp <?php echo $namegame ?> qua IAP
         </h1>
         <ol class="breadcrumb">
             <label class="">Tổng: <span id="summoney" style="color: #0000ff"></span></label>

@@ -1,191 +1,174 @@
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
-<?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
-<?php else: ?>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/css/bootstrap-datetimepicker.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/js/bootstrap-datetimepicker.min.js"></script>
-        <div class="widget">
-            <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
 
-            <div class="title">
-                <h6>Lịch sử vippoint event</h6>
-            </div>
-            <form class="list_filter form" action="<?php echo admin_url('event/vippoint') ?>" method="post">
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="param_name" class="formLeft" id="nameuser"
-                                       style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                            <td class="item">
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" id="toDate" name="toDate"
-                                           value="<?php echo $this->input->post('toDate'); ?>"> <span class="input-group-addon">
+        <section class="content-header">
+            <h1>
+                Lịch sử vippoint event
+            </h1>
+
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
+
+                        <label id="resultsearch" style="color: red;"></label>
+                        <input type="hidden" id="typemoney" value="<?php echo $namegame ?>">
+                        <div class="box-body">
+                            <form class="list_filter form" action="<?php echo admin_url('event/vippoint') ?>"
+                                  method="post">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Từ ngày:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' value="<?php echo $this->input->post('toDate'); ?>"
+                                                       class="form-control"
+                                                       id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-</span>
+                    </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Đến ngày:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type='text' value="<?php echo $this->input->post('fromDate'); ?>"
+                                                       class="form-control"
+                                                       id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Value:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" class="form-control"
+                                                   id="txtvalue" value="<?php echo $this->input->post('txtvalue') ?>"
+                                                   name="txtvalue">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Type:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <select id="txttype" name="txttype" class="form-control">
+                                                <option value="" <?php if ($this->input->post('txttype') == "") {
+                                                    echo "selected";
+                                                } ?>>Chọn
+                                                </option>
+                                                <option value="1" <?php if ($this->input->post('txttype') == "1") {
+                                                    echo "selected";
+                                                } ?>>Cộng vippoint event
+                                                </option>
+                                                <option value="2" <?php if ($this->input->post('txttype') == "2") {
+                                                    echo "selected";
+                                                } ?>>Trừ vippoint event
+                                                </option>
+                                                <option value="3" <?php if ($this->input->post('txttype') == "3") {
+                                                    echo "selected";
+                                                } ?>>Cộng <?php echo $namegame ?></option>
+                                            </select>
+                                        </div>
+
+                                    </div>
                                 </div>
 
-                            </td>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Nickname:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="text" class="form-control"
+                                                   id="filter_iname" value="<?php echo $this->input->post('name') ?>"
+                                                   name="name">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label for="exampleInputEmail1">Tài khoản:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <select id="select_acc" name="select_acc" class="form-control">
+                                                <option value="" <?php if ($this->input->post('select_acc') == "") {
+                                                    echo "selected";
+                                                } ?>>Tất cả
+                                                </option>
+                                                <option value="0" <?php if ($this->input->post('select_acc') == "0") {
+                                                    echo "selected";
+                                                } ?>>Tài khoản thường
+                                                </option>
+                                                <option value="1" <?php if ($this->input->post('select_acc') == "1") {
+                                                    echo "selected";
+                                                } ?>>Tài khoản bot
+                                                </option>
 
-                            <td>
-                                <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                       class="formLeft"> Đến ngày: </label>
-                            </td>
-                            <td class="item">
-
-                                <div class="input-group date" id="datetimepicker2">
-                                    <input type="text" id="fromDate" name="fromDate"
-                                           value="<?php echo $this->input->post('fromDate'); ?>"> <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-</span>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="submit" id="search_tran" value="Tìm kiếm"
+                                                   class="btn btn-success">
+                                        </div>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Value:</label></td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="txtvalue" value="<?php echo $this->input->post('txtvalue') ?>" name="txtvalue">
-                            </td>
-                            <td><label style="margin-left: 70px;margin-bottom:-2px;width: 100px">Type:</label></td>
-                            <td><select id="txttype" name="txttype" style="margin-bottom:-2px;width: 160px">
-                                    <option value="" <?php if($this->input->post('txttype') == ""){echo "selected";} ?>>Chọn</option>
-                                    <option value="1" <?php if($this->input->post('txttype') == "1"){echo "selected";} ?>>Cộng vippoint event</option>
-                                    <option value="2" <?php if($this->input->post('txttype') == "2"){echo "selected";} ?>>Trừ vippoint event</option>
-                                    <option value="3" <?php if($this->input->post('txttype') == "3"){echo "selected";} ?>>Cộng Z</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
+                            </form>
+                        </div>
 
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Nick name:</label></td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="filter_iname" value="<?php echo $this->input->post('name') ?>" name="name">
-                            </td>
-                            <td><label style="margin-left: 70px;margin-bottom:-2px;width: 100px">Tài khoản:</label></td>
-                            <td><select id="select_acc" name="select_acc" style="margin-bottom:-2px;width: 160px">
-                                    <option value="" <?php if ($this->input->post('select_acc') == "") {
-                                        echo "selected";
-                                    } ?>>Tất cả
-                                    </option>
-                                    <option value="0" <?php if ($this->input->post('select_acc') == "0") {
-                                        echo "selected";
-                                    } ?>>Tài khoản thường
-                                    </option>
-                                    <option value="1" <?php if ($this->input->post('select_acc') == "1") {
-                                        echo "selected";
-                                    } ?>>Tài khoản bot
-                                    </option>
+                        <div class="box-body  table-responsive no-padding">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example2" class="table  table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <td>STT</td>
+                                            <td>Nick name</td>
+                                            <td>Value</td>
+                                            <td>Type</td>
+                                            <td>Tài khoản</td>
+                                            <td>Thời gian</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="logaction">
 
-                                </select>
-                            </td>
-                            <td style="">
-                                <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                       style="margin-left: 123px">
-                            </td>
-                            <td>
-                                <input type="reset"
-                                       onclick="window.location.href = '<?php echo admin_url('event/vippoint') ?>'; "
-                                       value="Reset" class="basic" style="margin-left: 20px">
-                            </td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>"
+                                     alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
 
-
-                        </tr>
-
-                    </table>
-
-                </div>
-            </form>
-            <div class="formRow">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <h5>Tổng:<span style="color: #0000ff" id="summoney"></span></h5>
-                    </div>
-                    <div class="col-sm-8">
-                    </div>
-                    <div class="col-sm-2">
-                        <h5>Tổng số bản ghi:<span style="color: #0000ff" id="sumrecord"></span></h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>STT</td>
-                    <td>Nick name</td>
-                    <td>Value</td>
-                    <td>Type</td>
-                    <td>Tài khoản</td>
-                    <td>Thời gian</td>
-                </tr>
-                </thead>
-                <tbody id="logaction">
-                </tbody>
-            </table>
-        </div>
-    </div>
-<?php endif; ?>
-<style>
-    td {
-        word-break: break-all;
-    }
-
-    thead {
-        font-size: 12px;
-    }
-
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-sm"></ul>
-    </div>
-
+        </section>
+    <?php endif; ?>
 </div>
-<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({
@@ -204,26 +187,26 @@
         }
 
     });
-    function resultSearchTransction(stt, nickname,value,status,isbot,date) {
+    function resultSearchTransction(stt, nickname, value, status, isbot, date) {
         var rs = "";
         rs += "<tr>";
         rs += "<td>" + stt + "</td>";
         rs += "<td>" + nickname + "</td>";
-        if(status == 3){
-            rs += "<td>" + commaSeparateNumber(value) +" Vin"+ "</td>";
-        }else{
-            rs += "<td>" + commaSeparateNumber(value) +" Vippoint"+ "</td>";
+        if (status == 3) {
+            rs += "<td>" + commaSeparateNumber(value) + " <?php echo $namegame ?>" + "</td>";
+        } else {
+            rs += "<td>" + commaSeparateNumber(value) + " Vippoint" + "</td>";
         }
-        if(status == 1 ){
-            rs += "<td>" + "Cộng vippoint event"+ "</td>";
-        }else if(status == 2){
-            rs += "<td>" + "Trừ vippoint event"+ "</td>";
-        }else if(status == 3){
-            rs += "<td>" + "Cộng vin"+ "</td>";
+        if (status == 1) {
+            rs += "<td>" + "Cộng vippoint event" + "</td>";
+        } else if (status == 2) {
+            rs += "<td>" + "Trừ vippoint event" + "</td>";
+        } else if (status == 3) {
+            rs += "<td>" + "Cộng <?php echo $namegame ?>" + "</td>";
         }
-        if(isbot == 0){
+        if (isbot == 0) {
             rs += "<td>" + "Tài khoản thường" + "</td>";
-        }else if(isbot == 1){
+        } else if (isbot == 1) {
             rs += "<td>" + "Tài khoản bot" + "</td>";
         }
         rs += "<td>" + date + "</td>";
@@ -244,7 +227,7 @@
                 fromDate: $("#fromDate").val(),
                 value: $("#txtvalue").val(),
                 type: $("#txttype").val(),
-                account : $("#select_acc").val(),
+                account: $("#select_acc").val(),
                 pages: 1
             },
 
@@ -262,7 +245,7 @@
                     $('#sumrecord').html(totalrecord);
                     stt = 1;
                     $.each(result.transactions, function (index, value) {
-                        result += resultSearchTransction(stt, value.nickName, value.value, value.type,value.is_bot, value.timeLog);
+                        result += resultSearchTransction(stt, value.nickName, value.value, value.type, value.is_bot, value.timeLog);
                         stt++;
 
                     });
@@ -289,7 +272,7 @@
                                         fromDate: $("#fromDate").val(),
                                         value: $("#txtvalue").val(),
                                         type: $("#txttype").val(),
-                                        account : $("#select_acc").val(),
+                                        account: $("#select_acc").val(),
                                         pages: page
                                     },
                                     dataType: 'json',
@@ -297,7 +280,7 @@
                                         $("#spinner").hide();
                                         stt = 1;
                                         $.each(result.transactions, function (index, value) {
-                                            result += resultSearchTransction(stt, value.nickName, value.value, value.type,value.is_bot, value.timeLog);
+                                            result += resultSearchTransction(stt, value.nickName, value.value, value.type, value.is_bot, value.timeLog);
                                             stt++;
 
                                         });

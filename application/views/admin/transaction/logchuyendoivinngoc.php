@@ -137,11 +137,11 @@
                         </option>
                         <option value="0" <?php if ($this->input->post('select_type') == "0") {
                             echo "selected";
-                        } ?> >Cộng vin
+                        } ?> >Cộng <?php echo $namegame ?>
                         </option>
                         <option value="1" <?php if ($this->input->post('select_type') == "1") {
                             echo "selected";
-                        } ?> >Trừ vin
+                        } ?> >Trừ <?php echo $namegame ?>
                         </option>
                     </select>
                 </div>

@@ -62,7 +62,7 @@
                 <td style="width:80px;">STT</td>
                 <td>Ngày tạo</td>
                 <td>Nick name</td>
-                <td>Tổng vin</td>
+                <td>Tổng <?php echo $namegame ?></td>
                 <td>Tổng số ván</td>
                 <td>Phiên gần nhất</td>
                 <td>Tổng phiên</td>

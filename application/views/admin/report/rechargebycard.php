@@ -9,7 +9,7 @@
 
     <section class="content-header">
         <h1>
-            Lịch sử nạp vin qua thẻ
+            Lịch sử nạp <?php echo $namegame ?> qua thẻ
         </h1>
         <ol class="breadcrumb">
             <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>
@@ -232,7 +232,7 @@
                         <th>Mệnh giá</th>
                         <th>Mã lỗi dịch vụ</th>
                         <th>Mô tả</th>
-                        <th>Mã lỗi Vinplay</th>
+                        <th>Mã lỗi <?php echo $namegame ?></th>
                         <th>Thời gian</th>
                         <th>Cập nhật thẻ</th>
                     </tr>

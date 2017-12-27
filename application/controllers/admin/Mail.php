@@ -230,7 +230,64 @@ Class Mail extends MY_Controller
         }
     }
 
-    function messageagent(){
+    function messageagent()
+    {
+        $this->data['error']="";
+        $rand=rand(1, 15);
+        if ($this->input->post("ok")) {
+            if (file_exists('public/admin/uploads/messagegc1.csv'))
+            {
+                unlink('public/admin/uploads/messagegc1.csv');
+                $this->data['error'] = "Bạn xóa file cũ thành công";
+            }else{
+                $temp = explode(".", $_FILES["filexls"]["name"]);
+                $extension = end($temp);
+                if ($extension == "csv") {
+                    $config = array("");
+                    $config['upload_path'] = './public/admin/uploads';
+                    $config['allowed_types'] = '*';
+                    $config['max_size'] = 1024 * 8;
+                    $config['overwrite'] = TRUE;
+                    $config['file_name'] = 'messagegc1';
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+
+                    if (!$this->upload->do_upload('filexls')) {
+                        $error = array('error' => $this->upload->display_errors());
+                        $this->data['error'] = "Bạn chưa chọn file hoặc không được phân quyền";
+
+                    } else {
+                        $this->data['error']="";
+                        $data = array('upload_data' => $this->upload->data());
+
+                        $this->data['error'] = "Upload file thành công";
+                    }
+                } else {
+                    $this->data['error'] = "Bạn chưa chọn file hoặc không chọn đúng file csv";
+                }
+            }
+        }
+        if (file_exists(FCPATH."public/admin/uploads/messagegc1.csv") != false) {
+            $this->load->library('csvreader');
+            $result = $this->csvreader->parse_file(public_url('admin/uploads/messagegc1.csv?v='.$rand));
+            $listsdt = array();
+            foreach ($result as $row) {
+                if (isset($row["Sdt"])) {
+                    if(substr($row["Sdt"],0,2) == "84"){
+                        array_push($listsdt,"0". substr($row["Sdt"],2,14));
+                    }
+                    else if(substr($row["Sdt"],0,1) != "0"){
+                        array_push($listsdt,"0". substr($row["Sdt"],0,14));
+                    } else if(substr($row["Sdt"],0,1) == "0"){
+                        array_push($listsdt,$row["Sdt"]);
+                    }
+                }
+            }
+            $this->data['listsdt'] = implode(',',$listsdt);
+        } else {
+            $this->data['listsdt'] = "";
+
+        }
         $this->data['temp'] = 'admin/mail/messageagent';
         $this->load->view('admin/main', $this->data);
     }
@@ -243,15 +300,45 @@ Class Mail extends MY_Controller
         }
     }
 
-    function messageagentajax(){
-        $mobile = urlencode($this->input->post("mobile"));
+    function messageagentajax()
+    {
+
+        $mobile = $this->input->post("mobile");
         $content = urlencode($this->input->post("content"));
-        $datainfo = $this->get_data_curl($this->config->item('api_backend').'?c=718&m='.$mobile.'&ct='.$content);
-        if(isset($datainfo)) {
-            echo $datainfo;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$this->config->item('api_backend'));
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"c=718&m=".$mobile."&ct=".$content);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch,CURLOPT_TIMEOUT,3600);
+        $server_output = curl_exec ($ch);
+
+        if(isset($server_output)) {
+            echo $server_output;
         }else{
             echo "Bạn không được hack";
         }
+        curl_close ($ch);
+
+    }
+    function messageagent1ajax()
+    {
+        $mobile = $this->input->post("mobile");
+        $content = urlencode($this->input->post("content"));
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$this->config->item('api_backend'));
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,"c=179&m=".$mobile."&ct=".$content);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch,CURLOPT_TIMEOUT,3600);
+        $server_output = curl_exec ($ch);
+
+        if(isset($server_output)) {
+            echo $server_output;
+        }else{
+            echo "Bạn không được hack";
+        }
+        curl_close ($ch);
     }
      function sendmessagegc()
     {

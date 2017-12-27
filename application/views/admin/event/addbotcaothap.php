@@ -1,411 +1,415 @@
-<?php $this->load->view('admin/usergame/head', $this->data) ?>
-<div class="line"></div>
-<?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
-<?php else: ?>
-    <div class="wrapper">
-    <?php $this->load->view('admin/message', $this->data); ?>
-    <link rel="stylesheet" href="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.css">
-    <script src="<?php echo public_url() ?>/site/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/moment.js"></script>
-    <script src="<?php echo public_url() ?>/site/bootstrap/bootstrap.min.js"></script>
-    <script
-        src="<?php echo public_url() ?>/site/bootstrap/bootstrap-datetimepicker.min.js"></script>
-    <div class="widget">
-    <div class="title">
-        <h6>Thêm bot cao thấp</h6>
-    </div>
-    <form class="list_filter form" action="" method="">
-    <div class="formRow">
-        <div class="row">
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-4"><label id="errorname" style="color: red;"></label></div>
-        </div>
-    </div>
-    <div class="formRow">
-        <div class="row">
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-1"><label>Nickname</label></div>
-            <div class="col-sm-2"><input class="form-control" id="filter_iname" placeholder="Nhập nick name" onblur="myFunction()"
-                                         type="text">
-                <label id="lblnickname" style="color: blueviolet;margin-top: 10px"></label>
-            </div>
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
 
-            <div class="col-sm-1"><label>Phòng</label></div>
-            <div class="col-sm-2">
-                <select id="roomvin">
-                    <option value="1000">1,000</option>
-                    <option value="10000">10,000</option>
-                </select>
-            </div>
-            <div class="col-sm-1"><label>Số Z thắng</label></div>
-            <div class="col-sm-2"><input class="form-control" id="txtprize" type="text" placeholder="Nhập số vin"></div>
-            <label id="numchuyen" style="color: blueviolet"></label>
-        </div>
+        <section class="content-header">
+            <h1>
+                Thêm bot cao thấp
+            </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
 
-    </div>
-    <div class="formRow">
-        <div class="row">
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-1"><label>Lá bài 1</label></div>
-            <div class="col-sm-2">
-                <select id="labai1" style="width: 100px">
-                    <option value="51">A♥ - Cơ</option>
-                    <option value="50">A♦ - Rô</option>
-                    <option value="49">A♣ - Tép</option>
-                    <option value="48">A♠ - Bích</option>
-                    <option value="47">K♥ - Cơ</option>
-                    <option value="46">K♦ - Rô</option>
-                    <option value="45">K♣ - Tép</option>
-                    <option value="44">K♠ - Bích</option>
-                    <option value="43">Q♥ - Cơ</option>
-                    <option value="42">Q♦ - Rô</option>
-                    <option value="41">Q♣ - Tép</option>
-                    <option value="40">Q♠ - Bích</option>
-                    <option value="39">J♥ - Cơ</option>
-                    <option value="38">J♦ - Rô</option>
-                    <option value="37">J♣ - Tép</option>
-                    <option value="36">J♠ - Bích</option>
-                    <option value="35">10♥ - Cơ</option>
-                    <option value="34">10♦ - Rô</option>
-                    <option value="33">10♣ - Tép</option>
-                    <option value="32">10♠ - Bích</option>
-                    <option value="31">9♥ - Cơ</option>
-                    <option value="30">9♦ - Rô</option>
-                    <option value="29">9♣ - Tép</option>
-                    <option value="28">9♠ - Bích</option>
-                    <option value="27">8♥ - Cơ</option>
-                    <option value="26">8♦ - Rô</option>
-                    <option value="25">8♣ - Tép</option>
-                    <option value="24">8♠ - Bích</option>
-                    <option value="23">7♥ - Cơ</option>
-                    <option value="22">7♦ - Rô</option>
-                    <option value="21">7♣ - Tép</option>
-                    <option value="20">7♠ - Bích</option>
-                    <option value="19">6♥ - Cơ</option>
-                    <option value="18">6♦ - Rô</option>
-                    <option value="17">6♣ - Tép</option>
-                    <option value="16">6♠ - Bích</option>
-                    <option value="15">5♥ - Cơ</option>
-                    <option value="14">5♦ - Rô</option>
-                    <option value="13">5♣ - Tép</option>
-                    <option value="12">5♠ - Bích</option>
-                    <option value="11">4♥ - Cơ</option>
-                    <option value="10">4♦ - Rô</option>
-                    <option value="9">4♣ - Tép</option>
-                    <option value="8">4♠ - Bích</option>
-                    <option value="5">3♣ - Tép</option>
-                    <option value="7">3♥ - Cơ</option>
-                    <option value="6">3♦ - Rô</option>
-                    <option value="4">3♠ - Bích</option>
-                    <option value="3">2♥ - Cơ</option>
-                    <option value="2">2♦ - Rô</option>
-                    <option value="1">2♣ - Tép</option>
-                    <option value="0">2♠ - Bích</option>
-                </select>
-            </div>
-            <div class="col-sm-1"><label>Lá bài 2</label></div>
-            <div class="col-sm-2">
-                <select id="labai2" style="width: 100px">
-                    <option value="51">A♥ - Cơ</option>
-                    <option value="50">A♦ - Rô</option>
-                    <option value="49">A♣ - Tép</option>
-                    <option value="48">A♠ - Bích</option>
-                    <option value="47">K♥ - Cơ</option>
-                    <option value="46">K♦ - Rô</option>
-                    <option value="45">K♣ - Tép</option>
-                    <option value="44">K♠ - Bích</option>
-                    <option value="43">Q♥ - Cơ</option>
-                    <option value="42">Q♦ - Rô</option>
-                    <option value="41">Q♣ - Tép</option>
-                    <option value="40">Q♠ - Bích</option>
-                    <option value="39">J♥ - Cơ</option>
-                    <option value="38">J♦ - Rô</option>
-                    <option value="37">J♣ - Tép</option>
-                    <option value="36">J♠ - Bích</option>
-                    <option value="35">10♥ - Cơ</option>
-                    <option value="34">10♦ - Rô</option>
-                    <option value="33">10♣ - Tép</option>
-                    <option value="32">10♠ - Bích</option>
-                    <option value="31">9♥ - Cơ</option>
-                    <option value="30">9♦ - Rô</option>
-                    <option value="29">9♣ - Tép</option>
-                    <option value="28">9♠ - Bích</option>
-                    <option value="27">8♥ - Cơ</option>
-                    <option value="26">8♦ - Rô</option>
-                    <option value="25">8♣ - Tép</option>
-                    <option value="24">8♠ - Bích</option>
-                    <option value="23">7♥ - Cơ</option>
-                    <option value="22">7♦ - Rô</option>
-                    <option value="21">7♣ - Tép</option>
-                    <option value="20">7♠ - Bích</option>
-                    <option value="19">6♥ - Cơ</option>
-                    <option value="18">6♦ - Rô</option>
-                    <option value="17">6♣ - Tép</option>
-                    <option value="16">6♠ - Bích</option>
-                    <option value="15">5♥ - Cơ</option>
-                    <option value="14">5♦ - Rô</option>
-                    <option value="13">5♣ - Tép</option>
-                    <option value="12">5♠ - Bích</option>
-                    <option value="11">4♥ - Cơ</option>
-                    <option value="10">4♦ - Rô</option>
-                    <option value="9">4♣ - Tép</option>
-                    <option value="8">4♠ - Bích</option>
-                    <option value="5">3♣ - Tép</option>
-                    <option value="7">3♥ - Cơ</option>
-                    <option value="6">3♦ - Rô</option>
-                    <option value="4">3♠ - Bích</option>
-                    <option value="3">2♥ - Cơ</option>
-                    <option value="2">2♦ - Rô</option>
-                    <option value="1">2♣ - Tép</option>
-                    <option value="0">2♠ - Bích</option>
-                </select>
-            </div>
-            <div class="col-sm-1"><label>Lá bài 3</label></div>
-            <div class="col-sm-2">
-                <select id="labai3" style="width: 100px">
-                    <option value="51">A♥ - Cơ</option>
-                    <option value="50">A♦ - Rô</option>
-                    <option value="49">A♣ - Tép</option>
-                    <option value="48">A♠ - Bích</option>
-                    <option value="47">K♥ - Cơ</option>
-                    <option value="46">K♦ - Rô</option>
-                    <option value="45">K♣ - Tép</option>
-                    <option value="44">K♠ - Bích</option>
-                    <option value="43">Q♥ - Cơ</option>
-                    <option value="42">Q♦ - Rô</option>
-                    <option value="41">Q♣ - Tép</option>
-                    <option value="40">Q♠ - Bích</option>
-                    <option value="39">J♥ - Cơ</option>
-                    <option value="38">J♦ - Rô</option>
-                    <option value="37">J♣ - Tép</option>
-                    <option value="36">J♠ - Bích</option>
-                    <option value="35">10♥ - Cơ</option>
-                    <option value="34">10♦ - Rô</option>
-                    <option value="33">10♣ - Tép</option>
-                    <option value="32">10♠ - Bích</option>
-                    <option value="31">9♥ - Cơ</option>
-                    <option value="30">9♦ - Rô</option>
-                    <option value="29">9♣ - Tép</option>
-                    <option value="28">9♠ - Bích</option>
-                    <option value="27">8♥ - Cơ</option>
-                    <option value="26">8♦ - Rô</option>
-                    <option value="25">8♣ - Tép</option>
-                    <option value="24">8♠ - Bích</option>
-                    <option value="23">7♥ - Cơ</option>
-                    <option value="22">7♦ - Rô</option>
-                    <option value="21">7♣ - Tép</option>
-                    <option value="20">7♠ - Bích</option>
-                    <option value="19">6♥ - Cơ</option>
-                    <option value="18">6♦ - Rô</option>
-                    <option value="17">6♣ - Tép</option>
-                    <option value="16">6♠ - Bích</option>
-                    <option value="15">5♥ - Cơ</option>
-                    <option value="14">5♦ - Rô</option>
-                    <option value="13">5♣ - Tép</option>
-                    <option value="12">5♠ - Bích</option>
-                    <option value="11">4♥ - Cơ</option>
-                    <option value="10">4♦ - Rô</option>
-                    <option value="9">4♣ - Tép</option>
-                    <option value="8">4♠ - Bích</option>
-                    <option value="5">3♣ - Tép</option>
-                    <option value="7">3♥ - Cơ</option>
-                    <option value="6">3♦ - Rô</option>
-                    <option value="4">3♠ - Bích</option>
-                    <option value="3">2♥ - Cơ</option>
-                    <option value="2">2♦ - Rô</option>
-                    <option value="1">2♣ - Tép</option>
-                    <option value="0">2♠ - Bích</option>
+                        <label id="resultsearch" style="color: red;"></label>
+                        <input id="typemoney" type="hidden" value="<?php echo $namegame ?>">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label  style="color: red" id="errorname">
+                                        </label>
+                                    </div>
+                                </div>
 
-                </select>
-            </div>
-        </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Nickname:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input class="form-control" id="filter_iname" placeholder="Nhập nick name" onblur="myFunction()"
+                                               type="text">
+                                        <label id="lblnickname" style="color: blueviolet;"></label>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Phòng:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <select id="roomvin" class="form-control">
+                                            <option value="1000">1,000</option>
+                                            <option value="10000">10,000</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Số <?php echo $namegame ?> thắng:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input class="form-control" id="txtprize" type="text" placeholder="Nhập số <?php echo $namegame ?>">
+                                        <label id="numchuyen" style="color: blueviolet"></label>
+                                    </div>
 
-    </div>
-    <div class="formRow">
-        <div class="row">
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-1"><label>Lá bài 4</label></div>
-            <div class="col-sm-2">
-                <select id="labai4" style="width: 100px">
-                    <option value="51">A♥ - Cơ</option>
-                    <option value="50">A♦ - Rô</option>
-                    <option value="49">A♣ - Tép</option>
-                    <option value="48">A♠ - Bích</option>
-                    <option value="47">K♥ - Cơ</option>
-                    <option value="46">K♦ - Rô</option>
-                    <option value="45">K♣ - Tép</option>
-                    <option value="44">K♠ - Bích</option>
-                    <option value="43">Q♥ - Cơ</option>
-                    <option value="42">Q♦ - Rô</option>
-                    <option value="41">Q♣ - Tép</option>
-                    <option value="40">Q♠ - Bích</option>
-                    <option value="39">J♥ - Cơ</option>
-                    <option value="38">J♦ - Rô</option>
-                    <option value="37">J♣ - Tép</option>
-                    <option value="36">J♠ - Bích</option>
-                    <option value="35">10♥ - Cơ</option>
-                    <option value="34">10♦ - Rô</option>
-                    <option value="33">10♣ - Tép</option>
-                    <option value="32">10♠ - Bích</option>
-                    <option value="31">9♥ - Cơ</option>
-                    <option value="30">9♦ - Rô</option>
-                    <option value="29">9♣ - Tép</option>
-                    <option value="28">9♠ - Bích</option>
-                    <option value="27">8♥ - Cơ</option>
-                    <option value="26">8♦ - Rô</option>
-                    <option value="25">8♣ - Tép</option>
-                    <option value="24">8♠ - Bích</option>
-                    <option value="23">7♥ - Cơ</option>
-                    <option value="22">7♦ - Rô</option>
-                    <option value="21">7♣ - Tép</option>
-                    <option value="20">7♠ - Bích</option>
-                    <option value="19">6♥ - Cơ</option>
-                    <option value="18">6♦ - Rô</option>
-                    <option value="17">6♣ - Tép</option>
-                    <option value="16">6♠ - Bích</option>
-                    <option value="15">5♥ - Cơ</option>
-                    <option value="14">5♦ - Rô</option>
-                    <option value="13">5♣ - Tép</option>
-                    <option value="12">5♠ - Bích</option>
-                    <option value="11">4♥ - Cơ</option>
-                    <option value="10">4♦ - Rô</option>
-                    <option value="9">4♣ - Tép</option>
-                    <option value="8">4♠ - Bích</option>
-                    <option value="5">3♣ - Tép</option>
-                    <option value="7">3♥ - Cơ</option>
-                    <option value="6">3♦ - Rô</option>
-                    <option value="4">3♠ - Bích</option>
-                    <option value="3">2♥ - Cơ</option>
-                    <option value="2">2♦ - Rô</option>
-                    <option value="1">2♣ - Tép</option>
-                    <option value="0">2♠ - Bích</option>
+                                </div>
+                            </div>
 
-                </select>
-            </div>
-            <div class="col-sm-1"><label>Lá bài 5</label></div>
-            <div class="col-sm-2">
-                <select id="labai5" style="width: 100px">
-                    <option value="51">A♥ - Cơ</option>
-                    <option value="50">A♦ - Rô</option>
-                    <option value="49">A♣ - Tép</option>
-                    <option value="48">A♠ - Bích</option>
-                    <option value="47">K♥ - Cơ</option>
-                    <option value="46">K♦ - Rô</option>
-                    <option value="45">K♣ - Tép</option>
-                    <option value="44">K♠ - Bích</option>
-                    <option value="43">Q♥ - Cơ</option>
-                    <option value="42">Q♦ - Rô</option>
-                    <option value="41">Q♣ - Tép</option>
-                    <option value="40">Q♠ - Bích</option>
-                    <option value="39">J♥ - Cơ</option>
-                    <option value="38">J♦ - Rô</option>
-                    <option value="37">J♣ - Tép</option>
-                    <option value="36">J♠ - Bích</option>
-                    <option value="35">10♥ - Cơ</option>
-                    <option value="34">10♦ - Rô</option>
-                    <option value="33">10♣ - Tép</option>
-                    <option value="32">10♠ - Bích</option>
-                    <option value="31">9♥ - Cơ</option>
-                    <option value="30">9♦ - Rô</option>
-                    <option value="29">9♣ - Tép</option>
-                    <option value="28">9♠ - Bích</option>
-                    <option value="27">8♥ - Cơ</option>
-                    <option value="26">8♦ - Rô</option>
-                    <option value="25">8♣ - Tép</option>
-                    <option value="24">8♠ - Bích</option>
-                    <option value="23">7♥ - Cơ</option>
-                    <option value="22">7♦ - Rô</option>
-                    <option value="21">7♣ - Tép</option>
-                    <option value="20">7♠ - Bích</option>
-                    <option value="19">6♥ - Cơ</option>
-                    <option value="18">6♦ - Rô</option>
-                    <option value="17">6♣ - Tép</option>
-                    <option value="16">6♠ - Bích</option>
-                    <option value="15">5♥ - Cơ</option>
-                    <option value="14">5♦ - Rô</option>
-                    <option value="13">5♣ - Tép</option>
-                    <option value="12">5♠ - Bích</option>
-                    <option value="11">4♥ - Cơ</option>
-                    <option value="10">4♦ - Rô</option>
-                    <option value="9">4♣ - Tép</option>
-                    <option value="8">4♠ - Bích</option>
-                    <option value="5">3♣ - Tép</option>
-                    <option value="7">3♥ - Cơ</option>
-                    <option value="6">3♦ - Rô</option>
-                    <option value="4">3♠ - Bích</option>
-                    <option value="3">2♥ - Cơ</option>
-                    <option value="2">2♦ - Rô</option>
-                    <option value="1">2♣ - Tép</option>
-                    <option value="0">2♠ - Bích</option>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Lá bài 1:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <select id="labai1" class="form-control">
+                                            <option value="51">A♥ - Cơ</option>
+                                            <option value="50">A♦ - Rô</option>
+                                            <option value="49">A♣ - Tép</option>
+                                            <option value="48">A♠ - Bích</option>
+                                            <option value="47">K♥ - Cơ</option>
+                                            <option value="46">K♦ - Rô</option>
+                                            <option value="45">K♣ - Tép</option>
+                                            <option value="44">K♠ - Bích</option>
+                                            <option value="43">Q♥ - Cơ</option>
+                                            <option value="42">Q♦ - Rô</option>
+                                            <option value="41">Q♣ - Tép</option>
+                                            <option value="40">Q♠ - Bích</option>
+                                            <option value="39">J♥ - Cơ</option>
+                                            <option value="38">J♦ - Rô</option>
+                                            <option value="37">J♣ - Tép</option>
+                                            <option value="36">J♠ - Bích</option>
+                                            <option value="35">10♥ - Cơ</option>
+                                            <option value="34">10♦ - Rô</option>
+                                            <option value="33">10♣ - Tép</option>
+                                            <option value="32">10♠ - Bích</option>
+                                            <option value="31">9♥ - Cơ</option>
+                                            <option value="30">9♦ - Rô</option>
+                                            <option value="29">9♣ - Tép</option>
+                                            <option value="28">9♠ - Bích</option>
+                                            <option value="27">8♥ - Cơ</option>
+                                            <option value="26">8♦ - Rô</option>
+                                            <option value="25">8♣ - Tép</option>
+                                            <option value="24">8♠ - Bích</option>
+                                            <option value="23">7♥ - Cơ</option>
+                                            <option value="22">7♦ - Rô</option>
+                                            <option value="21">7♣ - Tép</option>
+                                            <option value="20">7♠ - Bích</option>
+                                            <option value="19">6♥ - Cơ</option>
+                                            <option value="18">6♦ - Rô</option>
+                                            <option value="17">6♣ - Tép</option>
+                                            <option value="16">6♠ - Bích</option>
+                                            <option value="15">5♥ - Cơ</option>
+                                            <option value="14">5♦ - Rô</option>
+                                            <option value="13">5♣ - Tép</option>
+                                            <option value="12">5♠ - Bích</option>
+                                            <option value="11">4♥ - Cơ</option>
+                                            <option value="10">4♦ - Rô</option>
+                                            <option value="9">4♣ - Tép</option>
+                                            <option value="8">4♠ - Bích</option>
+                                            <option value="5">3♣ - Tép</option>
+                                            <option value="7">3♥ - Cơ</option>
+                                            <option value="6">3♦ - Rô</option>
+                                            <option value="4">3♠ - Bích</option>
+                                            <option value="3">2♥ - Cơ</option>
+                                            <option value="2">2♦ - Rô</option>
+                                            <option value="1">2♣ - Tép</option>
+                                            <option value="0">2♠ - Bích</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Lá bài 2:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <select id="labai2" class="form-control">
+                                            <option value="51">A♥ - Cơ</option>
+                                            <option value="50">A♦ - Rô</option>
+                                            <option value="49">A♣ - Tép</option>
+                                            <option value="48">A♠ - Bích</option>
+                                            <option value="47">K♥ - Cơ</option>
+                                            <option value="46">K♦ - Rô</option>
+                                            <option value="45">K♣ - Tép</option>
+                                            <option value="44">K♠ - Bích</option>
+                                            <option value="43">Q♥ - Cơ</option>
+                                            <option value="42">Q♦ - Rô</option>
+                                            <option value="41">Q♣ - Tép</option>
+                                            <option value="40">Q♠ - Bích</option>
+                                            <option value="39">J♥ - Cơ</option>
+                                            <option value="38">J♦ - Rô</option>
+                                            <option value="37">J♣ - Tép</option>
+                                            <option value="36">J♠ - Bích</option>
+                                            <option value="35">10♥ - Cơ</option>
+                                            <option value="34">10♦ - Rô</option>
+                                            <option value="33">10♣ - Tép</option>
+                                            <option value="32">10♠ - Bích</option>
+                                            <option value="31">9♥ - Cơ</option>
+                                            <option value="30">9♦ - Rô</option>
+                                            <option value="29">9♣ - Tép</option>
+                                            <option value="28">9♠ - Bích</option>
+                                            <option value="27">8♥ - Cơ</option>
+                                            <option value="26">8♦ - Rô</option>
+                                            <option value="25">8♣ - Tép</option>
+                                            <option value="24">8♠ - Bích</option>
+                                            <option value="23">7♥ - Cơ</option>
+                                            <option value="22">7♦ - Rô</option>
+                                            <option value="21">7♣ - Tép</option>
+                                            <option value="20">7♠ - Bích</option>
+                                            <option value="19">6♥ - Cơ</option>
+                                            <option value="18">6♦ - Rô</option>
+                                            <option value="17">6♣ - Tép</option>
+                                            <option value="16">6♠ - Bích</option>
+                                            <option value="15">5♥ - Cơ</option>
+                                            <option value="14">5♦ - Rô</option>
+                                            <option value="13">5♣ - Tép</option>
+                                            <option value="12">5♠ - Bích</option>
+                                            <option value="11">4♥ - Cơ</option>
+                                            <option value="10">4♦ - Rô</option>
+                                            <option value="9">4♣ - Tép</option>
+                                            <option value="8">4♠ - Bích</option>
+                                            <option value="5">3♣ - Tép</option>
+                                            <option value="7">3♥ - Cơ</option>
+                                            <option value="6">3♦ - Rô</option>
+                                            <option value="4">3♠ - Bích</option>
+                                            <option value="3">2♥ - Cơ</option>
+                                            <option value="2">2♦ - Rô</option>
+                                            <option value="1">2♣ - Tép</option>
+                                            <option value="0">2♠ - Bích</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Lá bài 3:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <select id="labai3" class="form-control">
+                                            <option value="51">A♥ - Cơ</option>
+                                            <option value="50">A♦ - Rô</option>
+                                            <option value="49">A♣ - Tép</option>
+                                            <option value="48">A♠ - Bích</option>
+                                            <option value="47">K♥ - Cơ</option>
+                                            <option value="46">K♦ - Rô</option>
+                                            <option value="45">K♣ - Tép</option>
+                                            <option value="44">K♠ - Bích</option>
+                                            <option value="43">Q♥ - Cơ</option>
+                                            <option value="42">Q♦ - Rô</option>
+                                            <option value="41">Q♣ - Tép</option>
+                                            <option value="40">Q♠ - Bích</option>
+                                            <option value="39">J♥ - Cơ</option>
+                                            <option value="38">J♦ - Rô</option>
+                                            <option value="37">J♣ - Tép</option>
+                                            <option value="36">J♠ - Bích</option>
+                                            <option value="35">10♥ - Cơ</option>
+                                            <option value="34">10♦ - Rô</option>
+                                            <option value="33">10♣ - Tép</option>
+                                            <option value="32">10♠ - Bích</option>
+                                            <option value="31">9♥ - Cơ</option>
+                                            <option value="30">9♦ - Rô</option>
+                                            <option value="29">9♣ - Tép</option>
+                                            <option value="28">9♠ - Bích</option>
+                                            <option value="27">8♥ - Cơ</option>
+                                            <option value="26">8♦ - Rô</option>
+                                            <option value="25">8♣ - Tép</option>
+                                            <option value="24">8♠ - Bích</option>
+                                            <option value="23">7♥ - Cơ</option>
+                                            <option value="22">7♦ - Rô</option>
+                                            <option value="21">7♣ - Tép</option>
+                                            <option value="20">7♠ - Bích</option>
+                                            <option value="19">6♥ - Cơ</option>
+                                            <option value="18">6♦ - Rô</option>
+                                            <option value="17">6♣ - Tép</option>
+                                            <option value="16">6♠ - Bích</option>
+                                            <option value="15">5♥ - Cơ</option>
+                                            <option value="14">5♦ - Rô</option>
+                                            <option value="13">5♣ - Tép</option>
+                                            <option value="12">5♠ - Bích</option>
+                                            <option value="11">4♥ - Cơ</option>
+                                            <option value="10">4♦ - Rô</option>
+                                            <option value="9">4♣ - Tép</option>
+                                            <option value="8">4♠ - Bích</option>
+                                            <option value="5">3♣ - Tép</option>
+                                            <option value="7">3♥ - Cơ</option>
+                                            <option value="6">3♦ - Rô</option>
+                                            <option value="4">3♠ - Bích</option>
+                                            <option value="3">2♥ - Cơ</option>
+                                            <option value="2">2♦ - Rô</option>
+                                            <option value="1">2♣ - Tép</option>
+                                            <option value="0">2♠ - Bích</option>
+                                        </select>
+                                    </div>
 
-                </select>
-            </div>
-            <div class="col-sm-1">
-                <input type="button" id="search_tran" value="Thêm bot cao thấp" class="button blueB">
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Lá bài 4:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <select id="labai4" class="form-control">
+                                            <option value="51">A♥ - Cơ</option>
+                                            <option value="50">A♦ - Rô</option>
+                                            <option value="49">A♣ - Tép</option>
+                                            <option value="48">A♠ - Bích</option>
+                                            <option value="47">K♥ - Cơ</option>
+                                            <option value="46">K♦ - Rô</option>
+                                            <option value="45">K♣ - Tép</option>
+                                            <option value="44">K♠ - Bích</option>
+                                            <option value="43">Q♥ - Cơ</option>
+                                            <option value="42">Q♦ - Rô</option>
+                                            <option value="41">Q♣ - Tép</option>
+                                            <option value="40">Q♠ - Bích</option>
+                                            <option value="39">J♥ - Cơ</option>
+                                            <option value="38">J♦ - Rô</option>
+                                            <option value="37">J♣ - Tép</option>
+                                            <option value="36">J♠ - Bích</option>
+                                            <option value="35">10♥ - Cơ</option>
+                                            <option value="34">10♦ - Rô</option>
+                                            <option value="33">10♣ - Tép</option>
+                                            <option value="32">10♠ - Bích</option>
+                                            <option value="31">9♥ - Cơ</option>
+                                            <option value="30">9♦ - Rô</option>
+                                            <option value="29">9♣ - Tép</option>
+                                            <option value="28">9♠ - Bích</option>
+                                            <option value="27">8♥ - Cơ</option>
+                                            <option value="26">8♦ - Rô</option>
+                                            <option value="25">8♣ - Tép</option>
+                                            <option value="24">8♠ - Bích</option>
+                                            <option value="23">7♥ - Cơ</option>
+                                            <option value="22">7♦ - Rô</option>
+                                            <option value="21">7♣ - Tép</option>
+                                            <option value="20">7♠ - Bích</option>
+                                            <option value="19">6♥ - Cơ</option>
+                                            <option value="18">6♦ - Rô</option>
+                                            <option value="17">6♣ - Tép</option>
+                                            <option value="16">6♠ - Bích</option>
+                                            <option value="15">5♥ - Cơ</option>
+                                            <option value="14">5♦ - Rô</option>
+                                            <option value="13">5♣ - Tép</option>
+                                            <option value="12">5♠ - Bích</option>
+                                            <option value="11">4♥ - Cơ</option>
+                                            <option value="10">4♦ - Rô</option>
+                                            <option value="9">4♣ - Tép</option>
+                                            <option value="8">4♠ - Bích</option>
+                                            <option value="5">3♣ - Tép</option>
+                                            <option value="7">3♥ - Cơ</option>
+                                            <option value="6">3♦ - Rô</option>
+                                            <option value="4">3♠ - Bích</option>
+                                            <option value="3">2♥ - Cơ</option>
+                                            <option value="2">2♦ - Rô</option>
+                                            <option value="1">2♣ - Tép</option>
+                                            <option value="0">2♠ - Bích</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <label for="exampleInputEmail1">Lá bài 5:</label>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <select id="labai5" class="form-control">
+                                            <option value="51">A♥ - Cơ</option>
+                                            <option value="50">A♦ - Rô</option>
+                                            <option value="49">A♣ - Tép</option>
+                                            <option value="48">A♠ - Bích</option>
+                                            <option value="47">K♥ - Cơ</option>
+                                            <option value="46">K♦ - Rô</option>
+                                            <option value="45">K♣ - Tép</option>
+                                            <option value="44">K♠ - Bích</option>
+                                            <option value="43">Q♥ - Cơ</option>
+                                            <option value="42">Q♦ - Rô</option>
+                                            <option value="41">Q♣ - Tép</option>
+                                            <option value="40">Q♠ - Bích</option>
+                                            <option value="39">J♥ - Cơ</option>
+                                            <option value="38">J♦ - Rô</option>
+                                            <option value="37">J♣ - Tép</option>
+                                            <option value="36">J♠ - Bích</option>
+                                            <option value="35">10♥ - Cơ</option>
+                                            <option value="34">10♦ - Rô</option>
+                                            <option value="33">10♣ - Tép</option>
+                                            <option value="32">10♠ - Bích</option>
+                                            <option value="31">9♥ - Cơ</option>
+                                            <option value="30">9♦ - Rô</option>
+                                            <option value="29">9♣ - Tép</option>
+                                            <option value="28">9♠ - Bích</option>
+                                            <option value="27">8♥ - Cơ</option>
+                                            <option value="26">8♦ - Rô</option>
+                                            <option value="25">8♣ - Tép</option>
+                                            <option value="24">8♠ - Bích</option>
+                                            <option value="23">7♥ - Cơ</option>
+                                            <option value="22">7♦ - Rô</option>
+                                            <option value="21">7♣ - Tép</option>
+                                            <option value="20">7♠ - Bích</option>
+                                            <option value="19">6♥ - Cơ</option>
+                                            <option value="18">6♦ - Rô</option>
+                                            <option value="17">6♣ - Tép</option>
+                                            <option value="16">6♠ - Bích</option>
+                                            <option value="15">5♥ - Cơ</option>
+                                            <option value="14">5♦ - Rô</option>
+                                            <option value="13">5♣ - Tép</option>
+                                            <option value="12">5♠ - Bích</option>
+                                            <option value="11">4♥ - Cơ</option>
+                                            <option value="10">4♦ - Rô</option>
+                                            <option value="9">4♣ - Tép</option>
+                                            <option value="8">4♠ - Bích</option>
+                                            <option value="5">3♣ - Tép</option>
+                                            <option value="7">3♥ - Cơ</option>
+                                            <option value="6">3♦ - Rô</option>
+                                            <option value="4">3♠ - Bích</option>
+                                            <option value="3">2♥ - Cơ</option>
+                                            <option value="2">2♦ - Rô</option>
+                                            <option value="1">2♣ - Tép</option>
+                                            <option value="0">2♠ - Bích</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
 
-    </div>
-    <div class="formRow">
-        <div class="row">
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-4"><h3 style="color: #0000ff">* Chú ý : Các là bài không được trùng nhau</h3> </div>
-        </div>
-    </div>
-    <input type="hidden" id="txtlabai">
-    <input type="hidden" id="checknickname">
-    </form>
-    <div class="formRow"></div>
-    <div class="modal fade" id="bsModal3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input type="button" id="search_tran" value="Thêm bot cao thấp" class="btn btn-success">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-body">
+
+                            <h3 style="color: #0000ff">* Chú ý : Các là bài không được trùng nhau</h3>
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+
+                            <input type="hidden" id="txtlabai">
+                            <input type="hidden" id="checknickname">
+                            <div class="modal fade" id="bsModal3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        </div>
+                                        <div class="modal-body">
+                                            <p style="color: #0000ff">Bạn thêm bot cao thấp thành công</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input class="blueB logMeIn" type="button" value="Đóng" data-dismiss="modal"
+                                                   aria-hidden="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <p style="color: #0000ff">Bạn thêm bot cao thấp thành công</p>
-                </div>
-                <div class="modal-footer">
-                    <input class="blueB logMeIn" type="button" value="Đóng" data-dismiss="modal"
-                           aria-hidden="true">
-                </div>
             </div>
-        </div>
-    </div>
-    </div>
-    </div>
-<?php endif; ?>
-<style>.spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
+        </section>
+    <?php endif; ?>
 </div>
 <script>
     $("#search_tran").click(function () {
@@ -415,7 +419,7 @@
         }
 
         else if ($("#txtprize").val() == "") {
-            $("#errorname").html("Bạn chưa nhập số vin thắng");
+            $("#errorname").html("Bạn chưa nhập số " +$("#typemoney").val()+ " thắng");
             return false;
         }
         else if($("#labai1").val() == $("#labai2").val() || $("#labai1").val() == $("#labai3").val() || $("#labai1").val() == $("#labai4").val() || $("#labai1").val() == $("#labai5").val() || $("#labai2").val() == $("#labai3").val() || $("#labai2").val() == $("#labai4").val() || $("#labai2").val() == $("#labai5").val() || $("#labai3").val() == $("#labai4").val() || $("#labai3").val() == $("#labai5").val() || $("#labai4").val() == $("#labai5").val()){

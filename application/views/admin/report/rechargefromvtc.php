@@ -9,7 +9,7 @@
 
     <section class="content-header">
         <h1>
-            Lịch sử nạp vin qua VTC
+            Lịch sử nạp <?php echo $namegame ?> qua VTC
         </h1>
         <ol class="breadcrumb">
             <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>

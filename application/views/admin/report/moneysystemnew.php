@@ -166,8 +166,8 @@
                     <thead>
                     <tr style="height: 20px;">
                         <td>Tên game</td>
-                        <td>Tiền Vin đổi sang</td>
-                        <td>Tiền đổi sang Vin</td>
+                        <td>Tiền <?php echo $namegame ?> đổi sang</td>
+                        <td>Tiền đổi sang <?php echo $namegame ?></td>
                         <td>Tiền hoàn trả</td>
                         <td>Tiền sự kiện</td>
                         <td>Phế</td>
@@ -229,7 +229,7 @@
                     </tr>
                     <tr>
 
-                        <td>VinCard</td>
+                        <td><?php echo $namegame ?>Card</td>
                         <td id="money5" class="moneyhtml"></td>
                     </tr>
                     <tr>
@@ -312,7 +312,7 @@
                     </tr>
                     <tr>
 
-                        <td>Vương quốc vin free</td>
+                        <td>Vương quốc <?php echo $namegame ?> free</td>
                         <td id="money16" class="moneyhtml"></td>
                     </tr>
                     <tr>
@@ -910,7 +910,7 @@ $(document).ready(function () {
                 }
 
                 if (res.actionGame.VuongQuocVin != null) {
-                    result2 += resultSearchTransction("Vương Quốc Vin", res.actionGame.VuongQuocVin.moneyWin, res.actionGame.VuongQuocVin.moneyLost, res.actionGame.VuongQuocVin.moneyOther, res.actionGame.VuongQuocVin.fee, res.actionGame.VuongQuocVin.revenuePlayGame, res.actionGame.VuongQuocVin.revenue);
+                    result2 += resultSearchTransction("Vương Quốc <?php echo $namegame ?>", res.actionGame.VuongQuocVin.moneyWin, res.actionGame.VuongQuocVin.moneyLost, res.actionGame.VuongQuocVin.moneyOther, res.actionGame.VuongQuocVin.fee, res.actionGame.VuongQuocVin.revenuePlayGame, res.actionGame.VuongQuocVin.revenue);
                     $('#logaction1').html(result2);
                     total1 += res.actionGame.VuongQuocVin.moneyWin;
                     total2 += res.actionGame.VuongQuocVin.moneyLost;
@@ -919,7 +919,7 @@ $(document).ready(function () {
                     total5 += res.actionGame.VuongQuocVin.revenuePlayGame;
                     total6 += res.actionGame.VuongQuocVin.revenue;
                 } else {
-                    result2 += resultSearchTransction("Vương Quốc Vin", 0, 0, 0, 0, 0, 0);
+                    result2 += resultSearchTransction("Vương Quốc <?php echo $namegame ?>", 0, 0, 0, 0, 0, 0);
                     $('#logaction1').html(result2);
                 }
                 $('#totalmoneywin').html(commaSeparateNumber(total1 + total13));
@@ -1631,7 +1631,7 @@ $(document).ready(function () {
                 }
 
                 if (res.actionGameBot.VuongQuocVin != null) {
-                    result22 += resultSearchTransction("Vương Quốc Vin", res.actionGameBot.VuongQuocVin.moneyWin, res.actionGameBot.VuongQuocVin.moneyLost, res.actionGameBot.VuongQuocVin.moneyOther, res.actionGameBot.VuongQuocVin.fee, res.actionGameBot.VuongQuocVin.revenuePlayGame, res.actionGameBot.VuongQuocVin.revenue);
+                    result22 += resultSearchTransction("Vương Quốc <?php echo $namegame ?>", res.actionGameBot.VuongQuocVin.moneyWin, res.actionGameBot.VuongQuocVin.moneyLost, res.actionGameBot.VuongQuocVin.moneyOther, res.actionGameBot.VuongQuocVin.fee, res.actionGameBot.VuongQuocVin.revenuePlayGame, res.actionGameBot.VuongQuocVin.revenue);
                     $('#logactionbot1').html(result22);
                     total31 += res.actionGameBot.VuongQuocVin.moneyWin;
                     total32 += res.actionGameBot.VuongQuocVin.moneyLost;
@@ -1640,7 +1640,7 @@ $(document).ready(function () {
                     total35 += res.actionGameBot.VuongQuocVin.revenuePlayGame;
                     total36 += res.actionGameBot.VuongQuocVin.revenue;
                 } else {
-                    result22 += resultSearchTransction("Vương Quốc Vin", 0, 0, 0, 0, 0, 0);
+                    result22 += resultSearchTransction("Vương Quốc <?php echo $namegame ?>", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot1').html(result22);
                 }
                 $('#totalmoneywinbot').html(commaSeparateNumber(total31 + total43));

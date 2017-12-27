@@ -160,7 +160,7 @@
                         <td>Mệnh giá</td>
                         <td>Mã lỗi dịch vụ</td>
                         <td>Mô tả</td>
-                        <td>Mã lỗi Vinplay</td>
+                        <td>Mã lỗi <?php echo $namegame ?></td>
                         <td>Thời gian</td>
                     </tr>
                     </thead>

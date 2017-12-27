@@ -298,7 +298,7 @@
         </div>
 
         <div class="title">
-            <h6>Tiền vào game (VIN)</h6>
+            <h6>Tiền vào game (<?php echo $namegame ?>)</h6>
         </div>
         <div class="formRow">
             <div class="row">

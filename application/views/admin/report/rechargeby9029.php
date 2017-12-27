@@ -9,7 +9,7 @@
 
     <section class="content-header">
         <h1>
-            Lịch sử nạp vin 9029
+            Lịch sử nạp <?php echo $namegame ?> 9029
         </h1>
         <ol class="breadcrumb">
             <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>
@@ -137,7 +137,7 @@
                         <td>Mã trả về 1 pay</td>
                         <td>Mã giao dịch</td>
                         <td>Mô tả</td>
-                        <td>Vin</td>
+                        <td><?php echo $namegame ?></td>
                         <td>Thời gian</td>
                     </tr>
                     </thead>

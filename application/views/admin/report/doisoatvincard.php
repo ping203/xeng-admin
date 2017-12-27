@@ -9,7 +9,7 @@
 
         <section class="content-header">
             <h1>
-                Đối soát nạp vin qua vincard
+                Đối soát nạp <?php echo $namegame ?> qua vincard
             </h1>
         </section>
         <section class="content">

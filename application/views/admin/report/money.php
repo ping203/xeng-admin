@@ -105,7 +105,7 @@
         <td class="tdmoney" id="money8"></td>
     </tr>
     <tr class="moneysystem">
-        <td>Nạp qua Vincard</td>
+        <td>Nạp qua <?php echo $namegame ?>card</td>
         <td class="tdmoney" id="money9"></td>
         <td class="tdmoney" id="money10"></td>
     </tr>
@@ -189,7 +189,7 @@
         <td class="tdmoney" id="money21"></td>
     </tr>
     <tr class="moneysystem">
-        <td>Vương quốc vin free</td>
+        <td>Vương quốc <?php echo $namegame ?> free</td>
         <td class="tdmoney"></td>
         <td class="tdmoney" id="money22"></td>
     </tr>

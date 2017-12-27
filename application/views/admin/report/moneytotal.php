@@ -9,7 +9,7 @@
 
         <section class="content-header">
             <h1>
-               Tổng số vin hiện tại
+               Tổng số <?php echo $namegame ?> hiện tại
             </h1>
             <ol class="breadcrumb">
                 <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>

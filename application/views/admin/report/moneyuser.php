@@ -406,7 +406,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionGame.VuongQuocVin != null) {
                     var stt = 10;
-                    result1 += resultSearchTransction(stt, "Vương Quốc Vin", res.users.actionGame.VuongQuocVin.moneyWin, res.users.actionGame.VuongQuocVin.moneyLost, res.users.actionGame.VuongQuocVin.moneyOther, res.users.actionGame.VuongQuocVin.fee, res.users.actionGame.VuongQuocVin.revenuePlayGame, res.users.actionGame.VuongQuocVin.revenue);
+                    result1 += resultSearchTransction(stt, "Vương Quốc <?php echo $namegame ?>", res.users.actionGame.VuongQuocVin.moneyWin, res.users.actionGame.VuongQuocVin.moneyLost, res.users.actionGame.VuongQuocVin.moneyOther, res.users.actionGame.VuongQuocVin.fee, res.users.actionGame.VuongQuocVin.revenuePlayGame, res.users.actionGame.VuongQuocVin.revenue);
                     $('#logaction').html(result1);
                     total += res.users.actionGame.VuongQuocVin.moneyWin;
                     total1 += res.users.actionGame.VuongQuocVin.moneyLost;
@@ -685,7 +685,7 @@ $("#search_tran").click(function () {
                 $("#resultsearchother").html("");
                 if (res.users.actionOther.RechargeByCard != null) {
                     var stt = 1;
-                    result3 += resultmoneyother(stt, "Nạp vin qua thẻ", res.users.actionOther.RechargeByCard);
+                    result3 += resultmoneyother(stt, "Nạp <?php echo $namegame ?> qua thẻ", res.users.actionOther.RechargeByCard);
                     $('#logdichvu').html(result3);
                 } else {
                     result3 += "";
@@ -693,7 +693,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionOther.RechargeByBank != null) {
                     var stt = 2;
-                    result3 += resultmoneyother(stt, "Nạp vin qua ngân hàng", res.users.actionOther.RechargeByBank);
+                    result3 += resultmoneyother(stt, "Nạp <?php echo $namegame ?> qua ngân hàng", res.users.actionOther.RechargeByBank);
                     $('#logdichvu').html(result3);
                 } else {
                     result3 += "";
@@ -799,7 +799,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionOther.RechargeByIAP != null) {
                     var stt = 14;
-                    result3 += resultmoneyother(stt, "Nạp vin qua IAP", res.users.actionOther.RechargeByIAP);
+                    result3 += resultmoneyother(stt, "Nạp <?php echo $namegame ?> qua IAP", res.users.actionOther.RechargeByIAP);
                     $('#logdichvu').html(result3);
                 }
                 else {
@@ -915,7 +915,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionOther.VuongQuocVinVqFree != null) {
                     var stt = 28;
-                    result3 += resultmoneyother(stt, "Vòng quay vương quốc vin free", res.users.actionOther.VuongQuocVinVqFree);
+                    result3 += resultmoneyother(stt, "Vòng quay vương quốc <?php echo $namegame ?> free", res.users.actionOther.VuongQuocVinVqFree);
                     $('#logdichvu').html(result3);
                 }
                 else {
@@ -925,7 +925,7 @@ $("#search_tran").click(function () {
 
                 if (res.users.actionOther.RechargeByVinCard != null) {
                     var stt = 29;
-                    result3 += resultmoneyother(stt, "Nạp vin qua Vincard", res.users.actionOther.RechargeByVinCard);
+                    result3 += resultmoneyother(stt, "Nạp vin <?php echo $namegame ?> Vincard", res.users.actionOther.RechargeByVinCard);
                     $('#logdichvu').html(result3);
                 }
 
@@ -936,7 +936,7 @@ $("#search_tran").click(function () {
 
                 if (res.users.actionOther.RechargeByMegaCard != null) {
                     var stt = 30;
-                    result3 += resultmoneyother(stt, "Nạp vin qua Megacard", res.users.actionOther.RechargeByVinCard);
+                    result3 += resultmoneyother(stt, "Nạp <?php echo $namegame ?> qua Megacard", res.users.actionOther.RechargeByVinCard);
                     $('#logdichvu').html(result3);
                 }
 

@@ -169,7 +169,7 @@
         rs += "<td>" + commaSeparateNumber(totalrefundtai) + "</td>";
         rs += "<td>" + commaSeparateNumber(totalrefundxiu) + "</td>";
         if (money == 1) {
-            rs += "<td>" + "Vin" + "</td>";
+            rs += "<td>" + "<?php echo $namegame ?>" + "</td>";
         } else if (money == 0) {
             rs += "<td>" + "Xu" + "</td>";
         }

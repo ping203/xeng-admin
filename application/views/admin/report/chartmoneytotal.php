@@ -9,7 +9,7 @@
 
     <section class="content-header">
         <h1>
-            Biểu đồ tổng số vin người chơi
+            Biểu đồ tổng số <?php echo $namegame ?> người chơi
         </h1>
 
     </section>
@@ -166,7 +166,7 @@
 
             },
             tooltip: {
-                valueSuffix: ' Vin'
+                valueSuffix: ' <?php echo $namegame ?>'
             },
             legend: {
                 layout: 'vertical',

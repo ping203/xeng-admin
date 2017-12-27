@@ -9,7 +9,7 @@
 
     <section class="content-header">
         <h1>
-            Lịch sử nạp vin qua ngân lượng
+            Lịch sử nạp <?php echo $namegame ?> qua ngân lượng
         </h1>
 
     </section>

@@ -179,9 +179,9 @@
                                 <td>STT</td>
                                 <td>Username</td>
                                 <td>Nickname</td>
-                                <td>Số dư vin</td>
+                                <td>Số dư <?php echo $namegame ?></td>
                                 <td>Số dư xu</td>
-                                <td>Số vin két sắt</td>
+                                <td>Số <?php echo $namegame ?> két sắt</td>
                                 <td>Vippoint hiện tại</td>
                                 <td>Vippoint tích lũy</td>
                                 <td>Vippoint event</td>

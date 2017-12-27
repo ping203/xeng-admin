@@ -32,7 +32,7 @@
     <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
 
     <div class="title">
-        <h6>Lịch sử nạp vin megacard</h6>
+        <h6>Lịch sử nạp <?php echo $namegame ?> megacard</h6>
     </div>
     <form class="list_filter form" action="<?php echo admin_url('report/rechargebymegacard') ?>" method="post">
         <div class="formRow">
@@ -186,7 +186,7 @@
             <td>Mệnh giá</td>
             <td>Mã lỗi dịch vụ</td>
             <td>Mô tả</td>
-            <td>Mã lỗi Vinplay</td>
+            <td>Mã lỗi <?php echo $namegame ?></td>
             <td>Thời gian</td>
 
         </tr>

@@ -73,6 +73,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo public_url('admin')?>/css/colorbox.css" media="screen" />
 <script type="text/javascript" src="<?php echo public_url()?>/js/jquery.simplePagination.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo public_url()?>/admin/css/simplePagination.css" media="screen" />
+
 <script>
 	 var timeOutApi = 60000;
 

@@ -82,7 +82,7 @@
                             <option value="">Chọn</option>
                         <?php else: ?>
                             <option value="">Chọn</option>
-                            <option value="1" <?php if($this->input->post('fieldname') == 1 ){echo "selected";} ?>>Vin</option>
+                            <option value="1" <?php if($this->input->post('fieldname') == 1 ){echo "selected";} ?>><?php echo $namegame ?></option>
                             <option value="2" <?php if($this->input->post('fieldname') == 2 ){echo "selected";} ?>>Xu</option>
                             <option value="3" <?php if($this->input->post('fieldname') == 3 ){echo "selected";} ?>>Safe</option>
                             <option value="4" <?php if($this->input->post('fieldname') == 4 ){echo "selected";} ?>>Vippoint</option>
@@ -223,7 +223,7 @@
                             <td>STT</td>
                             <td>Tên đăng nhập</td>
                             <td>Nickname</td>
-                            <td>Số dư vin</td>
+                            <td>Số dư <?php echo $namegame ?></td>
                             <td>Số dư xu</td>
                             <td>Vin két sắt</td>
                             <td>Vippoint</td>
@@ -246,7 +246,7 @@
                             <td>STT</td>
                             <td>Tên đăng nhập</td>
                             <td>Nickname</td>
-                            <td>Số dư vin</td>
+                            <td>Số dư <?php echo $namegame ?></td>
                             <td>Số dư xu</td>
                             <td>Vin két sắt</td>
                             <td>Bảo mật ĐT</td>
@@ -259,9 +259,9 @@
                             <td>Tên đăng nhập</td>
                             <td>Nickname</td>
                             <td>Số điện thoại</td>
-                            <td>Số dư vin</td>
+                            <td>Số dư <?php echo $namegame ?></td>
                             <td>Số dư xu</td>
-                            <td>Vin két sắt</td>
+                            <td><?php echo $namegame ?> két sắt</td>
                             <td>Vippoint</td>
                             <td>Bảo mật ĐT</td>
                             <td>Bảo mật Email</td>
@@ -272,9 +272,9 @@
                             <td>STT</td>
                             <td>Username</td>
                             <td>Nickname</td>
-                            <td>Số dư vin</td>
+                            <td>Số dư <?php echo $namegame ?></td>
                             <td>Số dư xu</td>
-                            <td>Số vin KS</td>
+                            <td>Số <?php echo $namegame ?> KS</td>
                             <td>Vippoint</td>
                             <td>Bảo mật ĐT</td>
                             <td>Bảo mật Email</td>

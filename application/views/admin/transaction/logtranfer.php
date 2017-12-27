@@ -67,8 +67,8 @@
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <select id="typegd" name="typegd" class="form-control">
-                        <option value="1" <?php if($this->input->post("typegd") == "1"){echo "selected";}  ?>>Chuyển vin</option>
-                        <option value="2" <?php if($this->input->post("typegd") == "2"){echo "selected";}  ?>>Nhận vin</option>
+                        <option value="1" <?php if($this->input->post("typegd") == "1"){echo "selected";}  ?>>Chuyển <?php echo $namegame ?></option>
+                        <option value="2" <?php if($this->input->post("typegd") == "2"){echo "selected";}  ?>>Nhận <?php echo $namegame ?></option>
                     </select>
                 </div>
 

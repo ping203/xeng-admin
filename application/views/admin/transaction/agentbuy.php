@@ -9,7 +9,7 @@
 
     <section class="content-header">
         <h1>
-            Lịch sử tài khoản mua vin đại lý
+            Lịch sử tài khoản mua <?php echo $namegame ?> đại lý
         </h1>
         <ol class="breadcrumb">
             <label>Tổng mua:<span style="color: #0000ff" id="summoney"></span></label>
@@ -98,8 +98,8 @@
                         <td>STT</td>
                         <td>Tài khoản chuyển</td>
                         <td>Tài khoản nhận</td>
-                        <td>Số vin gửi</td>
-                        <td>Số vin nhận</td>
+                        <td>Số <?php echo $namegame ?> gửi</td>
+                        <td>Số <?php echo $namegame ?> nhận</td>
                         <td>Phí chuyển khoản</td>
                         <td>Trạng thái</td>
                         <td>Thời gian</td>

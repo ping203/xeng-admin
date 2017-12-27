@@ -193,7 +193,7 @@
         rs += "<td>" + commaSeparateNumber(total_refund) + "</td>";
         rs += "<td>" + commaSeparateNumber(total_exchange) + "</td>";
         if (money_type == 1) {
-            rs += "<td>" + "Vin" + "</td>";
+            rs += "<td>" + "<?php echo $namegame ?>" + "</td>";
         } else if (money_type == 0) {
             rs += "<td>" + "Xu" + "</td>";
         }

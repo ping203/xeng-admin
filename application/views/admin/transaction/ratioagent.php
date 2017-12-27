@@ -29,7 +29,7 @@
         <div class="widget">
             <h5 id="resultsearch"style="color: red;margin-left: 20px"></h5>
             <div class="title">
-                <h6>Tỉ lệ nhận thưởng vincard</h6>
+                <h6>Tỉ lệ nhận thưởng <?php echo $namegame ?></h6>
             </div>
 
                 <input type="button" id="updateall" class="blueB logMeIn" value="Cập nhật tất cả" style="margin-right: 370px">
@@ -40,7 +40,7 @@
                 <tr style="height: 20px;">
                     <td>STT</td>
                     <td>Đại lý</td>
-                    <td>Tỉ lệ nhận thưởng vincard</td>
+                    <td>Tỉ lệ nhận thưởng <?php echo $namegame ?></td>
                     <td>Cập nhật</td>
                 </tr>
                 </thead>

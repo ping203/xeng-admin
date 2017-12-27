@@ -28,7 +28,7 @@
     <div class="wrapper">
         <?php $this->load->view('admin/message', $this->data); ?>
         <div class="formRow">
-            <h4>Đối soát nạp vin qua megacard</h4>
+            <h4>Đối soát nạp <?php echo $namegame ?> qua megacard</h4>
         </div>
         <form class="list_filter form" action="<?php echo admin_url('report/doisoatmegacard') ?>" method="post">
 

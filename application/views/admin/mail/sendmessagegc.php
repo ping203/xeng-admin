@@ -1,154 +1,146 @@
-<?php $this->load->view('admin/usergame/head', $this->data) ?>
-<div class="line"></div>
-<?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
-<?php else: ?>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="content-wrapper">
+    <?php if ($role == false): ?>
+        <section class="content-header">
+            <h1>
+                Bạn không được phân quyền
+            </h1>
+        </section>
+    <?php else: ?>
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <input type="hidden" id="listsdt" value="<?php echo $listsdt ?>">
-        <input type="hidden" id="listgiftcode" value="<?php echo $listgc ?>">
+        <section class="content-header">
+            <h1>
+                Gửi tin nhắn
+            </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-body">
 
-        <div class="widget">
-            <div class="title">
-                <h6>Gửi tin nhắn giftcode</h6>
-            </div>
+                        <label id="resultsearch" style="color: red;"></label>
+                        <input type="hidden" id="listsdt" value="<?php echo $listsdt ?>">
+                        <input type="hidden" id="listgiftcode" value="<?php echo $listgc ?>">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label  style="color: red;word-break: break-all;" id="errocode"><?php echo $error; ?></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="<?php echo admin_url("mail/sendmessagegc") ?>" id="fileinfo" name="fileinfo"
+                                  enctype="multipart/form-data" method="post">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="radio" id="smsbrandname" name="isThuong" value="1" checked > Brandname
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="radio" id="smsnotify" name="isThuong" value="0"> Notify
+                                        </div>
+                                        <input type="hidden" name="displaycheck" id="displaycheck" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label  for="exampleInputEmail1">Tài khoản:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <input type="file" id="userfile" name="filexls"
+                                                   value="<?php echo $this->input->post('filexls') ?>">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="submit" class="btn btn-success" id="upload"
+                                                   value="Upload"
+                                                   name="ok">
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <input type="button" value="Gửi tin nhắn" name="submit" class="btn btn-success" id="sendmail">
+                                        </div>
 
-            <div class="formRow">
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <label class="col-sm-4" style="color: red" id="errocode"><?php echo $error; ?>
-                    </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-1 col-sm-2 col-xs-12">
+                                            <label  for="exampleInputEmail1">Nội dung:</label>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4 col-xs-12">
+                                            <textarea id="content" row="100" class="form-control" style="height: 400px"
+                                                      placeholder="Bạn chỉ được nhập ký tự không dấu" maxlength="459"></textarea>
+                                        </div>
 
-                </div>
-            </div>
-            <?php if ($this->input->post('ok')): ?>
-                <?php if (isset($succes)) : ?>
-                    <div class="formRow">
-                        <div class="row">
-                            <div class="col-sm-4">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <div class="box-body">
+                            <?php $this->load->view('admin/message', $this->data); ?>
+                            <?php $this->load->view('admin/error', $this->data); ?>
+
+                            <div id="spinner" class="spinner" style="display:none;">
+                                <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+                            </div>
+                            <div class="text-center">
+                                <ul id="pagination-demo" class="pagination-sm"></ul>
+                            </div>
+                            <div class="modal fade" id="bsModal3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        </div>
+                                        <div class="modal-body">
+                                            <p style="color: #0000ff">Bạn gửi tin nhắn thành công</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input class="btn btn-success" type="button" value="Đóng" data-dismiss="modal"
+                                                   aria-hidden="true">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
                     </div>
-                <?php elseif (isset($error)) : ?>
-                    <div class="formRow">
-                        <div class="row">
-                            <div class="col-sm-4">
-                            </div>
-
-                        </div>
-                    </div>
-                <?php endif; ?>
-            <?php endif; ?>
-            <form action="<?php echo admin_url("mail/sendmessagegc") ?>" id="fileinfo" name="fileinfo"
-                  enctype="multipart/form-data" method="post">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-2">
-                        </div>
-                        <label class="col-sm-2 control-label" for="exampleInputEmail1">Tài khoản:</label>
-
-                        <div class="col-sm-2">
-                            <input type="file" id="userfile" name="filexls"
-                                   value="<?php echo $this->input->post('filexls') ?>">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="submit" class="btn btn-primary pull-left button blueB" id="upload"
-                                   value="Upload"
-                                   name="ok">
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="button" value="Gửi tin nhắn" name="submit" class="button blueB" id="sendmail">
-                        </div>
-                    </div>
-                </div>
-                <div class="formRow">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <label class="col-sm-1">
-                            Nội dung:
-                        </label>
-
-                        <div class="col-sm-4">
-                            <textarea id="content" row="100" class="form-control" style="height: 400px"
-                                      placeholder="Bạn chỉ được nhập ký tự không dấu" maxlength="459"></textarea>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-
-
-            <div class="formRow">
-                <div class="row">
-
                 </div>
             </div>
-
-            <div class="modal fade" id="bsModal3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        </div>
-                        <div class="modal-body">
-                            <p style="color: #0000ff">Bạn gửi tin nhắn thành công</p>
-                        </div>
-                        <div class="modal-footer">
-                            <input class="blueB logMeIn" type="button" value="Đóng" data-dismiss="modal"
-                                   aria-hidden="true">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endif; ?>
-<div id="spinner" class="spinner" style="display:none;">
-    <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </section>
+    <?php endif; ?>
 </div>
-<div class="clear mt30"></div>
-<style>
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
+
 <script>
     $("#sendmail").click(function () {
         if ($("#content").val() == "") {
             $("#errocode").html("Bạn chưa nhập nội dung");
             return false;
         }
-        console.log($("#listgiftcode").val());
-        if ($("#listsdt").val() == "" || $("#listgiftcode").val()== "" ) {
+        var link;
+        if( $("#displaycheck").val() == 1){
+            link = "<?php echo admin_url('mail/sendmessagegcajax')?>";
+        }
+
+        if( $("#displaycheck").val() == 2){
+            link = "<?php echo admin_url('mail/sendmessagegc1ajax')?>";
+            if($("#content").val().length > 150){
+                $("#errocode").html("Bạn nhập quá nội dung gửi");
+                return false;
+            }
+        }
+        if ($("#listsdt").val() == "" || $("#listgiftcode").val() == "") {
             $("#errocode").html("Không tồn tại file hoặc key Sdt , Giftcode viết sai");
         } else {
             $("#spinner").show();
             $.ajax({
                 type: "POST",
-                url: "<?php echo admin_url('mail/sendmessagegcajax')?>",
+                url: link,
                 data: {
                     mobile: $("#listsdt").val(),
                     content: $("#content").val(),
-                    giftcode:  $("#listgiftcode").val()
+                    giftcode: $("#listgiftcode").val()
                 },
                 dataType: 'json',
                 success: function (res) {
@@ -164,12 +156,25 @@
                     }
                 }, error: function () {
                     $("#spinner").hide();
-                    $("#errocode").html("Bạn không gửi tin nhắn gift code");
+                    $("#errocode").html("Bạn không thể gửi tin nhắn gift code");
                 }
             });
         }
 
 
     });
+
+
+    $(document).ready(function () {
+        $("#displaycheck").val(1);
+
+    });
+    $('#smsbrandname').on('change', function () {
+        $("#displaycheck").val(1);
+
+    }).change();
+    $('#smsnotify').on('change', function () {
+        $("#displaycheck").val(2);
+    }).change();
 
 </script>

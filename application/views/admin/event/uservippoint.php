@@ -1,226 +1,187 @@
-<div class="titleArea">
-    <div class="wrapper">
-        <div class="pageTitle">
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="line"></div>
+<div class="content-wrapper">
 <?php if ($role == false): ?>
-    <div class="wrapper">
-        <div class="widget">
-            <div class="title">
-                <h6>Bạn không được phân quyền</h6>
-            </div>
-        </div>
-    </div>
+    <section class="content-header">
+        <h1>
+            Bạn không được phân quyền
+        </h1>
+    </section>
 <?php else: ?>
-    <div class="wrapper">
-        <?php $this->load->view('admin/message', $this->data); ?>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/css/bootstrap-datetimepicker.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo public_url() ?>/js/jquery.twbsPagination.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/js/bootstrap-datetimepicker.min.js"></script>
-        <div class="widget">
-            <h4 id="resultsearch" style="color: red;margin-left: 20px"></h4>
 
-            <div class="title">
-                <h6>Lịch sử user vippoint event</h6>
-            </div>
-            <form class="list_filter form" action="<?php echo admin_url('event/uservippoint') ?>" method="post">
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="param_name" class="formLeft" id="nameuser"
-                                       style="margin-left: 50px;margin-bottom:-2px;width: 100px">Từ ngày:</label></td>
-                            <td class="item">
-                                <div class="input-group date" id="datetimepicker1">
-                                    <input type="text" id="toDate" name="toDate"
-                                           value="<?php echo $this->input->post('toDate'); ?>"> <span
-                                        class="input-group-addon">
+    <section class="content-header">
+        <h1>
+            Lịch sử user vippoint event
+        </h1>
+
+    </section>
+    <section class="content">
+    <div class="row">
+    <div class="col-xs-12">
+    <div class="box box-body">
+
+    <label id="resultsearch" style="color: red;"></label>
+
+    <div class="box-body">
+        <form action="<?php echo admin_url('event/uservippoint') ?>" method="post">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Từ ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' value="<?php echo $this->input->post('toDate'); ?>" class="form-control"
+                               id="toDate" name="toDate"/>
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                                </div>
+                    </span>
+                    </div>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Đến ngày:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
 
-                            </td>
-
-                            <td>
-                                <label for="param_name" style="margin-left: 20px;width: 100px;margin-bottom:-3px;"
-                                       class="formLeft"> Đến ngày: </label>
-                            </td>
-                            <td class="item">
-
-                                <div class="input-group date" id="datetimepicker2">
-                                    <input type="text" id="fromDate" name="fromDate"
-                                           value="<?php echo $this->input->post('fromDate'); ?>"> <span
-                                        class="input-group-addon">
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' value="<?php echo $this->input->post('fromDate'); ?>" class="form-control"
+                               id="fromDate" name="fromDate"/>
+                    <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
-</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Nick name:</label></td>
-                            <td><input type="text" style="margin-left: 20px;margin-bottom:-2px;width: 150px"
-                                       id="filter_iname" value="<?php echo $this->input->post('name') ?>" name="name">
-                            </td>
-                            <td><label style="margin-left: 70px;margin-bottom:-2px;width: 100px">Sắp xếp:</label></td>
-                            <td><select id="sort" name="sort" style="margin-bottom:-2px;width: 160px">
-                                    <option value="" <?php if ($this->input->post('sort') == "") {
-                                        echo "selected";
-                                    } ?>>Sắp xếp
-                                    </option>
-                                    <option value="2" <?php if ($this->input->post('sort') == "2") {
-                                        echo "selected";
-                                    } ?>>Giảm dần
-                                    </option>
-                                    <option value="1" <?php if ($this->input->post('sort') == "1") {
-                                        echo "selected";
-                                    } ?>>Tăng dần
-                                    </option>
-
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 30px;margin-bottom:-2px;width: 100px">Trường:</label></td>
-                            <td class="lstcheckbox">
-                                <input type="checkbox" value="1" name="chklist" id="filed_0"> <span style="padding-left: 10px;">Vippoint</span>
-                                <input type="checkbox" value="2"  name="chklist" id="filed_1"><span style="padding-left: 10px;">VP Event</span>
-                                <input type="checkbox" value="3" name="chklist" id="filed_2"><span
-                                    style="padding-left: 10px;">VP Được cộng</span>
-                                <input type="checkbox" value="4"  name="chklist" id="filed_3"><span style="padding-left: 10px;">Số lần cộng</span>
-                                <input type="checkbox" value="5"  name="chklist" id="filed_4"><span
-                                    style="padding-left: 10px;">VP bị trừ</span>
-                                <input type="checkbox" value="6"  name="chklist" id="filed_5"><span style="padding-left: 10px;">Số lần trừ</span>
-                                <input type="checkbox" value="7"  name="chklist" id="filed_6"><span
-                                    style="padding-left: 10px;">Cứ điểm</span>
-                                <input type="checkbox" value="8"  name="chklist" id="filed_7"><span style="padding-left: 10px;">Cứ điểm max</span>
-                                <input type="hidden" value="<?php echo $this->input->post('field'); ?>" id="field" name="field"   >
-                            </td>
-
-                        </tr>
-                    </table>
-                </div>
-                <div class="formRow">
-
-                    <table>
-                        <tr>
-                            <td><label style="margin-left: 50px;margin-bottom:-2px;width: 100px">Tài khoản:</label></td>
-                            <td><select id="select_acc" name="select_acc" style="margin-bottom:-2px;width: 160px">
-                                    <option value="" <?php if ($this->input->post('select_acc') == "") {
-                                        echo "selected";
-                                    } ?>>Tất cả
-                                    </option>
-                                    <option value="0" <?php if ($this->input->post('select_acc') == "0") {
-                                        echo "selected";
-                                    } ?>>Tài khoản thường
-                                    </option>
-                                    <option value="1" <?php if ($this->input->post('select_acc') == "1") {
-                                        echo "selected";
-                                    } ?>>Tài khoản bot
-                                    </option>
-
-                                </select>
-                            </td>
-                            <td style="">
-                                <input type="submit" id="search_tran" value="Tìm kiếm" class="button blueB"
-                                       style="margin-left: 123px">
-                            </td>
-                            <td>
-                                <input type="reset"
-                                       onclick="window.location.href = '<?php echo admin_url('event/uservippoint') ?>'; "
-                                       value="Reset" class="basic" style="margin-left: 20px">
-                            </td>
-
-
-                        </tr>
-
-                    </table>
-
-                </div>
-            </form>
-            <div class="formRow">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <h5>Tổng:<span style="color: #0000ff" id="summoney"></span></h5>
-                    </div>
-                    <div class="col-sm-8">
-                    </div>
-                    <div class="col-sm-2">
-                        <h5>Tổng số bản ghi:<span style="color: #0000ff" id="sumrecord"></span></h5>
+                    </span>
                     </div>
                 </div>
             </div>
-            <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
-                <thead>
-                <tr style="height: 20px;">
-                    <td>STT</td>
-                    <td>Nick name</td>
-                    <td>Vippoint </td>
-                    <td>VP Event</td>
-                    <td>VP được cộng</td>
-                    <td>Số lần cộng</td>
-                    <td>VP bị trừ</td>
-                    <td>Số lần trừ</td>
-                    <td>Cứ điểm</td>
-                    <td>Cứ điểm Max</td>
-                    <td>Tài khoản</td>
-                    <td>Thời gian</td>
-                </tr>
-                </thead>
-                <tbody id="logaction">
-                </tbody>
-            </table>
+
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Nickname:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <input type="text" class="form-control"
+                           id="filter_iname" value="<?php echo $this->input->post('name') ?>" name="name">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Sắp xếp:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="sort" name="sort" class="form-control">
+                        <option value="" <?php if ($this->input->post('sort') == "") {
+                            echo "selected";
+                        } ?>>Sắp xếp
+                        </option>
+                        <option value="2" <?php if ($this->input->post('sort') == "2") {
+                            echo "selected";
+                        } ?>>Giảm dần
+                        </option>
+                        <option value="1" <?php if ($this->input->post('sort') == "1") {
+                            echo "selected";
+                        } ?>>Tăng dần
+                        </option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Trường:</label>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="checkbox" value="1" name="chklist" id="filed_0"> <span style="padding-left: 10px;">Vippoint</span>
+                    <input type="checkbox" value="2"  name="chklist" id="filed_1"><span style="padding-left: 10px;">VP Event</span>
+                    <input type="checkbox" value="3" name="chklist" id="filed_2"><span
+                        style="padding-left: 10px;">VP Được cộng</span>
+                    <input type="checkbox" value="4"  name="chklist" id="filed_3"><span style="padding-left: 10px;">Số lần cộng</span>
+                    <input type="checkbox" value="5"  name="chklist" id="filed_4"><span
+                        style="padding-left: 10px;">VP bị trừ</span>
+                    <input type="checkbox" value="6"  name="chklist" id="filed_5"><span style="padding-left: 10px;">Số lần trừ</span>
+                    <input type="checkbox" value="7"  name="chklist" id="filed_6"><span
+                        style="padding-left: 10px;">Cứ điểm</span>
+                    <input type="checkbox" value="8"  name="chklist" id="filed_7"><span style="padding-left: 10px;">Cứ điểm max</span>
+                    <input type="hidden" value="<?php echo $this->input->post('field'); ?>" id="field" name="field"   >
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <label for="exampleInputEmail1">Tài khoản:</label>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <select id="select_acc" name="select_acc" class="form-control">
+                        <option value="" <?php if ($this->input->post('select_acc') == "") {
+                            echo "selected";
+                        } ?>>Tất cả
+                        </option>
+                        <option value="0" <?php if ($this->input->post('select_acc') == "0") {
+                            echo "selected";
+                        } ?>>Tài khoản thường
+                        </option>
+                        <option value="1" <?php if ($this->input->post('select_acc') == "1") {
+                            echo "selected";
+                        } ?>>Tài khoản bot
+                        </option>
+
+                    </select>
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-12">
+                    <input type="submit" id="search_tran" value="Tìm kiếm" class="btn btn-success">
+                </div>
+
+            </div>
+        </div>
+            </form>
+
     </div>
+
+    <div class="box-body  table-responsive no-padding">
+        <?php $this->load->view('admin/message', $this->data); ?>
+        <?php $this->load->view('admin/error', $this->data); ?>
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="example2" class="table  table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td>STT</td>
+                        <td>Nick name</td>
+                        <td>Vippoint </td>
+                        <td>VP Event</td>
+                        <td>VP được cộng</td>
+                        <td>Số lần cộng</td>
+                        <td>VP bị trừ</td>
+                        <td>Số lần trừ</td>
+                        <td>Cứ điểm</td>
+                        <td>Cứ điểm Max</td>
+                        <td>Tài khoản</td>
+                        <td>Thời gian</td>
+                    </tr>
+                    </thead>
+                    <tbody id="logaction">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
+        </div>
+        <div class="text-center">
+            <ul id="pagination-demo" class="pagination-sm"></ul>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
 <?php endif; ?>
-<style>
-    td {
-        word-break: break-all;
-    }
-
-    thead {
-        font-size: 12px;
-    }
-
-    .spinner {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        margin-left: -50px; /* half width of the spinner gif */
-        margin-top: -50px; /* half height of the spinner gif */
-        text-align: center;
-        z-index: 1234;
-        overflow: auto;
-        width: 100px; /* width of the spinner gif */
-        height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
-    }</style>
-<div class="container" style="margin-right:20px;">
-    <div id="spinner" class="spinner" style="display:none;">
-        <img id="img-spinner" src="<?php echo public_url('admin/images/gif-load.gif') ?>" alt="Loading"/>
-    </div>
-    <div class="text-center">
-        <ul id="pagination-demo" class="pagination-sm"></ul>
-    </div>
-
 </div>
-<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+
 <script>
     $(function () {
         $('#datetimepicker1').datetimepicker({
