@@ -22,7 +22,7 @@ Class Loggamebai extends MY_Controller
         $fromDate = $this->input->post("fromDate");
         $sid = urlencode($this->input->post("sid"));
          $money = urlencode($this->input->post("money"));
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?c=2&nn='.$nickname.'&gn='.$namegame.'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate).'&p='.$pages.'&sid='.$sid.'&mt='.$money);
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?cd=2&nn='.$nickname.'&gn='.$namegame.'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate).'&p='.$pages.'&sid='.$sid.'&mt='.$money);
         if(isset($datainfo)) {
             echo $datainfo;
         }else{
@@ -45,7 +45,7 @@ Class Loggamebai extends MY_Controller
        $time = $this->input->post("time");
         $namegame = $this->input->post("namegame");
         $sid = $this->input->post("sid");
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?c=4&sid='.$sid.'&gn='.$namegame.'&tg=' .$time);
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?cd=4&sid='.$sid.'&gn='.$namegame.'&tg=' .$time);
         if(isset($datainfo)) {
             echo $datainfo;
         }else{

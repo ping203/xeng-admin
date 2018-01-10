@@ -197,7 +197,7 @@ Class Marketing extends MY_Controller
                 $utm_source = urlencode($this->input->post("utm_source"));
                 $toDate =  $this->input->post("toDate");
                 $fromDate = $this->input->post("fromDate");
-         $datainfo = file_get_contents($this->config->item('api_backend').'?c=6&utm_campaign='.$utm_campaign.'&utm_medium='.$utm_medium.'&utm_source='.$utm_source.'&ts='.urlencode($toDate).'&te='.urlencode($fromDate));
+         $datainfo = file_get_contents($this->config->item('api_backend').'?cd=6&utm_campaign='.$utm_campaign.'&utm_medium='.$utm_medium.'&utm_source='.$utm_source.'&ts='.urlencode($toDate).'&te='.urlencode($fromDate));
 		 
         if(isset($datainfo)) {
             echo $datainfo;

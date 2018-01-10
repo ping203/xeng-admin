@@ -331,7 +331,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionGame.PokeGo != null) {
                     var stt = 5;
-                    result1 += resultSearchTransction(stt, "PokeGo", res.users.actionGame.PokeGo.moneyWin, res.users.actionGame.PokeGo.moneyLost, res.users.actionGame.PokeGo.moneyOther, res.users.actionGame.PokeGo.fee, res.users.actionGame.PokeGo.revenuePlayGame, res.users.actionGame.PokeGo.revenue);
+                    result1 += resultSearchTransction(stt, "Candy Slot", res.users.actionGame.PokeGo.moneyWin, res.users.actionGame.PokeGo.moneyLost, res.users.actionGame.PokeGo.moneyOther, res.users.actionGame.PokeGo.fee, res.users.actionGame.PokeGo.revenuePlayGame, res.users.actionGame.PokeGo.revenue);
                     $('#logaction').html(result1);
                     total += res.users.actionGame.PokeGo.moneyWin;
                     total1 += res.users.actionGame.PokeGo.moneyLost;
@@ -361,7 +361,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionGame.SieuAnhHung != null) {
                     var stt = 7;
-                    result1 += resultSearchTransction(stt, "Sieu Anh Hùng", res.users.actionGame.SieuAnhHung.moneyWin, res.users.actionGame.SieuAnhHung.moneyLost, res.users.actionGame.SieuAnhHung.moneyOther, res.users.actionGame.SieuAnhHung.fee, res.users.actionGame.SieuAnhHung.revenuePlayGame, res.users.actionGame.SieuAnhHung.revenue);
+                    result1 += resultSearchTransction(stt, "Vua hải tặc", res.users.actionGame.SieuAnhHung.moneyWin, res.users.actionGame.SieuAnhHung.moneyLost, res.users.actionGame.SieuAnhHung.moneyOther, res.users.actionGame.SieuAnhHung.fee, res.users.actionGame.SieuAnhHung.revenuePlayGame, res.users.actionGame.SieuAnhHung.revenue);
                     $('#logaction').html(result1);
                     total += res.users.actionGame.SieuAnhHung.moneyWin;
                     total1 += res.users.actionGame.SieuAnhHung.moneyLost;
@@ -906,7 +906,7 @@ $("#search_tran").click(function () {
                 }
                 if (res.users.actionOther.SieuAnhHungVqFree != null) {
                     var stt = 27;
-                    result3 += resultmoneyother(stt, "Vòng quay siêu anh hùng free", res.users.actionOther.SieuAnhHungVqFree);
+                    result3 += resultmoneyother(stt, "Vòng quay vua hải tặc  free", res.users.actionOther.SieuAnhHungVqFree);
                     $('#logdichvu').html(result3);
                 }
                 else {

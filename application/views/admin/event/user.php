@@ -122,7 +122,7 @@
                     <option value="">Slot</option>
                     <option value="PokeGo" <?php if ($this->input->post('servicename') == "PokeGo") {
                         echo "selected";
-                    } ?>>------Quay Poke Go
+                    } ?>>------Quay Candy Slot
                     </option>
                     <option value="KhoBau" <?php if ($this->input->post('servicename') == "KhoBau") {
                         echo "selected";

@@ -93,7 +93,7 @@ Class Confignew extends MY_Controller
 
      function configajax()
     {
-        $datainfo = $this->curl->simple_get($this->config->item('api_url') . '?c=7');
+        $datainfo = $this->curl->simple_get($this->config->item('api_url') . '?cd=7');
         if (isset($datainfo)) {
             echo $datainfo;
         } else {

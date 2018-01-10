@@ -115,7 +115,7 @@
                 <option value="">Slot</option>
                 <option value="PokeGo" <?php if ($this->input->post('servicename') == "PokeGo") {
                     echo "selected";
-                } ?>>------Quay Poke Go
+                } ?>>------Quay Candy Slot
                 </option>
                 <option value="KhoBau" <?php if ($this->input->post('servicename') == "KhoBau") {
                     echo "selected";
@@ -442,7 +442,7 @@
         rs += "<td>" + stt + "</td>";
         rs += "<td>" + nickName + "</td>";
 
-        rs += "<td>" + actionName + "</td>";
+        rs += "<td>" + strDichvu(actionName) + "</td>";
         rs += "<td>" + serviceName + "</td>";
         if (actionName != "CashOutByCard") {
             rs += "<td>" + description + "</td>";
@@ -594,5 +594,21 @@
             val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ' ' + '$2');
         }
         return val;
+    }
+
+
+    function strDichvu(str){
+        var str1;
+        if(str == "PokeGo"){
+            str1 =  "Candy";
+        }else if(str == "SieuAnhHung"){
+            str1 = "VuaHaiTac";
+        }
+        else if(str == "VuongQuocVin"){
+            str1 =  "VuongQuocZum";
+        }else{
+            str1 =  str;
+        }
+        return str1;
     }
 </script>

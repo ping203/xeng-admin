@@ -45,7 +45,7 @@ Class Transaction extends MY_Controller
         $pages = $this->input->post("pages");
 		  $record = urlencode($this->input->post("record"));
 		
-		  $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?c=3&nn='.$nickname.'&un='."".'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&mt='.$money.'&ag='.$servicename.'&sn='."".'&p='.$pages.'&lk=1&tr='.$record);
+		  $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?cd=3&nn='.$nickname.'&un='."".'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&mt='.$money.'&ag='.$servicename.'&sn='."".'&p='.$pages.'&lk=1&tr='.$record);
       //  $datainfo = $this->CallAPI("POST",$this->config->item('api_backend2').'?c=3&nn='.$nickname.'&un='."".'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&mt='.$money.'&ag='.$servicename.'&sn='."".'&p='.$pages.'&lk=1&tr='.$record);
 		
 	
@@ -170,7 +170,7 @@ Class Transaction extends MY_Controller
         $money = $this->input->post("money");
         $pages = $this->input->post("pages");
 	
-        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?c=3&nn='.$nickname.'&un='."".'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&mt='.$money.'&ag=GiftCode&sn='."".'&p='.$pages.'&lk=1');
+        $datainfo = $this->curl->simple_get($this->config->item('api_backend2').'?cd=3&nn='.$nickname.'&un='."".'&ts=' . urlencode($toDate) . '&te=' . urlencode($fromDate) .'&mt='.$money.'&ag=GiftCode&sn='."".'&p='.$pages.'&lk=1');
         if(isset($datainfo)) {
             echo $datainfo;
         }else{

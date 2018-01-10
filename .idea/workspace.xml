@@ -29,47 +29,102 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="rechargebycard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebycard.php">
+      <file leaf-file-name="moneyuser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneyuser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769" vertical-offset="4029" max-vertical-offset="9214">
-              <caret line="258" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="258" selection-end-column="6" />
-              <folding>
-                <marker date="1514359601556" expanded="false" signature="13277:13291" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="13363:13377" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="13446:13460" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="13529:13543" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="13612:13626" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="13695:13709" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="13988:14002" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="14070:14084" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="14156:14170" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="14238:14252" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="14319:14333" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="14406:14420" placeholder="..." />
-                <marker date="1514359601556" expanded="false" signature="14492:14506" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="15106" max-vertical-offset="17544">
+              <caret line="908" column="75" selection-start-line="908" selection-start-column="75" selection-end-line="908" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uservippoint.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/event/uservippoint.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5586854" vertical-offset="1173" max-vertical-offset="5967">
-              <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
-              <folding>
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#3;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#4;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#5;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#6;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#7;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-30.0" vertical-offset="9624" max-vertical-offset="10523">
+              <caret line="612" column="5" selection-start-line="599" selection-start-column="4" selection-end-line="612" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rechargebybank.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebybank.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8846154" vertical-offset="4623" max-vertical-offset="5559">
+              <caret line="284" column="23" selection-start-line="284" selection-start-column="23" selection-end-line="284" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Report.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Report.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.4444444" vertical-offset="4940" max-vertical-offset="49827">
+              <caret line="286" column="27" selection-start-line="286" selection-start-column="14" selection-end-line="286" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Loggamebai.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Loggamebai.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8846154" vertical-offset="594" max-vertical-offset="4250">
+              <caret line="47" column="84" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Marketing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Marketing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.653847" vertical-offset="3169" max-vertical-offset="10931">
+              <caret line="218" column="57" selection-start-line="218" selection-start-column="47" selection-end-line="218" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/menu/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.884615" vertical-offset="1796" max-vertical-offset="2448">
+              <caret line="133" column="16" selection-start-line="130" selection-start-column="4" selection-end-line="133" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15644172" vertical-offset="357" max-vertical-offset="9384">
+              <caret line="27" column="16" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Confignew.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Confignew.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.692307" vertical-offset="1389" max-vertical-offset="2295">
+              <caret line="95" column="80" selection-start-line="95" selection-start-column="80" selection-end-line="95" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transaction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Transaction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.692308" vertical-offset="2464" max-vertical-offset="12138">
+              <caret line="172" column="84" selection-start-line="172" selection-start-column="84" selection-end-line="172" selection-end-column="84" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,22 +144,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/admin/mail/blockchat.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/logminigame/logvqvip.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/logminigame/reportthanhdu.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/report/cashoutbycard.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/event/addbotcaothap.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/event/vippoint.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/loggamebai/index.php" />
         <option value="$PROJECT_DIR$/application/views/admin/logminigame/accounttaixiu.php" />
         <option value="$PROJECT_DIR$/application/views/admin/logminigame/detailbaucua.php" />
         <option value="$PROJECT_DIR$/application/views/admin/logminigame/detailphientaixiu.php" />
         <option value="$PROJECT_DIR$/application/views/admin/logminigame/index.php" />
         <option value="$PROJECT_DIR$/application/views/admin/logminigame/logphienbaucua.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/report/moneyuser.php" />
         <option value="$PROJECT_DIR$/application/views/admin/transaction/openmoney.php" />
         <option value="$PROJECT_DIR$/application/views/admin/usergame/topcaothu.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/usergame/topuserbot.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/cashoutbybank.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/cashoutbytopup.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/chartmoneyagent.php" />
@@ -115,8 +161,6 @@
         <option value="$PROJECT_DIR$/application/views/admin/report/doisoatvincard.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/money.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/moneysystem.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/report/moneysystemnew.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/report/moneytotal.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/rechargeby8x98.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/rechargeby9029.php" />
         <option value="$PROJECT_DIR$/application/views/admin/report/rechargebybank.php" />
@@ -140,13 +184,24 @@
         <option value="$PROJECT_DIR$/application/views/admin/usergame/uservip.php" />
         <option value="$PROJECT_DIR$/application/views/admin/footer.php" />
         <option value="$PROJECT_DIR$/application/views/admin/event/uservippoint.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/report/cashoutbycard.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/report/moneytotal.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/event/user.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/usergame/topuserbot.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/report/moneysystemnew.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/report/moneyuser.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/transaction/index.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Transaction.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Loggamebai.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Marketing.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Confignew.php" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1916" />
+    <option name="width" value="1680" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -284,7 +339,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="report" />
+              <option name="myItemId" value="menu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,15 +357,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="event" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -323,7 +370,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../znet" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xeng-daily" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="options.lastSelected" value="Configurable.PHP.Debug" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -406,17 +453,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1916" height="1040" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24248926" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24248926" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19789474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22596154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -475,327 +522,311 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/admin/event/addbotcaothap.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargeby9029.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.962963" vertical-offset="7209" max-vertical-offset="9384">
-          <caret line="421" column="67" selection-start-line="421" selection-start-column="58" selection-end-line="421" selection-end-column="67" />
-          <folding />
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2158" max-vertical-offset="5168">
+          <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/event/listbonusnhiemvu.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebyiap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-101.34615" vertical-offset="0" max-vertical-offset="6205">
-          <caret line="155" column="39" selection-start-line="155" selection-start-column="39" selection-end-line="155" selection-end-column="39" />
-          <folding />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="4879">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/event/vippoint.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebymegacard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.346154" vertical-offset="3251" max-vertical-offset="5406">
-          <caret line="204" column="56" selection-start-line="204" selection-start-column="56" selection-end-line="204" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2991" max-vertical-offset="6409">
+          <caret line="188" column="46" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/loggamebai/index.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebynganluong.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.307693" vertical-offset="4660" max-vertical-offset="5338">
-          <caret line="296" column="51" selection-start-line="296" selection-start-column="51" selection-end-line="296" selection-end-column="51" />
-          <folding>
-            <marker date="1514358785696" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="6255" max-vertical-offset="7599">
+          <caret line="380" column="23" selection-start-line="380" selection-start-column="23" selection-end-line="380" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebyvincard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="5253">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargefromvtc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="5100">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/reportupdatecard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.230769" vertical-offset="2540" max-vertical-offset="6256">
+          <caret line="162" column="58" selection-start-line="162" selection-start-column="58" selection-end-line="162" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/agentbuy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2974" max-vertical-offset="5304">
+          <caret line="187" column="9" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/agentsale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="3042" max-vertical-offset="5389">
+          <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/huydoanhso.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="4674" max-vertical-offset="7786">
+          <caret line="287" column="29" selection-start-line="287" selection-start-column="29" selection-end-line="287" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logtranfer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.846154" vertical-offset="960" max-vertical-offset="4318">
+          <caret line="70" column="138" selection-start-line="70" selection-start-column="138" selection-end-line="70" selection-end-column="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logtranferagenttodailytong.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.038462" vertical-offset="1261" max-vertical-offset="4029">
+          <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logtranferdailytong.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.038462" vertical-offset="1295" max-vertical-offset="4097">
+          <caret line="90" column="74" selection-start-line="90" selection-start-column="74" selection-end-line="90" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/ratioagent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.192307" vertical-offset="1827" max-vertical-offset="4505">
+          <caret line="120" column="64" selection-start-line="120" selection-start-column="64" selection-end-line="120" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/topdoanhso.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.692307" vertical-offset="794" max-vertical-offset="4182">
+          <caret line="60" column="87" selection-start-line="60" selection-start-column="87" selection-end-line="60" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.192307" vertical-offset="5295" max-vertical-offset="11594">
+          <caret line="324" column="26" selection-start-line="324" selection-start-column="26" selection-end-line="324" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/uservip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.115385" vertical-offset="5618" max-vertical-offset="6902">
+          <caret line="349" column="65" selection-start-line="349" selection-start-column="65" selection-end-line="349" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="204">
+          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logchuyendoivinngoc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29264477" vertical-offset="0" max-vertical-offset="6290">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebycard1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34585288" vertical-offset="340" max-vertical-offset="14025">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/event/uservippoint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5586854" vertical-offset="1173" max-vertical-offset="5967">
+          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2006">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/login/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.692307" vertical-offset="3667" max-vertical-offset="4760">
-          <caret line="229" column="33" selection-start-line="229" selection-start-column="33" selection-end-line="229" selection-end-column="33" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="4760">
+          <caret line="112" column="56" selection-start-line="112" selection-start-column="47" selection-end-line="112" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/logminigame/accounttaixiu.php">
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="3094" max-vertical-offset="5134">
-          <caret line="195" column="51" selection-start-line="195" selection-start-column="51" selection-end-line="195" selection-end-column="51" />
-          <folding>
-            <marker date="1514358871021" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="3060">
+          <caret line="80" column="29" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/logminigame/detailbaucua.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/message.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="1190" max-vertical-offset="2669">
-          <caret line="83" column="51" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
+          <caret line="6" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/logminigame/detailphientaixiu.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/menu/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="2414" max-vertical-offset="5219">
-          <caret line="155" column="51" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1054">
+          <caret line="24" column="85" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/logminigame/index.php">
+    <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2692308" vertical-offset="2992" max-vertical-offset="4692">
-          <caret line="171" column="51" selection-start-line="171" selection-start-column="51" selection-end-line="171" selection-end-column="51" />
-          <folding>
-            <marker date="1514358871027" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="6290">
+          <caret line="30" column="50" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneyuser.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="15707" max-vertical-offset="17544">
-          <caret line="936" column="44" selection-start-line="936" selection-start-column="44" selection-end-line="936" selection-end-column="44" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="357">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/openmoney.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/head.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.384615" vertical-offset="870" max-vertical-offset="4845">
-          <caret line="64" column="75" selection-start-line="64" selection-start-column="75" selection-end-line="64" selection-end-column="75" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1921">
+          <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/topcaothu.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/marketing/add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.384615" vertical-offset="190" max-vertical-offset="3298">
-          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2975">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebycard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="9214">
+          <caret line="37" column="26" selection-start-line="31" selection-start-column="19" selection-end-line="37" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="11254">
+          <caret line="54" column="44" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/cashoutbycard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9615383" vertical-offset="82" max-vertical-offset="6664">
+          <caret line="17" column="83" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneytotal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.923077" vertical-offset="0" max-vertical-offset="3774">
+          <caret line="58" column="63" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/event/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="62.115383" vertical-offset="3723" max-vertical-offset="7905">
+          <caret line="124" column="46" selection-start-line="124" selection-start-column="46" selection-end-line="124" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/logminigame/logpokego.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.230769" vertical-offset="3611" max-vertical-offset="6902">
+          <caret line="225" column="59" selection-start-line="225" selection-start-column="59" selection-end-line="225" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneysystem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="13412" max-vertical-offset="17068">
+          <caret line="801" column="67" selection-start-line="801" selection-start-column="67" selection-end-line="801" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/money.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7617" max-vertical-offset="15419">
+          <caret line="712" column="64" selection-start-line="712" selection-start-column="64" selection-end-line="712" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/topuserbot.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.384615" vertical-offset="1312" max-vertical-offset="6290">
-          <caret line="90" column="113" selection-start-line="90" selection-start-column="113" selection-end-line="90" selection-end-column="113" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2920" max-vertical-offset="6290">
+          <caret line="203" column="54" selection-start-line="203" selection-start-column="50" selection-end-line="203" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/useradmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="6001" max-vertical-offset="7242">
-          <caret line="366" column="77" selection-start-line="366" selection-start-column="77" selection-end-line="366" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/logminigame/logphienbaucua.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.192307" vertical-offset="4989" max-vertical-offset="5661">
-          <caret line="306" column="28" selection-start-line="306" selection-start-column="28" selection-end-line="306" selection-end-column="28" />
-          <folding>
-            <marker date="1514358871006" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/cashoutbybank.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="2006" max-vertical-offset="5083">
-          <caret line="131" column="58" selection-start-line="131" selection-start-column="58" selection-end-line="131" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/cashoutbytopup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="2822" max-vertical-offset="6103">
-          <caret line="179" column="58" selection-start-line="179" selection-start-column="58" selection-end-line="179" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/chartmoneyagent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3298">
-          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/chartmoneytotal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3213">
-          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/doisoatfromvtc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3910">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601515" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/doisoatmegacard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.038462" vertical-offset="3803" max-vertical-offset="4471">
-          <caret line="236" column="2" selection-start-line="236" selection-start-column="2" selection-end-line="236" selection-end-column="2" />
-          <folding>
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601374" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/doisoatnganluong.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="4165">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601417" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/doisoatvincard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.038462" vertical-offset="2970" max-vertical-offset="3910">
-          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding>
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601445" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/money.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="7377" max-vertical-offset="15419">
-          <caret line="446" column="4" selection-start-line="446" selection-start-column="4" selection-end-line="446" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneysystem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="16030" max-vertical-offset="17068">
-          <caret line="955" column="70" selection-start-line="955" selection-start-column="70" selection-end-line="955" selection-end-column="70" />
-          <folding>
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601474" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneysystemnew.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="15299" max-vertical-offset="32096">
-          <caret line="912" column="166" selection-start-line="912" selection-start-column="166" selection-end-line="912" selection-end-column="166" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="13343" max-vertical-offset="32096">
+          <caret line="801" column="0" selection-start-line="801" selection-start-column="0" selection-end-line="801" selection-end-column="0" />
           <folding>
-            <marker date="1514359601532" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1514875846845" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneytotal.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/mail/sendmessagegc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3774">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="340" max-vertical-offset="3145">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargeby8x98.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/report/moneyuser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2413" max-vertical-offset="5593">
-          <caret line="154" column="71" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15106" max-vertical-offset="17544">
+          <caret line="908" column="75" selection-start-line="908" selection-start-column="75" selection-end-line="908" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargeby9029.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2158" max-vertical-offset="5168">
-          <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
+        <state vertical-scroll-proportion="-30.0" vertical-offset="9624" max-vertical-offset="10523">
+          <caret line="612" column="5" selection-start-line="599" selection-start-column="4" selection-end-line="612" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -808,199 +839,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebyiap.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="4879">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        <state vertical-scroll-proportion="1.4444444" vertical-offset="4940" max-vertical-offset="49827">
+          <caret line="286" column="27" selection-start-line="286" selection-start-column="14" selection-end-line="286" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebymegacard.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Transaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2991" max-vertical-offset="6409">
-          <caret line="188" column="46" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
+        <state vertical-scroll-proportion="-17.692308" vertical-offset="2464" max-vertical-offset="12138">
+          <caret line="172" column="84" selection-start-line="172" selection-start-column="84" selection-end-line="172" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebynganluong.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Loggamebai.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="6255" max-vertical-offset="7599">
-          <caret line="380" column="23" selection-start-line="380" selection-start-column="23" selection-end-line="380" selection-end-column="23" />
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="594" max-vertical-offset="4250">
+          <caret line="47" column="84" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebyvincard.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Marketing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="5253">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        <state vertical-scroll-proportion="-20.653847" vertical-offset="3169" max-vertical-offset="10931">
+          <caret line="218" column="57" selection-start-line="218" selection-start-column="47" selection-end-line="218" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargefromvtc.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/menu/add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="5100">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        <state vertical-scroll-proportion="-17.884615" vertical-offset="1796" max-vertical-offset="2448">
+          <caret line="133" column="16" selection-start-line="130" selection-start-column="4" selection-end-line="133" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/reportupdatecard.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Confignew.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.230769" vertical-offset="2540" max-vertical-offset="6256">
-          <caret line="162" column="58" selection-start-line="162" selection-start-column="58" selection-end-line="162" selection-end-column="58" />
+        <state vertical-scroll-proportion="-8.692307" vertical-offset="1389" max-vertical-offset="2295">
+          <caret line="95" column="80" selection-start-line="95" selection-start-column="80" selection-end-line="95" selection-end-column="80" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/agentbuy.php">
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="2974" max-vertical-offset="5304">
-          <caret line="187" column="9" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.15644172" vertical-offset="357" max-vertical-offset="9384">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/agentsale.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="3042" max-vertical-offset="5389">
-          <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/huydoanhso.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154" vertical-offset="4674" max-vertical-offset="7786">
-          <caret line="287" column="29" selection-start-line="287" selection-start-column="29" selection-end-line="287" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.192307" vertical-offset="2626" max-vertical-offset="10251">
-          <caret line="167" column="54" selection-start-line="167" selection-start-column="31" selection-end-line="167" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logtranfer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.846154" vertical-offset="960" max-vertical-offset="4318">
-          <caret line="70" column="138" selection-start-line="70" selection-start-column="138" selection-end-line="70" selection-end-column="138" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logtranferagenttodailytong.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.038462" vertical-offset="1261" max-vertical-offset="4029">
-          <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logtranferdailytong.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.038462" vertical-offset="1295" max-vertical-offset="4097">
-          <caret line="90" column="74" selection-start-line="90" selection-start-column="74" selection-end-line="90" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/ratioagent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.192307" vertical-offset="1827" max-vertical-offset="4505">
-          <caret line="120" column="64" selection-start-line="120" selection-start-column="64" selection-end-line="120" selection-end-column="64" />
-          <folding>
-            <marker date="1514359601450" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1514359601450" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/topdoanhso.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.692307" vertical-offset="794" max-vertical-offset="4182">
-          <caret line="60" column="87" selection-start-line="60" selection-start-column="87" selection-end-line="60" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.192307" vertical-offset="5295" max-vertical-offset="11594">
-          <caret line="324" column="26" selection-start-line="324" selection-start-column="26" selection-end-line="324" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/usergame/uservip.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.115385" vertical-offset="5618" max-vertical-offset="6902">
-          <caret line="349" column="65" selection-start-line="349" selection-start-column="65" selection-end-line="349" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="204">
-          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction/logchuyendoivinngoc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29264477" vertical-offset="0" max-vertical-offset="6290">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/report/rechargebycard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="4029" max-vertical-offset="9214">
-          <caret line="258" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="258" selection-end-column="6" />
-          <folding>
-            <marker date="1514359601556" expanded="false" signature="13277:13291" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="13363:13377" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="13446:13460" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="13529:13543" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="13612:13626" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="13695:13709" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="13988:14002" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="14070:14084" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="14156:14170" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="14238:14252" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="14319:14333" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="14406:14420" placeholder="..." />
-            <marker date="1514359601556" expanded="false" signature="14492:14506" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/event/uservippoint.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5586854" vertical-offset="1173" max-vertical-offset="5967">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#3;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#5;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#6;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#7;n#div#1;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#section#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

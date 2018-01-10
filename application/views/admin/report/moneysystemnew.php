@@ -843,7 +843,7 @@ $(document).ready(function () {
                     $('#logaction1').html(result2);
                 }
                 if (res.actionGame.PokeGo != null) {
-                    result2 += resultSearchTransction("PokeGo", res.actionGame.PokeGo.moneyWin, res.actionGame.PokeGo.moneyLost, res.actionGame.PokeGo.moneyOther, res.actionGame.PokeGo.fee, res.actionGame.PokeGo.revenuePlayGame, res.actionGame.PokeGo.revenue);
+                    result2 += resultSearchTransction("Candy Slot", res.actionGame.PokeGo.moneyWin, res.actionGame.PokeGo.moneyLost, res.actionGame.PokeGo.moneyOther, res.actionGame.PokeGo.fee, res.actionGame.PokeGo.revenuePlayGame, res.actionGame.PokeGo.revenue);
                     $('#logaction1').html(result2);
                     total1 += res.actionGame.PokeGo.moneyWin;
                     total2 += res.actionGame.PokeGo.moneyLost;
@@ -852,7 +852,7 @@ $(document).ready(function () {
                     total5 += res.actionGame.PokeGo.revenuePlayGame;
                     total6 += res.actionGame.PokeGo.revenue;
                 } else {
-                    result2 += resultSearchTransction("PokeGo", 0, 0, 0, 0, 0, 0);
+                    result2 += resultSearchTransction("Candy Slot", 0, 0, 0, 0, 0, 0);
                     $('#logaction1').html(result2);
                 }
                 if (res.actionGame.KhoBau != null) {
@@ -867,9 +867,9 @@ $(document).ready(function () {
                 } else {
                     result2 += resultSearchTransction("Kho Báu", 0, 0, 0, 0, 0, 0);
                     $('#logaction1').html(result2);
-                }
+            }
                 if (res.actionGame.SieuAnhHung != null) {
-                    result2 += resultSearchTransction("Siêu Anh Hùng", res.actionGame.SieuAnhHung.moneyWin, res.actionGame.SieuAnhHung.moneyLost, res.actionGame.SieuAnhHung.moneyOther, res.actionGame.SieuAnhHung.fee, res.actionGame.SieuAnhHung.revenuePlayGame, res.actionGame.SieuAnhHung.revenue);
+                    result2 += resultSearchTransction("Vua hải tặc", res.actionGame.SieuAnhHung.moneyWin, res.actionGame.SieuAnhHung.moneyLost, res.actionGame.SieuAnhHung.moneyOther, res.actionGame.SieuAnhHung.fee, res.actionGame.SieuAnhHung.revenuePlayGame, res.actionGame.SieuAnhHung.revenue);
                     $('#logaction1').html(result2);
                     total1 += res.actionGame.SieuAnhHung.moneyWin;
                     total2 += res.actionGame.SieuAnhHung.moneyLost;
@@ -878,7 +878,7 @@ $(document).ready(function () {
                     total5 += res.actionGame.SieuAnhHung.revenuePlayGame;
                     total6 += res.actionGame.SieuAnhHung.revenue;
                 } else {
-                    result2 += resultSearchTransction("Siêu Anh Hùng", 0, 0, 0, 0, 0, 0);
+                    result2 += resultSearchTransction("Vua hải tặc", 0, 0, 0, 0, 0, 0);
                     $('#logaction1').html(result2);
                 }
 //                if (res.actionGame.MyNhanNgu != null) {
@@ -1015,7 +1015,7 @@ $(document).ready(function () {
                 }
                 if (res.actionGame.XocDia != null) {
 
-                    result3 += resultSearchTransction("Xoc Đĩa", res.actionGame.XocDia.moneyWin, res.actionGame.XocDia.moneyLost, res.actionGame.XocDia.moneyOther, res.actionGame.XocDia.fee, res.actionGame.XocDia.revenuePlayGame, res.actionGame.XocDia.revenue);
+                    result3 += resultSearchTransction("Xóc Xóc", res.actionGame.XocDia.moneyWin, res.actionGame.XocDia.moneyLost, res.actionGame.XocDia.moneyOther, res.actionGame.XocDia.fee, res.actionGame.XocDia.revenuePlayGame, res.actionGame.XocDia.revenue);
                     $('#logaction2').html(result3);
                     total7 += res.actionGame.XocDia.moneyWin;
                     total8 += res.actionGame.XocDia.moneyLost;
@@ -1025,7 +1025,7 @@ $(document).ready(function () {
                     total12 += res.actionGame.XocDia.revenue;
                 }
                 else {
-                    result3 += resultSearchTransction("Xóc Đĩa", 0, 0, 0, 0, 0, 0);
+                    result3 += resultSearchTransction("Xóc Xóc", 0, 0, 0, 0, 0, 0);
                     $('#logaction2').html(result3);
                 }
 //                if(res.actionGame.XiTo != null) {
@@ -1564,7 +1564,7 @@ $(document).ready(function () {
                     $('#logactionbot1').html(result22);
                 }
                 if (res.actionGameBot.PokeGo != null) {
-                    result22 += resultSearchTransction("PokeGo", res.actionGameBot.PokeGo.moneyWin, res.actionGameBot.PokeGo.moneyLost, res.actionGameBot.PokeGo.moneyOther, res.actionGameBot.PokeGo.fee, res.actionGameBot.PokeGo.revenuePlayGame, res.actionGameBot.PokeGo.revenue);
+                    result22 += resultSearchTransction("Candy slot", res.actionGameBot.PokeGo.moneyWin, res.actionGameBot.PokeGo.moneyLost, res.actionGameBot.PokeGo.moneyOther, res.actionGameBot.PokeGo.fee, res.actionGameBot.PokeGo.revenuePlayGame, res.actionGameBot.PokeGo.revenue);
                     $('#logactionbot1').html(result22);
                     total31 += res.actionGameBot.PokeGo.moneyWin;
                     total32 += res.actionGameBot.PokeGo.moneyLost;
@@ -1573,7 +1573,7 @@ $(document).ready(function () {
                     total35 += res.actionGameBot.PokeGo.revenuePlayGame;
                     total36 += res.actionGameBot.PokeGo.revenue;
                 } else {
-                    result22 += resultSearchTransction("PokeGo", 0, 0, 0, 0, 0, 0);
+                    result22 += resultSearchTransction("Candy slot", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot1').html(result22);
                 }
                 if (res.actionGameBot.KhoBau != null) {
@@ -1590,7 +1590,7 @@ $(document).ready(function () {
                     $('#logactionbot1').html(result22);
                 }
                 if (res.actionGameBot.SieuAnhHung != null) {
-                    result22 += resultSearchTransction("Siêu Anh Hùng", res.actionGameBot.SieuAnhHung.moneyWin, res.actionGameBot.SieuAnhHung.moneyLost, res.actionGameBot.SieuAnhHung.moneyOther, res.actionGameBot.SieuAnhHung.fee, res.actionGameBot.SieuAnhHung.revenuePlayGame, res.actionGameBot.SieuAnhHung.revenue);
+                    result22 += resultSearchTransction("Vua hải tặc", res.actionGameBot.SieuAnhHung.moneyWin, res.actionGameBot.SieuAnhHung.moneyLost, res.actionGameBot.SieuAnhHung.moneyOther, res.actionGameBot.SieuAnhHung.fee, res.actionGameBot.SieuAnhHung.revenuePlayGame, res.actionGameBot.SieuAnhHung.revenue);
                     $('#logactionbot1').html(result22);
                     total31 += res.actionGameBot.SieuAnhHung.moneyWin;
                     total32 += res.actionGameBot.SieuAnhHung.moneyLost;
@@ -1599,7 +1599,7 @@ $(document).ready(function () {
                     total35 += res.actionGameBot.SieuAnhHung.revenuePlayGame;
                     total36 += res.actionGameBot.SieuAnhHung.revenue;
                 } else {
-                    result22 += resultSearchTransction("Siêu Anh Hùng", 0, 0, 0, 0, 0, 0);
+                    result22 += resultSearchTransction("Vua hải tặc", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot1').html(result22);
                 }
 //                if (res.actionGameBot.MyNhanNgu != null) {
@@ -1796,7 +1796,7 @@ $(document).ready(function () {
                 }
                 if (res.actionGameBot.XocDia != null) {
 
-                    result33 += resultSearchTransction("Xóc Đĩa", res.actionGameBot.XocDia.moneyWin, res.actionGameBot.XocDia.moneyLost, res.actionGameBot.XocDia.moneyOther, res.actionGameBot.XocDia.fee, res.actionGameBot.XocDia.revenuePlayGame, res.actionGameBot.XocDia.revenue);
+                    result33 += resultSearchTransction("Xóc Xóc", res.actionGameBot.XocDia.moneyWin, res.actionGameBot.XocDia.moneyLost, res.actionGameBot.XocDia.moneyOther, res.actionGameBot.XocDia.fee, res.actionGameBot.XocDia.revenuePlayGame, res.actionGameBot.XocDia.revenue);
                     $('#logactionbot2').html(result33);
                     total37 += res.actionGameBot.XocDia.moneyWin;
                     total38 += res.actionGameBot.XocDia.moneyLost;
@@ -1806,7 +1806,7 @@ $(document).ready(function () {
                     total42 += res.actionGameBot.XocDia.revenue;
                 }
                 else {
-                    result33 += resultSearchTransction("Xóc Đĩa", 0, 0, 0, 0, 0, 0);
+                    result33 += resultSearchTransction("Xóc Xóc", 0, 0, 0, 0, 0, 0);
                     $('#logactionbot2').html(result33);
                 }
 

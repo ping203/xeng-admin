@@ -56,7 +56,7 @@
                                         <div class="col-md-1 col-sm-2 col-xs-12">
                                         </div>
                                         <div class="col-md-1 col-sm-2 col-xs-12">
-                                            <input type="button" id="search_tran" value="Tìm kiếm"
+                                            <input type="submit" id="search_tran" value="Tìm kiếm"
                                                    class="btn btn-success">
                                         </div>
                                     </div>

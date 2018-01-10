@@ -15,6 +15,7 @@
             <label class="">Tổng: <span id="sumResult" style="color: #0000ff"></span></label>
         </ol>
     </section>
+    <input type="hiden" id="role_status" value="<?php echo  $admin_info->Status?>">
     <section class="content">
     <div class="row">
     <div class="col-xs-12">

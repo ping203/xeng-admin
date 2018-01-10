@@ -83,7 +83,7 @@
                                             <option value="BauCua">--------BauCua</option>
                                             <option value="CaoThap">--------CaoThap</option>
                                             <option value="">Slot</option>
-                                            <option value="PokeGo">--------PokeGo</option>
+                                            <option value="PokeGo">--------Candy Slot</option>
                                             <option value="KhoBau">--------KhoBau</option>
                                             <option value="SieuAnhHung">--------Siêu Anh Hùng</option>
                                             <option value="MyNhanNgu">--------MyNhanNgu</option>
@@ -99,7 +99,7 @@
                                             <option value="Lieng">--------Lieng</option>
                                             <option value="XiTo">--------XiTo</option>
                                             <option value="BaiCao">--------BaiCao</option>
-                                            <option value="XocDia">--------XocDia</option>
+                                            <option value="XocDia">--------Xóc Xóc</option>
                                             <option value="Poker">--------Poker</option>
                                             <option value="PokerTour">--------PokerTour</option>
                                             <option value="XiDzach">--------XiDzach</option>
@@ -201,7 +201,7 @@
             dataType: 'json',
             success: function (result) {
                 $("#spinner").hide();
-                $("#tengame").html($("#gamename").val());
+                $("#tengame").html($("#gamename").text());
 
                 if (result.topUserWin == "") {
                     $("#resultuserwin").html("Không tìm thấy kết quả");
